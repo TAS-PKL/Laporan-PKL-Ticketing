@@ -1,0 +1,30 @@
+@startuml Melihat List Ticket
+
+title "Melihat List Ticket"
+
+actor IPM as "__: Product Manager__"
+boundary TicketPage as "__: TicketPage__"
+control TicketController as "__: TicketController__"
+entity Ticket as "__: Ticket__"
+
+autonumber 1
+IPM -> TicketPage: membuka halaman list ticket
+activate TicketPage
+
+TicketPage -> TicketController: getUserTickets()
+activate TicketController
+
+TicketController -> Ticket: getUserTickets()
+activate Ticket
+
+Ticket --> TicketController : Tickets
+deactivate Ticket
+
+TicketController --> TicketPage : Tickets
+deactivate TicketController
+
+TicketPage --> IPM : Halaman list ticket
+deactivate TicketPage
+
+
+@enduml

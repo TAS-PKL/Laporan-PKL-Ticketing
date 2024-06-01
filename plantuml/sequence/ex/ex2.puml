@@ -1,0 +1,39 @@
+@startuml Memfilter List Ticket
+
+title "Memfilter List Ticket"
+
+actor EU as "__: External User__"
+boundary TicketPage as "__: TicketPage__"
+control TicketController as "__: TicketController__"
+entity Ticket as "__: Ticket__"
+
+autonumber 1
+EU -> TicketPage: membuka halaman list ticket
+activate TicketPage
+
+TicketPage --> EU : Halaman list ticket
+deactivate TicketPage
+
+
+EU -> TicketPage: mengisi kolom pencarian
+activate TicketPage
+
+TicketPage -> TicketController: getUserTickets(condition)
+activate TicketController
+
+TicketController -> Ticket: getUserTickets()
+activate Ticket
+
+Ticket --> TicketController : Tickets
+deactivate Ticket
+
+TicketController --> TicketController : filterTickets()
+
+TicketController --> TicketPage : FilteredTickets
+deactivate TicketController
+
+TicketPage --> EU : Halaman list ticket dengan filter
+deactivate TicketPage
+
+
+@enduml

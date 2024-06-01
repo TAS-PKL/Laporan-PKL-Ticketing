@@ -1,0 +1,130 @@
+@startuml class diagram
+skinparam linetype polyline
+' avoid problems with angled crows feet
+' skinparam linetype ortho
+' hide circle c
+hide circle
+' Hide the default visibility icons
+skinparam classAttributeIconSize 0
+
+' class ProductMemberRole <<entity>> {
+'   + id: INT
+'   - name: VARCHAR
+'   - code: VARCHAR
+' }
+
+' class EmployeeCategory <<entity>> {
+'   - id: INT
+'   - name: VARCHAR
+' }
+
+class Employee <<entity>> {
+'   - id: INT
+  - name: VARCHAR
+  - email: VARCHAR
+  - phone: VARCHAR
+'   - employee_category_id: INT
+}
+
+class ProductMember <<entity>> {
+'   - id: INT
+'   - product_id: INT
+'   - employee_id: INT
+  - role: INT
+}
+
+class Product <<entity>> {
+'   - id: INT
+  - name: VARCHAR
+  - description: TEXT
+'   - product_manager_id: INT
+'   - product_status_id: INT
+}
+
+' class TicketCategory <<entity>> {
+'   - id: INT
+'   - name: VARCHAR
+' }
+
+' class TicketPriority <<entity>> {
+'   - id: INT
+'   - name: VARCHAR
+' }
+
+' class TicketStatus <<entity>> {
+'   - id: INT
+'   - name: VARCHAR
+' }
+
+class Ticket <<entity>> {
+'   - id: INT
+'   - ticket_category_id: INT
+'   - ticket_priority_id: INT
+'   - ticket_status_id: INT
+'   - issue_by_user_id: INT
+  - title: VARCHAR
+  - description: TEXT
+  - attachment: TEXT
+}
+
+' class TicketMember <<entity>> {
+'   - id: INT
+'   - ticket_id: INT
+'   - employee_id: INT
+' }
+
+' class ProductStatus <<entity>>  {
+'   - id: INT
+'   - name: VARCHAR
+' }
+
+class TicketController <<control>> {
+    + create(title, description, attachment)
+    + reject(ticket, reason)
+    + revise(ticket, reason)
+    + verify(ticket)
+    + done(ticket)
+    + close(ticket)
+    + assign(ticket, employees)
+    + list(ticket)
+    + show(ticket)
+}
+
+class TicketListPage <<boundary>> {
+    + list(ticket)
+    + redirectCreate()
+    + redirectDetail(ticket)
+}
+TicketListPage -->  TicketCreatePage
+TicketListPage -->  TicketDetailsPage
+TicketListPage -->  TicketController
+
+class TicketCreatePage <<boundary>> {
+    + create(title, description, attachment)
+}
+TicketCreatePage -->  TicketController
+
+class TicketDetailsPage <<boundary>> {
+    + show(ticket)
+    + reject(ticket, reason)
+    + revise(ticket, reason)
+    + verify(ticket)
+    + done(ticket)
+    + close(ticket)
+    + assign(ticket, employees)
+}
+TicketDetailsPage -->  TicketController
+
+
+TicketController -->  Ticket
+' TicketCategory "1" *-- "n" Ticket : Categorizes
+' TicketPriority "1" *-- "n" Ticket : Categorizes
+' TicketStatus "1" *-- "n" Ticket : Categorizes
+' EmployeeCategory "1" *-- "n" Employee : Categorizes
+' ProductMemberRole "1" *-- "n" ProductMember : Specifies
+Product "1" *-- "n" ProductMember : Employs
+Employee "1" *-- "n" ProductMember : Works
+Employee "1" *-- "n" Product : Manages
+Product "1" *-- "n" Ticket : Issues
+Ticket "m" --- "n" ProductMember : Assigned to
+' ProductStatus  "1" *-- "n" Product : Categorizes

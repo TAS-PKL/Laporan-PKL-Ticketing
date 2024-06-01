@@ -1,0 +1,39 @@
+@startuml Berkomunikasi Dengan PM Melalui Whatsapp
+
+title "Berkomunikasi Dengan PM Melalui Whatsapp"
+
+actor IPM as "__: Product Manager__"
+boundary TicketPage as "__: TicketPage__"
+control TicketController as "__: TicketController__"
+entity Ticket as "__: Ticket__"
+
+autonumber 1
+'list
+IPM -> TicketPage: Memilih ticket
+activate TicketPage
+
+TicketPage --> IPM: Halaman detail ticket
+deactivate TicketPage
+
+'Chat
+IPM -> TicketPage: Menekan Tombol Chat on Whatsapp
+activate TicketPage
+
+TicketPage -> TicketController: getResponsiblePhoneNumber()
+activate TicketController
+
+TicketController -> Ticket: getTicket()
+activate Ticket
+
+Ticket --> TicketController : phone number
+deactivate Ticket
+
+TicketController --> TicketPage : Ticket
+TicketPage -> TicketPage : generateTemplateMessage()
+deactivate TicketController
+
+TicketPage --> IPM : Diarahkan ke Whatsapp Web
+deactivate TicketPage
+
+
+@enduml

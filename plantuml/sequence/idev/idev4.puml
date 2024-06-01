@@ -1,0 +1,48 @@
+@startuml Melaporkan Pengerjaan Ticket
+
+title "Melaporkan Pengerjaan Ticket"
+
+actor DEV as "__: Developer__"
+boundary TicketPage as "__: TicketPage__"
+control TicketController as "__: TicketController__"
+entity Ticket as "__: Ticket__"
+entity TicketMember as "__: TicketMember__"
+
+autonumber 1
+'list
+DEV -> TicketPage: Memilih ticket
+activate TicketPage
+
+TicketPage --> DEV: Halaman detail ticket
+deactivate TicketPage
+
+
+DEV -> TicketPage: Submit developer
+activate TicketPage
+
+TicketPage -> TicketController: doce()
+activate TicketController
+
+TicketController -> TicketController: validate()
+
+TicketController -> Ticket: getTicket()
+activate Ticket
+
+Ticket --> TicketController : Ticket
+deactivate Ticket
+
+TicketController -> TicketMember: setStatus()
+activate TicketMember
+
+TicketMember --> TicketController: Ticket member
+deactivate TicketMember
+
+
+TicketController --> TicketPage : Ticket
+deactivate TicketController
+
+TicketPage --> DEV : Halaman detail ticket yang sudah diupdate\nprogress developer ini menjadi done
+deactivate TicketPage
+
+
+@enduml

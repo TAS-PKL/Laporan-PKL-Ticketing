@@ -1,0 +1,67 @@
+@startuml Usecase
+
+skinparam packageStyle rectangle
+
+
+:Project Manager: as pm
+:Developer: as dev
+:PIC: as pic
+
+
+rectangle "Modul Ticketing" {
+    left to right direction
+    
+    usecase whatsapp as "Berkomunikasi menggunakan whatsapp"
+    usecase prog_done as "Mengubah status pengerjaan tiket menjadi done"
+
+    together {
+        (Melihat list tiket) as list
+        (membuat tiket) as create_
+    }
+    
+    together {
+        (Memfilter list tiket) as filter
+        (Melihat detail tiket) as detail
+    }
+
+    together {
+        (Mem-verifikasi tiket) as verify
+        (Menolak tiket) as reject
+        (Merevisi tiket) as revise
+        (Mengubah status tiket menjadi done) as tik_done
+    }
+
+    ' basic
+    dev --- list
+    pic --- list
+
+    list <.. detail : <<extends>>
+    detail <. filter : <<extends>>
+
+    reject -down- pm
+    verify - pm
+    tik_done - pm
+    revise - pm
+    'filter - pm
+    list --- pm
+
+
+    detail <. verify : <<include>>
+    detail <.. reject : <<include>>
+    detail <.. revise : <<include>>
+    detail <.. tik_done : <<include>>
+
+    dev --- prog_done
+    detail <.. prog_done : <<include>>
+
+
+    pic --- create_
+    detail <. create_: <<include>>
+
+
+    detail <. whatsapp : <<extends>>
+
+}
+
+
+@enduml

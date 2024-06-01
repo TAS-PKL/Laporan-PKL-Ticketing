@@ -1,0 +1,38 @@
+@startuml Menguba Status Ticket Menjadi Done
+
+title "Menguba Status Ticket Menjadi Done"
+
+actor IPM as "__: Product Manager__"
+boundary TicketPage as "__: TicketPage__"
+control TicketController as "__: TicketController__"
+entity Ticket as "__: Ticket__"
+
+autonumber 1
+'list
+IPM -> TicketPage: Memilih ticket
+activate TicketPage
+
+TicketPage --> IPM: Halaman detail ticket
+deactivate TicketPage
+
+'Menutup ticket
+IPM -> TicketPage: Menekan tombol done
+activate TicketPage
+
+TicketPage -> TicketController: done()
+activate TicketController
+
+TicketController -> Ticket: setTicketStatus()
+activate Ticket
+
+Ticket --> TicketController : Ticket
+deactivate Ticket
+
+TicketController --> TicketPage : Ticket
+deactivate TicketController
+
+TicketPage --> IPM : Halaman detail ticket yang sudah\ndiupdate menjadi done
+deactivate TicketPage
+
+
+@enduml

@@ -1,0 +1,38 @@
+@startuml Merevisi Ticket
+
+title "Merevisi Ticket"
+
+actor EU as "__: External User__"
+boundary TicketPage as "__: TicketPage__"
+control TicketController as "__: TicketController__"
+entity Ticket as "__: Ticket__"
+
+autonumber 1
+'list
+EU -> TicketPage: Memilih ticket
+activate TicketPage
+
+TicketPage --> EU: Halaman detail ticket
+deactivate TicketPage
+
+'Menutup ticket
+EU -> TicketPage: Revise dengan alasan
+activate TicketPage
+
+TicketPage -> TicketController: revise()
+activate TicketController
+
+TicketController -> Ticket: setTicketStatus()
+activate Ticket
+
+Ticket --> TicketController : Ticket
+deactivate Ticket
+
+TicketController --> TicketPage : Ticket
+deactivate TicketController
+
+TicketPage --> EU : Halaman detail ticket yang sudah\ndiupdate menjadi in progress
+deactivate TicketPage
+
+
+@enduml

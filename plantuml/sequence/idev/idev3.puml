@@ -1,0 +1,39 @@
+@startuml Melihat Detail Ticket
+
+title "Melihat Detail Ticket"
+
+actor DEV as "__: Developer__"
+boundary TicketPage as "__: TicketPage__"
+control TicketController as "__: TicketController__"
+entity Ticket as "__: Ticket__"
+
+autonumber 1
+'list
+' DEV -> TicketPage: Membuka halaman list ticket
+' activate TicketPage
+
+' TicketPage -> DEV: Halaman list ticket
+' deactivate TicketPage
+
+'detail
+DEV -> TicketPage: Memilih ticket
+activate TicketPage
+
+
+TicketPage -> TicketController: getTicket()
+activate TicketController
+
+TicketController -> Ticket: getTicket()
+activate Ticket
+
+Ticket --> TicketController : Ticket
+deactivate Ticket
+
+TicketController --> TicketPage : Ticket
+deactivate TicketController
+
+TicketPage --> DEV : Halaman detail ticket
+deactivate TicketPage
+
+
+@enduml

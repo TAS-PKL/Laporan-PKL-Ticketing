@@ -1,0 +1,67 @@
+@startuml Memverifikasi Ticket
+
+title "Memverifikasi Ticket"
+
+actor IPM as "__: Product Manager__"
+boundary TicketPage as "__: TicketPage__"
+control TicketController as "__: TicketController__"
+entity Ticket as "__: Ticket__"
+entity ProductMember as "__: ProductMember"
+entity TicketMember as "__: TicketMember__"
+
+autonumber 1
+'list
+IPM -> TicketPage: Memilih ticket
+activate TicketPage
+
+TicketPage --> IPM: Halaman detail ticket
+deactivate TicketPage
+
+'Pilih member
+IPM -> TicketPage: Verify
+activate TicketPage
+
+TicketPage -> TicketController: getProductDevelopers()
+activate TicketController
+
+TicketController -> ProductMember: getProductDevelopers()
+activate ProductMember
+
+ProductMember --> TicketController: product developers
+deactivate ProductMember
+
+TicketController --> TicketPage: product developers
+deactivate TicketController
+
+
+TicketPage --> IPM: Popup memilih developer
+deactivate TicketPage
+
+IPM -> TicketPage: Submit developer
+activate TicketPage
+
+TicketPage -> TicketController: verifyTicket()
+activate TicketController
+
+TicketController -> TicketController: validate()
+
+TicketController -> TicketMember: assignTicketMember()
+activate TicketMember
+
+TicketMember --> TicketController: ticket member
+deactivate TicketMember
+
+TicketController -> Ticket: setTicketStatus()
+activate Ticket
+
+Ticket --> TicketController : Ticket
+deactivate Ticket
+
+TicketController --> TicketPage : Ticket
+deactivate TicketController
+
+TicketPage --> IPM : Halaman detail ticket yang sudah\ndiupdate menjadi in progress
+deactivate TicketPage
+
+
+@enduml

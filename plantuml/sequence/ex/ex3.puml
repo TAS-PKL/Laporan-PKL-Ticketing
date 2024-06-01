@@ -1,0 +1,39 @@
+@startuml Membuat Ticket
+
+title "Membuat Ticket"
+
+actor EU as "__: External User__"
+boundary TicketPage as "__: TicketPage__"
+control TicketController as "__: TicketController__"
+entity Ticket as "__: Ticket__"
+
+autonumber 1
+EU -> TicketPage: Membuka halaman membuat ticket
+activate TicketPage
+
+TicketPage -> EU: Halaman membuat ticket
+deactivate TicketPage
+
+
+EU -> TicketPage: Mengisi field ticket
+activate TicketPage
+
+TicketPage -> TicketController: createTicket()
+activate TicketController
+
+TicketController -> TicketController: validate()
+
+TicketController -> Ticket: createTicket()
+activate Ticket
+
+Ticket --> TicketController : Ticket
+deactivate Ticket
+
+TicketController --> TicketPage : Ticket
+deactivate TicketController
+
+TicketPage --> EU : Halaman ticket berhasil dibuat
+deactivate TicketPage
+
+
+@enduml

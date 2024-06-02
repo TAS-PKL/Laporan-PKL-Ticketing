@@ -22,10 +22,22 @@
 % \usepackage{showframe} % debugging
 \usepackage{natbib} % bib cite stuff
 \usepackage{chngcntr} % change counter
+\usepackage{afterpage} % change counter
 % \usepackage{cite}
 % \bibliographystyle{abbrvnat}
 \setcitestyle{open={(},close={)}} %Citation-related commands
+\setlistdepth{9}
 
+\newlist{exenumerate}{enumerate}{9}
+\setlist[exenumerate,1]{label=\alph*}
+\setlist[exenumerate,2]{label=(\Roman*)}
+\setlist[exenumerate,3]{label=(\Alph*)}
+\setlist[exenumerate,4]{label=(\roman*)}
+\setlist[exenumerate,5]{label=(\alph*)}
+\setlist[exenumerate,6]{label=\Alph*}
+\setlist[exenumerate,7]{label=(\Roman*)}
+\setlist[exenumerate,8]{label=(\Alph*)}
+\setlist[exenumerate,9]{label=(\roman*)}
 
 \usepackage{titlesec}
 
@@ -167,6 +179,11 @@
 % ░██░░░░░░██░█    ░██       ░██    ░██    ░██  ░░██ ░██░░░░░░██░██░░██
 % ░██     ░██░███████  ████████     ░██    ░██   ░░██░██     ░██░██ ░░██
 % ░░      ░░ ░░░░░░░  ░░░░░░░░      ░░     ░░     ░░ ░░      ░░ ░░   ░░
+\noindent Manajemen ticketing adalah bagian integral dari platform yang mengelola aspek-aspek terkait dengan aplikasi yang telah diluncurkan oleh PT Teknologi Aplikasi Sejahtera. Sebagai perusahaan yang menghasilkan berbagai produk sistem informasi untuk kliennya, PT Teknologi Aplikasi Sejahtera memerlukan sistem informasi berbasis web untuk mengelola ticketing system yang membantu dalam menyelesaikan bug dan memberikan notifikasi untuk setiap tiket yang dilaporkan oleh pengguna. Pengembangan dan pengujian website ini mengikuti metode waterfall dan black box testing. Proses dimulai dengan analisis kebutuhan melalui wawancara dengan pihak perusahaan untuk menentukan kebutuhan pengguna dan persyaratan sistem. Website dikembangkan menggunakan bahasa PHP dengan framework Laravel dan diintegrasikan dengan REST API. SQL digunakan sebagai bahasa untuk basis data relasional, dengan PostgreSQL sebagai database management system-nya. Antarmuka website didesain intuitif untuk memudahkan pengguna dalam mengajukan tiket dan melacak status tiket yang dilaporkan. Selain itu, website ini juga dilengkapi dengan fitur notifikasi WhatsApp untuk tiket baru, memastikan pengguna mendapatkan informasi terkini mengenai status tiket mereka. Dengan adanya sistem ini, efisiensi proses manajemen tiket di PT Teknologi Aplikasi Sejahtera dapat ditingkatkan secara signifikan, memungkinkan penyelesaian masalah yang lebih cepat dan komunikasi yang lebih baik antara pengguna dan tim pengembang.
+
+\vspace*{1cm}
+\noindent \textbf{Kata kunci} : Customer service, Manajemen produk, Ticketing, Perangkat lunak, Bug, Notifikasi
+
 \newpage
 
 %      ██     ██████    ████████ ██████████ ███████       ██       ██████   ██████████
@@ -177,6 +194,11 @@
 % ░██░░░░░░██░█    ░██       ░██    ░██    ░██  ░░██ ░██░░░░░░██░░██    ██     ░██
 % ░██     ░██░███████  ████████     ░██    ░██   ░░██░██     ░██ ░░██████      ░██
 % ░░      ░░ ░░░░░░░  ░░░░░░░░      ░░     ░░     ░░ ░░      ░░   ░░░░░░       ░░
+
+\noindent Ticketing is a crucial aspect of the platform that manages applications launched by PT Teknologi Aplikasi Sejahtera. As a company that produces various information system products for its clients, PT Teknologi Aplikasi Sejahtera requires a web-based information system to efficiently handle the ticketing system, which aids in resolving bugs and provides notifications for every ticket reported by users. The development and testing of this ticketing website follows the waterfall and black box testing methods. The process begins with a needs analysis conducted through interviews with the company to determine user needs and system requirements. The website is developed using the PHP language with the Laravel framework and is integrated with REST API. SQL is employed for relational databases, with PostgreSQL as the database management system. The interface is designed to be intuitive, facilitating users in submitting tickets and tracking their status. Additionally, the website includes features like WhatsApp notifications for new tickets and comprehensive product documentation management. These enhancements significantly improve the efficiency of the ticket management process at PT Teknologi Aplikasi Sejahtera, ensuring quicker resolution of issues and better communication between users and the development team.
+
+\vspace*{1cm}
+\noindent \textbf{Keywords} : Customer service, Product management, Ticketing, Software, Bug, Notification
 
 
 \newpage
@@ -801,9 +823,8 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
                 
                 \noindent ID Activity	: AD-DEV-01
 
-                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk melihat list ticket oleh internal user dengan role developer yang ditunjukkan pada gambar 4.10.
+                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk melihat list ticket oleh internal user dengan role developer yang ditunjukkan pada gambar \ref{fig:AD-DEV-01}.
 
-                
                 \begin{figure}[H]
                     \centering \includegraphics[width=0.8\textwidth]{images/activity/idev/Melihat List Ticket.png}
                     \caption{Activity Diagram Melihat List Ticket (DEV)}
@@ -814,7 +835,7 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
 
                 \noindent ID Activity	: AD-DEV-02
 
-                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk memfilter list ticket oleh internal user dengan role developer yang ditunjukkan pada gambar 4.11.
+                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk memfilter list ticket oleh internal user dengan role developer yang ditunjukkan pada gambar \ref{fig:AD-DEV-02}.
 
 
                 \begin{figure}[H]
@@ -827,7 +848,7 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
 
                 \noindent ID Activity	: AD-DEV-03
 
-                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk melihat detail ticket oleh internal user dengan role developer yang ditunjukkan pada gambar 4.12.
+                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk melihat detail ticket oleh internal user dengan role developer yang ditunjukkan pada gambar \ref{fig:AD-DEV-03}.
 
 
                 \begin{figure}[H]
@@ -840,7 +861,7 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
 
                 \noindent ID Activity	: AD-DEV-04
 
-                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk melaporkan pengerjaan ticket oleh internal user dengan role developer yang ditunjukkan pada gambar 4.13.
+                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk melaporkan pengerjaan ticket oleh internal user dengan role developer yang ditunjukkan pada gambar \ref{fig:AD-DEV-04}.
 
 
                 \begin{figure}[H]
@@ -856,11 +877,11 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
                 
                 \noindent ID Activity	: AD-PIC-01
 
-                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk melihat list ticket oleh seorang external user yang ditunjukkan pada gambar 4.14
+                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk melihat list ticket oleh seorang external user yang ditunjukkan pada gambar \ref{fig:AD-PIC-01}.
 
                 
                 \begin{figure}[H]
-                    \centering \includegraphics[width=0.8\textwidth]{out/plantuml/sequence/ex/ex1/Melihat List Ticket.png}
+                    \centering \includegraphics[width=0.8\textwidth]{images/activity/ex/Melihat List Ticket.png}
                     \caption{Activity Diagram Melihat List Ticket (External User)}
                     \label{fig:AD-PIC-01}
                 \end{figure}
@@ -869,11 +890,11 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
 
                 \noindent ID Activity	: AD-PIC-02
 
-                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk memfilter ticket oleh seorang external user yang ditunjukkan pada gambar 4.15
+                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk memfilter ticket oleh seorang external user yang ditunjukkan pada gambar \ref{fig:AD-PIC-02}.
 
 
                 \begin{figure}[H]
-                    \centering \includegraphics[width=0.8\textwidth]{out/plantuml/sequence/ex/ex2/Memfilter List Ticket.png}
+                    \centering \includegraphics[width=0.8\textwidth]{images/activity/ex/Memfilter List Ticket.png}
                     \caption{Activity Diagram Memfilter List Ticket (External User)}
                     \label{fig:AD-PIC-02}
                 \end{figure}
@@ -882,11 +903,11 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
 
                 \noindent ID Activity	: AD-PIC-03
 
-                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk membuat ticket oleh seorang external user yang ditunjukkan pada gambar 4.16.
+                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk membuat ticket oleh seorang external user yang ditunjukkan pada gambar \ref{fig:AD-PIC-03}.
 
 
                 \begin{figure}[H]
-                    \centering \includegraphics[width=0.8\textwidth]{out/plantuml/sequence/ex/ex3/Membuat Ticket.png}
+                    \centering \includegraphics[width=0.8\textwidth]{images/activity/ex/Membuat Ticket.png}
                     \caption{Activity Diagram Membuat Ticket (External User)}
                     \label{fig:AD-PIC-03}
                 \end{figure}
@@ -895,11 +916,11 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
 
                 \noindent ID Activity	: AD-PIC-04
 
-                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk melihat detail ticket oleh seorang external user yang ditunjukkan pada gambar 4.17.
+                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk melihat detail ticket oleh seorang external user yang ditunjukkan pada gambar \ref{fig:AD-PIC-04}.
 
 
                 \begin{figure}[H]
-                    \centering \includegraphics[width=0.8\textwidth]{out/plantuml/sequence/ex/ex4/Melihat Detail Ticket.png}
+                    \centering \includegraphics[width=0.8\textwidth]{images/activity/ex/Melihat Detail Ticket.png}
                     \caption{Activity Diagram Melihat Detail Ticket (External User)}
                     \label{fig:AD-PIC-04}
                 \end{figure}
@@ -908,11 +929,11 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
 
                 \noindent ID Activity	: AD-PIC-05
 
-                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk menutup ticket yang telah dibuat oleh seorang external user dan dikerjakan internal user yang ditunjukkan pada gambar 4.18.
+                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk menutup ticket yang telah dibuat oleh seorang external user dan dikerjakan internal user yang ditunjukkan pada gambar \ref{fig:AD-PIC-05}.
 
 
                 \begin{figure}[H]
-                    \centering \includegraphics[width=0.8\textwidth]{out/plantuml/sequence/ex/ex5/Menutup Ticket.png}
+                    \centering \includegraphics[width=0.8\textwidth]{images/activity/ex/Menutup Ticket.png}
                     \caption{Activity Diagram Menutup Ticket (External User)}
                     \label{fig:AD-PIC-05}
                 \end{figure}
@@ -921,11 +942,11 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
 
                 \noindent ID Activity	: AD-PIC-06
 
-                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk merevisi ticket yang telah dibuat oleh seorang external user dan dikerjakan internal user yang ditunjukkan pada gambar 4.19.
+                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk merevisi ticket yang telah dibuat oleh seorang external user dan dikerjakan internal user yang ditunjukkan pada gambar \ref{fig:AD-PIC-06}.
 
 
                 \begin{figure}[H]
-                    \centering \includegraphics[width=0.8\textwidth]{out/plantuml/sequence/ex/ex6/Merevisi Ticket.png}
+                    \centering \includegraphics[width=0.8\textwidth]{images/activity/ex/Merevisi Ticket.png}
                     \caption{Activity Diagram Merevisi Ticket (External User)}
                     \label{fig:AD-PIC-06}
                 \end{figure}
@@ -934,11 +955,11 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
 
                 \noindent ID Activity	: AD-PIC-07
                 
-                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk berkomunikasi dengan Product Manager oleh seorang external user yang ditunjukkan pada gambar 4.20.
+                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk berkomunikasi dengan Product Manager oleh seorang external user yang ditunjukkan pada gambar \ref{fig:AD-PIC-07}.
 
 
                 \begin{figure}[H]
-                    \centering \includegraphics[width=0.8\textwidth]{out/plantuml/sequence/ex/ex7/Berkomunikasi Dengan PM Melalui Whatsapp.png}
+                    \centering \includegraphics[width=0.8\textwidth]{images/activity/ex/berkomunikasi dengan PM melalui Whatsapp.png}
                     \caption{Activity Diagram Berkomunikasi Dengan PM Melalui Whatsapp (External User)}
                     \label{fig:AD-PIC-07}
                 \end{figure}
@@ -956,64 +977,208 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
             
             \begin{enumerate}[label=\arabic*.]
                 \item Sequence Diagram Melihat List Ticket
+                \noindent ID Sequence	: SQ-PM-01
+                \noindent Deskripsi	: Sequence Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk melihat list ticket oleh seorang internal user dengan role product manager. Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar 4.21:
                 
-                \lipsum
+                \begin{exenumerate}
+                    \item Class Boundary : TicketPage
+                    \item Class Control : TicketController
+                    \item Class Entity : User, Employee, Ticket, Ticket Member, Product Member, Ticket Category, Ticket Status, Ticket Priority
+                \end{exenumerate}
+            
+                
+                \item Sequence Diagram Memfilter List Ticket
+                
+                \noindent ID Sequence	: SQ-PM-02
+                
+                \noindent Deskripsi	: Sequence Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk memfilter ticket oleh seorang internal user dengan role product manager. Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar 4.22:
+                
+                \begin{exenumerate}
+                    \item Class Boundary : TicketPage
+                    \item Class Control : TicketController
+                    \item Class Entity :  User, Employee, Ticket, Ticket Member, Product Member, Ticket Category, Ticket Status, Ticket Priority
+                \end{exenumerate}
+                
+                \item Sequence Diagram Melihat Detail Ticket
+                
+                \noindent ID Sequence	: SQ-PM-03
+                
+                \noindent Deskripsi	: Sequence Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk melihat detail ticket oleh seorang internal user dengan role product manager. Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar 4.23:
+                
+                \begin{exenumerate}
+                    \item Class Boundary : TicketPage
+                    \item Class Control : TicketController
+                    \item Class Entity : Ticket
+                \end{exenumerate}
+                
+                \item Sequence Diagram Memverifikasi List Ticket
+                
+                \noindent ID Sequence	: SQ-PM-04
+                
+                \noindent Deskripsi	: Sequence Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk memverifikasi ticket yang dibuat external user oleh seorang internal user dengan role product manager. Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar 4.24:
+                
+                \begin{exenumerate}
+                    \item Class Boundary : TicketPage
+                    \item Class Control : TicketController
+                    \item Class Entity : Ticket
+                \end{exenumerate}
+                
+                \item Sequence Diagram Menolak Ticket
+                
+                \noindent ID Sequence	: SQ-PM-05
+                
+                \noindent Deskripsi	: Sequence Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk menolak ticket yang dibuat external user oleh seorang internal user dengan role product manager. Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar 4.25:
+                
+                \begin{exenumerate}
+                    \item Class Boundary : TicketPage
+                    \item Class Control : TicketController
+                    \item Class Entity : Ticket, ProductMember, TicketMember  
+                \end{exenumerate}
+
+                \item Sequence Diagram Merevisi Ticket
+                
+                \noindent ID Sequence	: SQ-PM-06
+                
+                \noindent Deskripsi	: Sequence Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk merevisi ticket yang telah dikerjakan developer oleh seorang internal user dengan role product manager. Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar 4.26:
+                
+                \begin{exenumerate}
+                    \item Class Boundary : TicketPage
+                    \item Class Control : TicketController
+                    \item Class Entity : Ticket
+                \end{exenumerate}
+            
+                
+                \item Sequence Diagram Berkomunikasi dengan external user
+                
+                \noindent ID Sequence	: SQ-PM-07
+                
+                \noindent Deskripsi	: Sequence Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk berkomunikasi dengan external user oleh seorang internal user dengan role product manager. Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar 4.27:
+                
+                \begin{exenumerate}
+                    \item Class Boundary : TicketPage
+                    \item Class Control : TicketController
+                    \item Class Entity : Ticket
+                \end{exenumerate}
+
+
+                \item Sequence Diagram Mengubah Status Ticket Menjadi Done
+                
+                \noindent ID Sequence	: SQ-PM-08
+                
+                \noindent Deskripsi	: Sequence Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk mengubah status ticket menjadi done oleh internal user dengan role product manager. Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar 4.28:
+                
+                \begin{exenumerate}
+                    \item Class Boundary : TicketPage
+                    \item Class Control : TicketController
+                    \item Class Entity : Ticket
+                \end{exenumerate}
+            
                 
                 \begin{sidewaysfigure}
                     \centering \includegraphics[height=0.575\textheight]{out/plantuml/sequence/ipm/ipm1/Melihat List Ticket.png}
-                    \caption{Sequence Diagram Melihat List Ticket (External User)}
+                    \caption{Sequence Diagram Melihat List Ticket (PM)}
                     \label{fig:SQ-PM-01}
                 \end{sidewaysfigure}
 
                 \begin{sidewaysfigure}
                     \centering \includegraphics[height=0.575\textheight]{out/plantuml/sequence/ipm/ipm2/Memfilter List Ticket.png}
-                    \caption{Sequence Diagram Memfilter List Ticket (External User)}
+                    \caption{Sequence Diagram Memfilter List Ticket (PM)}
                     \label{fig:SQ-PM-02}
                 \end{sidewaysfigure}
 
                 \begin{sidewaysfigure}
                     \centering \includegraphics[height=0.575\textheight]{out/plantuml/sequence/ipm/ipm3/Melihat Detail Ticket.png}
-                    \caption{Sequence Diagram Membuat Ticket (External User)}
+                    \caption{Sequence Diagram Melihat Detail Ticket (PM)}
                     \label{fig:SQ-PM-03}
                 \end{sidewaysfigure}
 
                 \begin{sidewaysfigure}
                     \centering \includegraphics[height=0.575\textheight]{out/plantuml/sequence/ipm/ipm4/Memverifikasi Ticket.png}
-                    \caption{Sequence Diagram Melihat Detail Ticket (External User)}
+                    \caption{Sequence Diagram Memverifikasi Ticket (PM)}
                     \label{fig:SQ-PM-04}
                 \end{sidewaysfigure}
 
                 \begin{sidewaysfigure}
                     \centering \includegraphics[height=0.575\textheight]{out/plantuml/sequence/ipm/ipm5/Menolak Ticket.png}
-                    \caption{Sequence Diagram Menutup Ticket (External User)}
+                    \caption{Sequence Diagram Menolak Ticket (PM)}
                     \label{fig:SQ-PM-05}
                 \end{sidewaysfigure}
 
                 \begin{sidewaysfigure}
                     \centering \includegraphics[height=0.575\textheight]{out/plantuml/sequence/ipm/ipm6/Merevisi Ticket.png}
-                    \caption{Sequence Diagram Merevisi Ticket (External User)}
+                    \caption{Sequence Diagram Merevisi Ticket (PM)}
                     \label{fig:SQ-PM-06}
                 \end{sidewaysfigure}
 
                 \begin{sidewaysfigure}
                     \centering \includegraphics[height=0.575\textheight]{out/plantuml/sequence/ipm/ipm7/Berkomunikasi Dengan PM Melalui Whatsapp.png}
-                    \caption{Sequence Diagram Berkomunikasi Dengan PM Melalui Whatsapp (External User)}
+                    \caption{Sequence Diagram Berkomunikasi Dengan PM Melalui Whatsapp (PM)}
                     \label{fig:SQ-PM-07}
                 \end{sidewaysfigure}
 
                 \begin{sidewaysfigure}
                     \centering \includegraphics[height=0.575\textheight]{out/plantuml/sequence/ipm/ipm8/Menguba Status Ticket Menjadi Done.png}
-                    \caption{Sequence Diagram Berkomunikasi Dengan PM Melalui Whatsapp (External User)}
+                    \caption{Sequence Diagram Mengubah Status Ticket Menjadi Done (PM)}
                     \label{fig:SQ-PM-08}
                 \end{sidewaysfigure}
             \end{enumerate}
             
             
 
+            \newpage
             \listsection{Sequence Diagram Internal User (Developer)}
             
-            \begin{enumerate}[label=\arabic*., wide]
+            \begin{enumerate}[label=\arabic*.]
                 \item Sequence Diagram Melihat List Ticket
+                
+                \noindent ID Sequence	: SQ-DEV-01
+                
+                \noindent Deskripsi	: Sequence Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk melihat list ticket oleh internal user dengan role developer. Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar 4.29:
+                
+                \begin{exenumerate}
+                    \item Class Boundary : TicketPage
+                    \item Class Control : TicketController
+                    \item Class Entity : Ticket
+                \end{exenumerate}
+                
+                \item Sequence Diagram Memfilter Ticket
+                
+                \noindent ID Sequence	: SQ-DEV-02
+                
+                \noindent Deskripsi	: Sequence Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk memfilter list ticket oleh internal user dengan role developer. Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar 4.30:
+                
+                \begin{exenumerate}
+                    \item Class Boundary : TicketPage
+                    \item Class Control : TicketController
+                    \item Class Entity : Ticket
+                \end{exenumerate}
+                
+                \item Sequence Diagram Melihat Detail Ticket
+                
+                \noindent ID Sequence	: SQ-DEV-03
+                
+                \noindent Deskripsi	: Sequence Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk melihat detail ticket oleh internal user dengan role developer. Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar 4.31:
+                
+                \begin{exenumerate}
+                    \item Class Boundary : TicketPage
+                    \item Class Control : TicketController
+                    \item Class Entity : Ticket
+                \end{exenumerate}
+                
+                \item Sequence Diagram Melaporkan Pengerjaan Ticket
+                
+                \noindent ID Sequence	: SQ-DEV-04
+                
+                \noindent Deskripsi	: Sequence Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk melaporkan pengerjaan ticket oleh internal user dengan role developer. Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar 4.32:
+                
+                \begin{exenumerate}
+                    \item Class Boundary : TicketPage
+                    \item Class Control : TicketController
+                    \item Class Entity : Ticket
+                \end{exenumerate}
+
+
+                
                 
                 \begin{sidewaysfigure}
                     \centering \includegraphics[height=0.575\textheight]{out/plantuml/sequence/idev/idev1/Melihat List Ticket.png}
@@ -1041,8 +1206,95 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
             \end{enumerate}
 
             \listsection{Sequence Diagram External User}
-            \begin{enumerate}[label=\arabic*., wide]
+            \begin{enumerate}[label=\arabic*.]
                 \item Sequence Diagram Melihat List Ticket
+                
+                \noindent ID Sequence	: SQ-PIC-01
+                
+                \noindent Deskripsi	: Sequence Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk melihat list ticket oleh seorang external user. Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar 4.33:
+                
+                \begin{exenumerate}
+                    \item Class Boundary : TicketPage
+                    \item Class Control : TicketController
+                    \item Class Entity : Ticket
+                \end{exenumerate}
+
+                \item Sequence Diagram Memfilter List Ticket
+                
+                \noindent ID Sequence	: SQ-PIC-02
+                
+                \noindent Deskripsi	: Sequence Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk memfilter ticket oleh seorang external user. Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar 4.34:
+                
+                \begin{exenumerate}
+                    \item Class Boundary : TicketPage
+                    \item Class Control : TicketController
+                    \item Class Entity : Ticket
+                \end{exenumerate}
+
+                \item Sequence Diagram Membuat Ticket
+                
+                \noindent ID Sequence	: SQ-PIC-03
+                
+                \noindent Deskripsi	: Sequence Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk membuat ticket oleh seorang external user. Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar 4.35:
+                
+                \begin{exenumerate}
+                    \item Class Boundary : TicketPage
+                    \item Class Control : TicketController
+                    \item Class Entity : Ticket
+                \end{exenumerate}
+                
+                \item Sequence Diagram Melihat Detail Ticket
+                
+                \noindent ID Sequence	: SQ-PIC-04
+                
+                \noindent Deskripsi	: Sequence Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk melihat detail ticket oleh seorang external user. Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar 4.36:
+                
+                \begin{exenumerate}
+                    \item Class Boundary : TicketPage
+                    \item Class Control : TicketController
+                    \item Class Entity : Ticket
+                \end{exenumerate}
+                
+                \item Sequence Diagram Menutup Ticket
+                
+                \noindent ID Sequence	: SQ-PIC-05
+                
+                \noindent Deskripsi	: Sequence Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk menutup ticket oleh seorang external user. Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar 4.37:
+                
+                \begin{exenumerate}
+                    \item Class Boundary : TicketPage
+                    \item Class Control : TicketController
+                    \item Class Entity : Ticket
+                \end{exenumerate}
+                
+                \item Sequence Diagram Merevisi Ticket
+                
+                \noindent ID Sequence	: SQ-PIC-06
+                
+                \noindent Deskripsi	: Sequence Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk merevisi ticket oleh seorang external user. Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar 4.38:
+                
+                \begin{exenumerate}
+                    \item Class Boundary : TicketPage
+                    \item Class Control : TicketController
+                    \item Class Entity : Ticket
+                \end{exenumerate}
+                
+                \item Sequence Diagram Berkomunikasi dengan Product Manager
+                
+                \noindent ID Sequence	: SQ-PIC-07
+                
+                \noindent Deskripsi	: Sequence Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk berkomunikasi dengan Product Manager oleh seorang external user. Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar 4.39:
+                
+                \begin{exenumerate}
+                    \item Class Boundary : TicketPage
+                    \item Class Control : TicketController
+                    \item Class Entity : Ticket
+                \end{exenumerate}
+
+
+
+
+                
                 
                 \begin{sidewaysfigure}
                     \centering \includegraphics[height=0.575\textheight]{out/plantuml/sequence/ex/ex1/Melihat List Ticket.png}
@@ -1146,7 +1398,7 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
     \listsection{Implementasi Sistem}
 
     \begin{enumerate}[label=\textbf{5.1\arabic*}]
-        \listsection{Perangkat Pengembangan}
+        \listsection{Implementasi Sistem}
         
         Spesifikasi perangkat keras dan lunak yang digunakan dalam mengembangkan Sistem Informasi Manajemen Produk dan Ticketing bagian ticketing di PT. Teknologi Aplikasi Sejahtera .
 
@@ -1174,6 +1426,10 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
             \caption{Informasi Hardware pengembangan}
             \label{table:hardware-pengembangan}
         \end{table}
+
+        \begin{enumerate}
+            \listsection{Implementasi Antarmuka Ticketing}
+        \end{enumerate}
 
     \end{enumerate}
 

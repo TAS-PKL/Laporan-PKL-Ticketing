@@ -1,15 +1,39 @@
 @startuml Membuat Ticket
 
-title "Membuat Ticket"
+hide footbox
+
+' title "Membuat Ticket"
 
 actor EU as "__: External User__"
 boundary TicketPage as "__: TicketPage__"
 control TicketController as "__: TicketController__"
 entity Ticket as "__: Ticket__"
+entity TicketCategories as "__: Ticket Category__"
+entity TicketPriorities as "__: Ticket Priority__"
+
 
 autonumber 1
 EU -> TicketPage: Membuka halaman membuat ticket
 activate TicketPage
+
+TicketPage -> TicketController: getTicketRequiredDropdown()
+activate TicketController
+
+TicketController -> TicketCategories: getTicketCategories()
+activate TicketCategories
+
+TicketCategories --> TicketController : Ticket categories
+deactivate TicketCategories
+
+
+TicketController -> TicketPriorities: getTicketPriorities()
+activate TicketPriorities
+
+TicketPriorities --> TicketController : TicketPriorities
+deactivate TicketPriorities
+
+TicketController -> TicketPage: dropdownData
+deactivate TicketController
 
 TicketPage -> EU: Halaman membuat ticket
 deactivate TicketPage
@@ -22,6 +46,7 @@ TicketPage -> TicketController: createTicket()
 activate TicketController
 
 TicketController -> TicketController: validate()
+TicketController -> TicketController: setStatusToPending()
 
 TicketController -> Ticket: createTicket()
 activate Ticket

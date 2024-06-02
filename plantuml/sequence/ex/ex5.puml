@@ -1,6 +1,8 @@
 @startuml Menutup Ticket
 
-title "Menutup Ticket"
+hide footbox
+
+' title "Menutup Ticket"
 
 actor EU as "__: External User__"
 boundary TicketPage as "__: TicketPage__"

@@ -1,11 +1,23 @@
 @startuml Melihat List Ticket
 
-title "Melihat List Ticket"
+hide footbox
+
+' title "Melihat List Ticket"
 
 actor DEV as "__: Developer__"
 boundary TicketPage as "__: TicketPage__"
 control TicketController as "__: TicketController__"
+entity User as "__: User__"
+entity Employee as "__: Employee__"
 entity Ticket as "__: Ticket__"
+entity TicketMember as "__: TicketMember__"
+entity ProductMember as "__: Product Member__"
+' entity ProductMemberRoles as "__: Product Member Roles__"
+entity TicketCategories as "__: Ticket Category__"
+entity TicketStatuses as "__: Ticket Status__"
+entity TicketPriorities as "__: Ticket Priority__"
+' entityProductas "__: Products__"
+' entity Companies as "__: Companies__"
 
 autonumber 1
 DEV -> TicketPage: membuka halaman list ticket
@@ -14,17 +26,62 @@ activate TicketPage
 TicketPage -> TicketController: getUserTickets()
 activate TicketController
 
-TicketController -> Ticket: getUserTickets()
+TicketController -> User: getCurrentUser()
+activate User
+
+User -> TicketController: current user
+deactivate User
+
+TicketController -> Employee: getCurrentEmployee()
+activate Employee
+
+Employee -> TicketController: current employee
+deactivate Employee
+
+TicketController -> ProductMember: getCurrentEmployeeAssignedProductMember()
+activate ProductMember
+
+ProductMember -> TicketController: current employee product member datas
+deactivate ProductMember
+
+TicketController -> TicketMember: getCurrentProductMemberTicketMember()
+activate TicketMember
+
+TicketMember -> TicketController: current product member's ticket member
+deactivate TicketMember
+
+TicketController -> Ticket: getTickets()
 activate Ticket
 
 Ticket --> TicketController : Tickets
 deactivate Ticket
+
+TicketController -> TicketCategories: getTicketCategories()
+activate TicketCategories
+
+TicketCategories --> TicketController : Ticket categories
+deactivate TicketCategories
+
+TicketController -> TicketStatuses: getTicketStatuses()
+activate TicketStatuses
+
+TicketStatuses --> TicketController : TicketStatuses
+deactivate TicketStatuses
+
+TicketController -> TicketPriorities: getTicketPriorities()
+activate TicketPriorities
+
+TicketPriorities --> TicketController : TicketPriorities
+deactivate TicketPriorities
+
+' TicketController -> TicketController : resolveRelation()
 
 TicketController --> TicketPage : Tickets
 deactivate TicketController
 
 TicketPage --> DEV : Halaman list ticket
 deactivate TicketPage
+
 
 
 @enduml

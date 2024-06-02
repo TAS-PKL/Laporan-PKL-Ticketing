@@ -1,11 +1,22 @@
 @startuml Memfilter List Ticket
 
-title "Memfilter List Ticket"
+hide footbox
+
 
 actor EU as "__: External User__"
 boundary TicketPage as "__: TicketPage__"
 control TicketController as "__: TicketController__"
+entity Users as "__: User__"
+entity Employees as "__: Employee__"
 entity Ticket as "__: Ticket__"
+entity TicketMember as "__: TicketMember__"
+entity ProductMembers as "__: Product Member__"
+' entity ProductMemberRoles as "__: Product Member Roles__"
+entity TicketCategories as "__: Ticket Category__"
+entity TicketStatuses as "__: Ticket Status__"
+entity TicketPriorities as "__: Ticket Priority__"
+' entityProductas "__: Products__"
+' entity Companies as "__: Companies__"
 
 autonumber 1
 EU -> TicketPage: membuka halaman list ticket
@@ -14,25 +25,66 @@ activate TicketPage
 TicketPage --> EU : Halaman list ticket
 deactivate TicketPage
 
-
-EU -> TicketPage: mengisi kolom pencarian
+EU -> TicketPage: Memilih filter ticket
 activate TicketPage
 
-TicketPage -> TicketController: getUserTickets(condition)
+TicketPage -> TicketController: getfilteredUserTickets()
 activate TicketController
 
-TicketController -> Ticket: getUserTickets()
+TicketController -> Users: getCurrentUser()
+activate Users
+
+Users -> TicketController: current user
+deactivate Users
+
+TicketController -> Employees: getCurrentEmployee()
+activate Employees
+
+Employees -> TicketController: current employee
+deactivate Employees
+
+TicketController -> ProductMembers: getCurrentEmployeeAssignedProductMembers()
+activate ProductMembers
+
+ProductMembers -> TicketController: current employee product member datas
+deactivate ProductMembers
+
+TicketController -> TicketMember: getCurrentProductMemberTicketMember()
+activate TicketMember
+
+TicketMember -> TicketController: current product member's ticket member
+deactivate TicketMember
+
+TicketController -> Ticket: getTickets()
 activate Ticket
 
 Ticket --> TicketController : Tickets
 deactivate Ticket
 
-TicketController --> TicketController : filterTickets()
+TicketController -> TicketCategories: getTicketCategories()
+activate TicketCategories
 
-TicketController --> TicketPage : FilteredTickets
+TicketCategories --> TicketController : Ticket categories
+deactivate TicketCategories
+
+TicketController -> TicketStatuses: getTicketStatuses()
+activate TicketStatuses
+
+TicketStatuses --> TicketController : TicketStatuses
+deactivate TicketStatuses
+
+TicketController -> TicketPriorities: getTicketPriorities()
+activate TicketPriorities
+
+TicketPriorities --> TicketController : TicketPriorities
+deactivate TicketPriorities
+
+' TicketController -> TicketController : resolveRelation()
+
+TicketController --> TicketPage : Tickets
 deactivate TicketController
 
-TicketPage --> EU : Halaman list ticket dengan filter
+TicketPage --> EU : Halaman list yang sudah di filter
 deactivate TicketPage
 
 

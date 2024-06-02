@@ -9,9 +9,9 @@
 \usepackage{enumitem}
 \usepackage{lipsum} % sampling
 \usepackage{setspace}
-\usepackage{mdframed}
+% \usepackage{mdframed}
 \usepackage{indentfirst} 
-\usepackage{hyperref} % actually used for email and links, but kinda broken. (not used)
+\usepackage[hidelinks]{hyperref} % actually used for email and links, but kinda broken. (not used)
 \usepackage{tabularx} % just because, but now more often use longtable
 \usepackage{longtable} % cool table with it speciality to be able cut along 2 page
 \usepackage{multirow} % merge row
@@ -19,9 +19,9 @@
 \usepackage{rotating} % rotating figure
 \usepackage{caption} % need to explain?
 \usepackage[none]{hyphenat} % no linebreak with -
-\usepackage{showframe} % debugging
+% \usepackage{showframe} % debugging
 \usepackage{natbib} % bib cite stuff
-
+\usepackage{chngcntr} % change counter
 % \usepackage{cite}
 % \bibliographystyle{abbrvnat}
 \setcitestyle{open={(},close={)}} %Citation-related commands
@@ -212,6 +212,15 @@ Penulis menyadari bahwa masih banyak kekurangan dalam laporan PKL ini. Maka dari
 
 \newpage
 
+% ██████████     ███████       ██████
+% ░░░░░██░░░     ██░░░░░██     ██░░░░██
+%     ░██       ██     ░░██   ██    ░░
+%     ░██      ░██      ░██  ░██
+%     ░██      ░██      ░██  ░██
+%     ░██      ░░██     ██   ░░██    ██
+%     ░██       ░░███████     ░░██████
+%     ░░         ░░░░░░░       ░░░░░░
+
 \tableofcontents
 
 \newpage
@@ -224,6 +233,14 @@ Penulis menyadari bahwa masih banyak kekurangan dalam laporan PKL ini. Maka dari
 
 \newpage
 
+%  ███████  ████████ ████     ██ ███████       ██     ██      ██ ██     ██ ██       ██     ██     ██     ████     ██
+% ░██░░░░██░██░░░░░ ░██░██   ░██░██░░░░██     ████   ░██     ░██░██    ░██░██      ░██    ░██    ████   ░██░██   ░██
+% ░██   ░██░██      ░██░░██  ░██░██    ░██   ██░░██  ░██     ░██░██    ░██░██      ░██    ░██   ██░░██  ░██░░██  ░██
+% ░███████ ░███████ ░██ ░░██ ░██░██    ░██  ██  ░░██ ░██████████░██    ░██░██      ░██    ░██  ██  ░░██ ░██ ░░██ ░██
+% ░██░░░░  ░██░░░░  ░██  ░░██░██░██    ░██ ██████████░██░░░░░░██░██    ░██░██      ░██    ░██ ██████████░██  ░░██░██
+% ░██      ░██      ░██   ░░████░██    ██ ░██░░░░░░██░██     ░██░██    ░██░██      ░██    ░██░██░░░░░░██░██   ░░████
+% ░██      ░████████░██    ░░███░███████  ░██     ░██░██     ░██░░███████ ░████████░░███████ ░██     ░██░██    ░░███
+% ░░       ░░░░░░░░ ░░      ░░░ ░░░░░░░   ░░      ░░ ░░      ░░  ░░░░░░░░ ░░░░░░░  ░░░░░░░  ░░      ░░ ░░      ░░░
 
 \section{BAB I\\PENDAHULUAN}
 % \addcontentsline{toc}{section}{BAB I PENDAHULUAN}
@@ -292,6 +309,24 @@ Penulis menyadari bahwa masih banyak kekurangan dalam laporan PKL ini. Maka dari
 
 \newpage
 
+
+%  ██████████ ██ ████     ██      ██     ██     ██     ██     ██     ████     ██
+% ░░░░░██░░░ ░██░██░██   ░██     ░██    ████   ░██    ░██    ████   ░██░██   ░██
+%     ░██    ░██░██░░██  ░██     ░██   ██░░██  ░██    ░██   ██░░██  ░██░░██  ░██
+%     ░██    ░██░██ ░░██ ░██     ░██  ██  ░░██ ░██    ░██  ██  ░░██ ░██ ░░██ ░██
+%     ░██    ░██░██  ░░██░██     ░██ ██████████░██    ░██ ██████████░██  ░░██░██
+%     ░██    ░██░██   ░░████ ██  ░██░██░░░░░░██░██    ░██░██░░░░░░██░██   ░░████
+%     ░██    ░██░██    ░░███░░█████ ░██     ░██░░███████ ░██     ░██░██    ░░███
+%     ░░     ░░ ░░      ░░░  ░░░░░  ░░      ░░  ░░░░░░░  ░░      ░░ ░░      ░░░
+%  ███████  ████████ ███████   ██     ██  ████████     ██     ██      ██      ██         ██     ████     ██
+% ░██░░░░██░██░░░░░ ░██░░░░██ ░██    ░██ ██░░░░░░     ████   ░██     ░██     ████       ████   ░██░██   ░██
+% ░██   ░██░██      ░██   ░██ ░██    ░██░██          ██░░██  ░██     ░██    ██░░██     ██░░██  ░██░░██  ░██
+% ░███████ ░███████ ░███████  ░██    ░██░█████████  ██  ░░██ ░██████████   ██  ░░██   ██  ░░██ ░██ ░░██ ░██
+% ░██░░░░  ░██░░░░  ░██░░░██  ░██    ░██░░░░░░░░██ ██████████░██░░░░░░██  ██████████ ██████████░██  ░░██░██
+% ░██      ░██      ░██  ░░██ ░██    ░██       ░██░██░░░░░░██░██     ░██ ░██░░░░░░██░██░░░░░░██░██   ░░████
+% ░██      ░████████░██   ░░██░░███████  ████████ ░██     ░██░██     ░██ ░██     ░██░██     ░██░██    ░░███
+% ░░       ░░░░░░░░ ░░     ░░  ░░░░░░░  ░░░░░░░░  ░░      ░░ ░░      ░░  ░░      ░░ ░░      ░░ ░░      ░░░
+
 \section{BAB II\\TINJAUAN PERUSAHAAN}
 % \begin{center}
 % {
@@ -353,7 +388,28 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
 
 \newpage
 
+
+%  ██           ██     ████     ██ ███████       ██      ████████     ██     ████     ██
+% ░██          ████   ░██░██   ░██░██░░░░██     ████    ██░░░░░░     ████   ░██░██   ░██
+% ░██         ██░░██  ░██░░██  ░██░██    ░██   ██░░██  ░██          ██░░██  ░██░░██  ░██
+% ░██        ██  ░░██ ░██ ░░██ ░██░██    ░██  ██  ░░██ ░█████████  ██  ░░██ ░██ ░░██ ░██
+% ░██       ██████████░██  ░░██░██░██    ░██ ██████████░░░░░░░░██ ██████████░██  ░░██░██
+% ░██      ░██░░░░░░██░██   ░░████░██    ██ ░██░░░░░░██       ░██░██░░░░░░██░██   ░░████
+% ░████████░██     ░██░██    ░░███░███████  ░██     ░██ ████████ ░██     ░██░██    ░░███
+% ░░░░░░░░ ░░      ░░ ░░      ░░░ ░░░░░░░   ░░      ░░ ░░░░░░░░  ░░      ░░ ░░      ░░░
+
+%  ██████████ ████████   ███████   ███████   ██
+% ░░░░░██░░░ ░██░░░░░   ██░░░░░██ ░██░░░░██ ░██
+%     ░██    ░██       ██     ░░██░██   ░██ ░██
+%     ░██    ░███████ ░██      ░██░███████  ░██
+%     ░██    ░██░░░░  ░██      ░██░██░░░██  ░██
+%     ░██    ░██      ░░██     ██ ░██  ░░██ ░██
+%     ░██    ░████████ ░░███████  ░██   ░░██░██
+%     ░░     ░░░░░░░░   ░░░░░░░   ░░     ░░ ░░
+
 \section{BAB III\\LANDASAN TEORI}
+\setcounter{table}{0}
+\setcounter{figure}{0}
 % \begin{center}
 % {
 %     \setstretch{2}
@@ -372,10 +428,44 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
     
 \end{enumerate}
 
+%      ██     ████     ██     ██     ██       ██  ████████ ██  ████████
+%     ████   ░██░██   ░██    ████   ░██      ░██ ██░░░░░░ ░██ ██░░░░░░
+%    ██░░██  ░██░░██  ░██   ██░░██  ░██      ░██░██       ░██░██
+%   ██  ░░██ ░██ ░░██ ░██  ██  ░░██ ░██      ░██░█████████░██░█████████
+%  ██████████░██  ░░██░██ ██████████░██      ░██░░░░░░░░██░██░░░░░░░░██
+% ░██░░░░░░██░██   ░░████░██░░░░░░██░██      ░██       ░██░██       ░██
+% ░██     ░██░██    ░░███░██     ░██░████████░██ ████████ ░██ ████████
+% ░░      ░░ ░░      ░░░ ░░      ░░ ░░░░░░░░ ░░ ░░░░░░░░  ░░ ░░░░░░░░
 
+%  ███████       ██     ████     ██
+% ░██░░░░██     ████   ░██░██   ░██
+% ░██    ░██   ██░░██  ░██░░██  ░██
+% ░██    ░██  ██  ░░██ ░██ ░░██ ░██
+% ░██    ░██ ██████████░██  ░░██░██
+% ░██    ██ ░██░░░░░░██░██   ░░████
+% ░███████  ░██     ░██░██    ░░███
+% ░░░░░░░   ░░      ░░ ░░      ░░░
+
+%  ███████  ████████ ███████       ██     ████     ██   ██████      ██
+% ░██░░░░██░██░░░░░ ░██░░░░██     ████   ░██░██   ░██  ██░░░░██    ████
+% ░██   ░██░██      ░██   ░██    ██░░██  ░██░░██  ░██ ██    ░░    ██░░██
+% ░███████ ░███████ ░███████    ██  ░░██ ░██ ░░██ ░██░██         ██  ░░██
+% ░██░░░░  ░██░░░░  ░██░░░██   ██████████░██  ░░██░██░██        ██████████
+% ░██      ░██      ░██  ░░██ ░██░░░░░░██░██   ░░████░░██    ██░██░░░░░░██
+% ░██      ░████████░██   ░░██░██     ░██░██    ░░███ ░░██████ ░██     ░██
+% ░░       ░░░░░░░░ ░░     ░░ ░░      ░░ ░░      ░░░   ░░░░░░  ░░      ░░
+%  ████     ██   ████████      ██     ████     ██
+% ░██░██   ░██  ██░░░░░░██    ████   ░██░██   ░██
+% ░██░░██  ░██ ██      ░░    ██░░██  ░██░░██  ░██
+% ░██ ░░██ ░██░██           ██  ░░██ ░██ ░░██ ░██
+% ░██  ░░██░██░██    █████ ██████████░██  ░░██░██
+% ░██   ░░████░░██  ░░░░██░██░░░░░░██░██   ░░████
+% ░██    ░░███ ░░████████ ░██     ░██░██    ░░███
+% ░░      ░░░   ░░░░░░░░  ░░      ░░ ░░      ░░░
 \newpage
 \section{BAB IV\\ANALISIS DAN PERANCANGAN}
-
+\setcounter{table}{0}
+\setcounter{figure}{0}
 % \begin{center}
 % {
 %     \setstretch{2}
@@ -392,7 +482,7 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
     \begin{enumerate}[label=\textbf{4.1.\arabic*.}, wide, labelwidth=!, labelindent=0pt]
         \listsection{Deskripsi Sistem}
 
-        Sistem Informasi Manajemen Produk dan Ticketing bagian modul ticket di PT. Teknologi Aplikasi Sejahtera merupakan modul pengelolaan data bisnis dan transaksi yang berhubungan dengan manajemen ticketing yang ada di PT TAS. Dalam transaksi ticket ini ada beberapa role yang saling berinteraksi yakni internal user sebagai product manager, internal user sebagai developer, dan external user sebagai PIC pembuatan ticket. Ticket memiliki beberapa status yakni pending verification, in progress, done, closed dan rejected. Alur transaksi yang terjadi untuk setiap tahap ticket dapat dilihat sebagai berikut:
+        Modul Ticket dalam Sistem Informasi Manajemen Produk dan Ticketing di PT TAS adalah sebuah sistem yang dirancang untuk mengelola data bisnis dan transaksi terkait manajemen ticketing. Sistem ini memungkinkan berbagai aktor untuk berinteraksi dalam proses pembuatan, verifikasi, pengerjaan, dan penyelesaian ticket. Adapun beberapa role yang terlibat dalam sistem ini meliputi internal user sebagai product manager, internal user sebagai developer, dan external user sebagai PIC (Person in Charge) pembuatan ticket. Setiap ticket dalam sistem ini memiliki beberapa status, yaitu pending verification, in progress, done, closed, dan rejected. Berikut adalah alur transaksi yang terjadi pada setiap tahap ticket:
 
         \begin{enumerate}[label=\arabic*.]
             \item Pending verification
@@ -416,10 +506,50 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
             Ticket dengan status ini tidak sampai ke tahap pengerjaan dan masuk ke dalam arsip.
         \end{enumerate}
 
+        Dari alur transaksi yang sudah diidentifikasi, sistem memiliki tiga aktor yakni external user sebagai PIC pembuatan ticket, internal user sebagai product manager, dan internal user sebagai developer. Ketiga aktor ini memiliki peran dan tanggung jawab yang berbeda dalam pengelolaan ticket. Berikut adalah deskripsi singkat mengenai peran masing-masing aktor beserta aksi yang dapat mereka lakukan.
+
+        \begin{enumerate}[label=\arabic*.]
+            \item External User / PIC
+            
+            External user merupakan pegawai dari luar yang bertanggung jawab untuk membuat ticket yang akan diproses oleh tim internal. External user berperan sebagai pihak yang mengajukan ticket terhadap tim internal untuk diperbaiki. External user juga bertanggung jawab untuk memeriksa hasil pengerjaan ticket dan memastikan bahwa kebutuhan mereka telah terpenuhi. Berikut merupakan aksi yang dapat dilakukan oleh seorang external user pada modul ticketing:
+            \begin{enumerate}
+                \item Membuat ticket baru.
+                \item Memeriksa ticket yang sudah diajukan.
+                \item Memvalidasi hasil pengerjaan ticket pada status done.
+                \item Mengajukan revisi jika hasil pengerjaan tidak sesuai.
+                \item Menutup ticket jika pengerjaan sudah sesuai.
+                \item Berkomunikasi dengan product manager
+            \end{enumerate}
+
+            \item Internal User (Product Manager)
+            
+            Product manager berperan sebagai penghubung antara external user dan developer. Product manager bertanggung jawab untuk memverifikasi validitas ticket yang diajukan oleh external user dan mengalokasikan ticket yang valid kepada developer. Product manager juga memastikan bahwa hasil pengerjaan ticket oleh developer sesuai dengan kebutuhan yang diajukan oleh external user sebelum mengubah status ticket. Berikut merupakan aksi yang dapat dilakukan oleh seorang product manager pada modul ticketing:
+
+            \begin{enumerate}
+                \item Menerima dan memverifikasi ticket baru.
+                \item Memvalidasi ticket.
+                \item Mengalokasikan tenaga kerja ke ticket yang valid.
+                \item Memeriksa hasil pengerjaan developer.
+                \item Mengubah status ticket berdasarkan hasil verifikasi dan pengecekan.
+                \item Berkomunikasi dengan external user
+            \end{enumerate}
+
+            \item Internal User (Developer)
+            
+            Developer bertanggung jawab untuk mengerjakan ticket yang telah dialokasikan oleh product manager. Developer bekerja untuk menyelesaikan masalah atau kebutuhan yang tertera pada ticket. Developer juga mengupdate status pengerjaan ticket sehingga dapat dipantau oleh product manager dan external user. Berikut merupakan aksi yang dapat dilakukan oleh seorang developer pada modul ticketing:
+
+            \begin{enumerate}
+                \item Menerima tugas ticket dari product manager.
+                \item Mengerjakan ticket sesuai dengan deskripsi dan kebutuhan.
+                \item Menyelesaikan pengerjaan dan menginformasikan product manager untuk verifikasi.
+            \end{enumerate}
+
+        \end{enumerate}
+
 
         \listsection{Kebutuhan Fungsional}
 
-        Terdapat beberapa kebutuhan fungsional dari sistem dan pengguna untuk Sistem Informasi Manajemen Produk dan Ticketing bagian modul ticketing di PT. Teknologi Aplikasi Sejahtera. Daftar kebutuhan fungsional dapat dilihat pada tabel 4.1.
+        Sistem Informasi Manajemen Produk dan Ticketing bagian modul ticketing di PT. Teknologi Aplikasi Sejahtera memiliki beberapa kebutuhan fungsional yang harus dipenuhi untuk memastikan kinerja yang optimal dan mendukung pengguna dalam menjalankan tugas-tugas mereka dengan efisien. Kebutuhan fungsional ini dirancang untuk memenuhi proses bisnis dan alur kerja yang terlibat dalam manajemen ticketing. Daftar kebutuhan fungsional dapat dilihat pada tabel \ref{table:srs}.
 
         \begin{longtable}{|l|p{0.7\textwidth}|}
             \hline
@@ -470,13 +600,13 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
             \hline
             SRS-TKT-PIC-07 & External user dapat berkomunikasi dengan pihak internal (PM) melalui WA \\
             \hline
-            \caption{Deskripsi SRS}
+            \caption{Kebutuhan fungsional}
             \label{table:srs}
         \end{longtable}
 
         \listsection{Kebutuhan Non-Fungsional}
 
-        Setelah mendapatkan kebutuhan fungsional, selanjutnya ada kebutuhan non-fungsional yang berfungsi sebagai fungsi pendukung dari fungsi utama atau kebutuhan fungsional sistem, berikut kebutuhan non-fungsional sistem yang dibuat dalam tabel 4.2.
+        Setelah mengidentifikasi kebutuhan fungsional, langkah selanjutnya adalah mengidentifikasi kebutuhan non-fungsional. Kebutuhan non-fungsional ini berfungsi sebagai elemen pendukung yang memastikan bahwa sistem dapat berjalan dengan efektif dan efisien dalam memenuhi kebutuhan fungsionalnya. Daftar kebutuhan non-fungsional untuk sistem ini disajikan dalam tabel \ref{table:kebutuhan-non-fungsional}.
 
         \begin{longtable}{|c|p{0.85\textwidth}|}
             \hline
@@ -489,20 +619,19 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
             \hline
             \endhead
           
-            1 & Sistem harus kompatibel dan dapat dijalankan secara optimal di berbagai web browser seperti Google Chrome, Mozilla Firefox, Microsoft Edge, dan Safari \\
+            1 & Sistem harus kompatibel dan dapat dijalankan secara optimal di web browser Google Chrome \\
             \hline
             2 & Sistem harus memiliki response time yang tidak lebih dari 3 detik \\
             \hline
-            3 & Sistem menggunakan standar enkripsi HTTPS \\
-            \hline
-            \caption{Deskripsi Sistem}
-            \label{table:deskripsi-sistem}
+            % 3 & Sistem menggunakan standar enkripsi HTTPS \\
+            % \hline
+            \caption{Kebutuhan Non-Fungsional}
+            \label{table:kebutuhan-non-fungsional}
         \end{longtable}
 
         \listsection{Daftar Use Case}
 
-        Sistem Informasi Manajemen Produk dan Ticketing bagian ticketing di PT. Teknologi Aplikasi Sejahtera melibatkan beberapa use case. Deskripsi use case dijelaskan pada Tabel 4.3
-
+        Sistem Informasi Manajemen Produk dan Ticketing bagian ticketing di PT. Teknologi Aplikasi Sejahtera melibatkan beberapa use case yang mencakup berbagai interaksi antara pengguna dengan sistem. Use case ini menggambarkan berbagai skenario di mana aktor-aktor dalam sistem berinteraksi untuk mencapai tujuan tertentu. Deskripsi mendetail mengenai setiap use case dijelaskan pada tabel \ref{table:use-case}
 
         \begin{longtable}{|l|p{0.6\textwidth}|}
             \hline
@@ -538,22 +667,285 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
             & Dapat mengubah status tiket yang sudah selesai menjadi closed \\\cline{2-2}
             & Dapat berkomunikasi dengan pihak internal (PM) melalui WA \\\cline{2-2}
             \hline
-            \caption{Deskripsi Aktor}
-            \label{table:aktor}
+            \caption{Daftar Use Case}
+            \label{table:use-case}
         \end{longtable}
         
         \listsection{Use Case Diagram}
 
-        Use case diagram adalah ilustrasi dari hubungan antara use case dengan aktor Admin yang ditunjukkan pada gambar \ref*{fig:example-figure}
+        Dari tabel yang telah dibuat pada daftar use case, kita dapat melihat hubungan interaksi antara aktor-aktor dalam sistem dengan menggunakan use case diagram. Berikut merupakan use case diagram yang menggambarkan interaksi tersebut yang dapat dilihat pada gambar \ref{fig:use-case}
 
         \begin{figure}[H]
             \centering \includegraphics[width=\textwidth]{images/use-case.png}
-            \caption{Descriptive Caption}
-            \label{fig:example-figure}
+            \caption{Use Case Diagram Ticketing}
+            \label{fig:use-case}
         \end{figure}
     
 
         \listsection{Activity Diagram}
+
+        Berdasarkan use case yang telah ditentukan, berikut adalah activity diagram untuk Sistem Informasi Manajemen Produk dan Ticketing bagian ticketing di PT. Teknologi Aplikasi Sejahtera
+
+        \begin{enumerate}[label=\textbf{4.1.7.\arabic*.}, wide, labelwidth=!, labelindent=0pt]
+            \listsection{Activity Diagram Internal User (Product Manager)}
+            
+            \begin{enumerate}[label=\arabic*.]
+                \item Activity Diagram Melihat List Ticket
+                
+                \noindent ID Activity \quad : AD-PM-01
+
+                \noindent Deskripsi	  \quad : Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk melihat list ticket oleh seorang internal user dengan role product manager yang ditunjukkan pada gambar \ref{fig:AD-PM-01}.
+
+                \begin{figure}[H]
+                    \centering \includegraphics[width=0.8\textwidth]{images/activity/ipm/Melihat List Ticket.png}
+                    \caption{Activity Diagram Melihat List Ticket (PM)}
+                    \label{fig:AD-PM-01}
+                \end{figure}
+
+                \item Activity Diagram Memfilter Ticket
+                
+                \noindent ID Activity \quad : AD-PM-02
+
+                \noindent Deskripsi	\quad : Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk memfilter ticket oleh seorang internal user dengan role product manager yang ditunjukkan pada gambar \ref{fig:AD-PM-02}
+
+                \begin{figure}[H]
+                    \centering \includegraphics[width=0.8\textwidth]{images/activity/ipm/Memfilter List Ticket.png}
+                    \caption{Activity Diagram Memfilter List Ticket (PM)}
+                    \label{fig:AD-PM-02}
+                \end{figure}
+
+                \item Activity Diagram Melihat Detail Ticket
+                
+                \noindent ID Activity	: AD-PM-03
+
+                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk melihat detail ticket oleh seorang  internal user dengan role product manager yang ditunjukkan pada gambar 4.4.
+
+
+                \begin{figure}[H]
+                    \centering \includegraphics[width=0.8\textwidth]{images/activity/ipm/Melihat Detail Ticket.png}
+                    \caption{Activity Diagram Melihat Detail Ticket (PM)}
+                    \label{fig:AD-PM-03}
+                \end{figure}
+
+                \item Activity Diagram Memverifikasi Ticket
+
+                \noindent ID Activity	: AD-PM-04
+
+                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk memverifikasi ticket yang dibuat external user oleh seorang  internal user dengan role product manager yang ditunjukkan pada gambar 4.5.
+
+
+                \begin{figure}[H]
+                    \centering \includegraphics[width=0.8\textwidth]{images/activity/ipm/Memverifikasi Ticket.png}
+                    \caption{Activity Diagram Memverifikasi Ticket (PM)}
+                    \label{fig:AD-PM-04}
+                \end{figure}
+
+
+                \item Activity Diagram Menolak Ticket
+
+                \noindent ID Activity	: AD-PM-05
+
+                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk menolak ticket yang dibuat external user oleh seorang  internal user dengan role product manager yang ditunjukkan pada gambar 4.6.
+
+
+                \begin{figure}[H]
+                    \centering \includegraphics[width=0.8\textwidth]{images/activity/ipm/Menolak Ticket.png}
+                    \caption{Activity Diagram Menolak Ticket (PM)}
+                    \label{fig:AD-PM-05}
+                \end{figure}
+
+                \item Activity Diagram Merevisi Ticket
+
+                \noindent ID Activity	: AD-PM-06
+
+                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk merevisi ticket yang telah dikerjakan developer oleh seorang  internal user dengan role product manager yang ditunjukkan pada gambar 4.7.
+
+
+                \begin{figure}[H]
+                    \centering \includegraphics[width=0.8\textwidth]{images/activity/ipm/Merevisi Ticket.png}
+                    \caption{Activity Diagram Merevisi Ticket (PM)}
+                    \label{fig:AD-PM-06}
+                \end{figure}
+
+                \item Activity Diagram Berkomunikasi dengan external user
+
+                \noindent ID Activity	: AD-PM-07
+
+                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk berkomunikasi dengan external user oleh seorang  internal user dengan role product manager yang ditunjukkan pada gambar 4.8.
+
+
+                \begin{figure}[H]
+                    \centering \includegraphics[width=0.8\textwidth]{images/activity/ipm/Berkomunikasi Dengan External User Melalui Whatsapp.png}
+                    \caption{Activity Diagram Berkomunikasi Dengan PM Melalui Whatsapp (PM)}
+                    \label{fig:AD-PM-07}
+                \end{figure}
+
+                \item Activity Diagram Mengubah Status Ticket Menjadi Done
+
+                \noindent ID Activity	: AD-PM-08
+
+                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk mengubah status ticket menjadi done oleh internal user dengan role product manager yang ditunjukkan pada gambar 4.9.
+
+
+                \begin{figure}[H]
+                    \centering \includegraphics[width=0.8\textwidth]{images/activity/ipm/Mengubah Status Ticket Menjadi Done.png}
+                    \caption{Activity Diagram Mengubah Status Ticket Menjadi Done (PM)}
+                    \label{fig:AD-PM-08}
+                \end{figure}
+            \end{enumerate}
+            
+            \listsection{Activity Diagram Internal User (Developer)}
+            
+            \begin{enumerate}[label=\arabic*.]
+                \item Activity Diagram Melihat List Ticket
+                
+                \noindent ID Activity	: AD-DEV-01
+
+                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk melihat list ticket oleh internal user dengan role developer yang ditunjukkan pada gambar 4.10.
+
+                
+                \begin{figure}[H]
+                    \centering \includegraphics[width=0.8\textwidth]{images/activity/idev/Melihat List Ticket.png}
+                    \caption{Activity Diagram Melihat List Ticket (DEV)}
+                    \label{fig:AD-DEV-01}
+                \end{figure}
+
+                \item Activity Diagram Memfilter Ticket
+
+                \noindent ID Activity	: AD-DEV-02
+
+                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk memfilter list ticket oleh internal user dengan role developer yang ditunjukkan pada gambar 4.11.
+
+
+                \begin{figure}[H]
+                    \centering \includegraphics[width=0.8\textwidth]{images/activity/idev/Memfilter List Ticket.png}
+                    \caption{Activity Diagram Memfilter List Ticket (DEV)}
+                    \label{fig:AD-DEV-02}
+                \end{figure}
+
+                \item Activity Diagram Melihat Detail Ticket
+
+                \noindent ID Activity	: AD-DEV-03
+
+                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk melihat detail ticket oleh internal user dengan role developer yang ditunjukkan pada gambar 4.12.
+
+
+                \begin{figure}[H]
+                    \centering \includegraphics[width=0.8\textwidth]{images/activity/idev/Melihat Detail Ticket.png}
+                    \caption{Activity Diagram Melihat Detail Ticket (DEV)}
+                    \label{fig:AD-DEV-03}
+                \end{figure}
+
+                \item Activity Diagram Melaporkan Pekerjaan Ticket
+
+                \noindent ID Activity	: AD-DEV-04
+
+                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk melaporkan pengerjaan ticket oleh internal user dengan role developer yang ditunjukkan pada gambar 4.13.
+
+
+                \begin{figure}[H]
+                    \centering \includegraphics[width=0.8\textwidth]{images/activity/idev/Melaporkan Pengerjaan Ticket.png}
+                    \caption{Activity Diagram Melaporkan Pengerjaan Ticket (DEV)}
+                    \label{fig:AD-DEV-04}
+                \end{figure}
+            \end{enumerate}
+
+            \listsection{Activity Diagram External User}
+            \begin{enumerate}[label=\arabic*.]
+                \item Activity Diagram Melihat List Ticket
+                
+                \noindent ID Activity	: AD-PIC-01
+
+                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk melihat list ticket oleh seorang external user yang ditunjukkan pada gambar 4.14
+
+                
+                \begin{figure}[H]
+                    \centering \includegraphics[width=0.8\textwidth]{out/plantuml/sequence/ex/ex1/Melihat List Ticket.png}
+                    \caption{Activity Diagram Melihat List Ticket (External User)}
+                    \label{fig:AD-PIC-01}
+                \end{figure}
+
+                \item Activity Diagram Memfilter List Ticket
+
+                \noindent ID Activity	: AD-PIC-02
+
+                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk memfilter ticket oleh seorang external user yang ditunjukkan pada gambar 4.15
+
+
+                \begin{figure}[H]
+                    \centering \includegraphics[width=0.8\textwidth]{out/plantuml/sequence/ex/ex2/Memfilter List Ticket.png}
+                    \caption{Activity Diagram Memfilter List Ticket (External User)}
+                    \label{fig:AD-PIC-02}
+                \end{figure}
+
+                \item Activity Diagram Membuat Ticket
+
+                \noindent ID Activity	: AD-PIC-03
+
+                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk membuat ticket oleh seorang external user yang ditunjukkan pada gambar 4.16.
+
+
+                \begin{figure}[H]
+                    \centering \includegraphics[width=0.8\textwidth]{out/plantuml/sequence/ex/ex3/Membuat Ticket.png}
+                    \caption{Activity Diagram Membuat Ticket (External User)}
+                    \label{fig:AD-PIC-03}
+                \end{figure}
+
+                \item Activity Diagram Melihat Detail Ticket
+
+                \noindent ID Activity	: AD-PIC-04
+
+                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk melihat detail ticket oleh seorang external user yang ditunjukkan pada gambar 4.17.
+
+
+                \begin{figure}[H]
+                    \centering \includegraphics[width=0.8\textwidth]{out/plantuml/sequence/ex/ex4/Melihat Detail Ticket.png}
+                    \caption{Activity Diagram Melihat Detail Ticket (External User)}
+                    \label{fig:AD-PIC-04}
+                \end{figure}
+
+                \item Activity Diagram Menutup Ticket
+
+                \noindent ID Activity	: AD-PIC-05
+
+                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk menutup ticket yang telah dibuat oleh seorang external user dan dikerjakan internal user yang ditunjukkan pada gambar 4.18.
+
+
+                \begin{figure}[H]
+                    \centering \includegraphics[width=0.8\textwidth]{out/plantuml/sequence/ex/ex5/Menutup Ticket.png}
+                    \caption{Activity Diagram Menutup Ticket (External User)}
+                    \label{fig:AD-PIC-05}
+                \end{figure}
+
+                \item Activity Diagram Merevisi Ticket
+
+                \noindent ID Activity	: AD-PIC-06
+
+                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk merevisi ticket yang telah dibuat oleh seorang external user dan dikerjakan internal user yang ditunjukkan pada gambar 4.19.
+
+
+                \begin{figure}[H]
+                    \centering \includegraphics[width=0.8\textwidth]{out/plantuml/sequence/ex/ex6/Merevisi Ticket.png}
+                    \caption{Activity Diagram Merevisi Ticket (External User)}
+                    \label{fig:AD-PIC-06}
+                \end{figure}
+
+                \item Activity Diagram Berkomunikasi dengan Product Manager
+
+                \noindent ID Activity	: AD-PIC-07
+                
+                \noindent Deskripsi	: Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk berkomunikasi dengan Product Manager oleh seorang external user yang ditunjukkan pada gambar 4.20.
+
+
+                \begin{figure}[H]
+                    \centering \includegraphics[width=0.8\textwidth]{out/plantuml/sequence/ex/ex7/Berkomunikasi Dengan PM Melalui Whatsapp.png}
+                    \caption{Activity Diagram Berkomunikasi Dengan PM Melalui Whatsapp (External User)}
+                    \label{fig:AD-PIC-07}
+                \end{figure}
+            \end{enumerate}
+        \end{enumerate}
+        
+        \newpage
 
         \listsection{Sequence Diagram}
 
@@ -562,84 +954,88 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
         \begin{enumerate}[label=\textbf{4.1.7.\arabic*.}, wide, labelwidth=!, labelindent=0pt]
             \listsection{Sequence Diagram Internal User (Product Manager)}
             
-            \begin{enumerate}[label=\arabic*., wide]
+            \begin{enumerate}[label=\arabic*.]
                 \item Sequence Diagram Melihat List Ticket
                 
+                \lipsum
+                
                 \begin{sidewaysfigure}
-                    \centering \includegraphics[width=\textwidth]{out/plantuml/sequence/ipm/ipm1/Melihat List Ticket.png}
+                    \centering \includegraphics[height=0.575\textheight]{out/plantuml/sequence/ipm/ipm1/Melihat List Ticket.png}
                     \caption{Sequence Diagram Melihat List Ticket (External User)}
                     \label{fig:SQ-PM-01}
                 \end{sidewaysfigure}
 
                 \begin{sidewaysfigure}
-                    \centering \includegraphics[width=\textwidth]{out/plantuml/sequence/ipm/ipm2/Memfilter List Ticket.png}
+                    \centering \includegraphics[height=0.575\textheight]{out/plantuml/sequence/ipm/ipm2/Memfilter List Ticket.png}
                     \caption{Sequence Diagram Memfilter List Ticket (External User)}
                     \label{fig:SQ-PM-02}
                 \end{sidewaysfigure}
 
                 \begin{sidewaysfigure}
-                    \centering \includegraphics[width=\textwidth]{out/plantuml/sequence/ipm/ipm3/Melihat Detail Ticket.png}
+                    \centering \includegraphics[height=0.575\textheight]{out/plantuml/sequence/ipm/ipm3/Melihat Detail Ticket.png}
                     \caption{Sequence Diagram Membuat Ticket (External User)}
                     \label{fig:SQ-PM-03}
                 \end{sidewaysfigure}
 
                 \begin{sidewaysfigure}
-                    \centering \includegraphics[width=\textwidth]{out/plantuml/sequence/ipm/ipm4/Memverifikasi Ticket.png}
+                    \centering \includegraphics[height=0.575\textheight]{out/plantuml/sequence/ipm/ipm4/Memverifikasi Ticket.png}
                     \caption{Sequence Diagram Melihat Detail Ticket (External User)}
                     \label{fig:SQ-PM-04}
                 \end{sidewaysfigure}
 
                 \begin{sidewaysfigure}
-                    \centering \includegraphics[width=\textwidth]{out/plantuml/sequence/ipm/ipm5/Menolak Ticket.png}
+                    \centering \includegraphics[height=0.575\textheight]{out/plantuml/sequence/ipm/ipm5/Menolak Ticket.png}
                     \caption{Sequence Diagram Menutup Ticket (External User)}
                     \label{fig:SQ-PM-05}
                 \end{sidewaysfigure}
 
                 \begin{sidewaysfigure}
-                    \centering \includegraphics[width=\textwidth]{out/plantuml/sequence/ipm/ipm6/Merevisi Ticket.png}
+                    \centering \includegraphics[height=0.575\textheight]{out/plantuml/sequence/ipm/ipm6/Merevisi Ticket.png}
                     \caption{Sequence Diagram Merevisi Ticket (External User)}
                     \label{fig:SQ-PM-06}
                 \end{sidewaysfigure}
 
                 \begin{sidewaysfigure}
-                    \centering \includegraphics[width=\textwidth]{out/plantuml/sequence/ipm/ipm7/Berkomunikasi Dengan PM Melalui Whatsapp.png}
+                    \centering \includegraphics[height=0.575\textheight]{out/plantuml/sequence/ipm/ipm7/Berkomunikasi Dengan PM Melalui Whatsapp.png}
                     \caption{Sequence Diagram Berkomunikasi Dengan PM Melalui Whatsapp (External User)}
                     \label{fig:SQ-PM-07}
                 \end{sidewaysfigure}
 
                 \begin{sidewaysfigure}
-                    \centering \includegraphics[width=\textwidth]{out/plantuml/sequence/ipm/ipm8/Menguba Status Ticket Menjadi Done.png}
+                    \centering \includegraphics[height=0.575\textheight]{out/plantuml/sequence/ipm/ipm8/Menguba Status Ticket Menjadi Done.png}
                     \caption{Sequence Diagram Berkomunikasi Dengan PM Melalui Whatsapp (External User)}
                     \label{fig:SQ-PM-08}
                 \end{sidewaysfigure}
             \end{enumerate}
             
+            
+
             \listsection{Sequence Diagram Internal User (Developer)}
             
             \begin{enumerate}[label=\arabic*., wide]
                 \item Sequence Diagram Melihat List Ticket
                 
                 \begin{sidewaysfigure}
-                    \centering \includegraphics[width=\textwidth]{out/plantuml/sequence/idev/idev1/Melihat List Ticket.png}
+                    \centering \includegraphics[height=0.575\textheight]{out/plantuml/sequence/idev/idev1/Melihat List Ticket.png}
                     \caption{Sequence Diagram Melihat List Ticket (DEV)}
                     \label{fig:SQ-DEV-01}
                 \end{sidewaysfigure}
 
                 \begin{sidewaysfigure}
-                    \centering \includegraphics[width=\textwidth]{out/plantuml/sequence/idev/idev2/Memfilter List Ticket.png}
+                    \centering \includegraphics[height=0.575\textheight]{out/plantuml/sequence/idev/idev2/Memfilter List Ticket.png}
                     \caption{Sequence Diagram Memfilter List Ticket (DEV)}
                     \label{fig:SQ-DEV-02}
                 \end{sidewaysfigure}
 
                 \begin{sidewaysfigure}
-                    \centering \includegraphics[width=\textwidth]{out/plantuml/sequence/idev/idev3/Melihat Detail Ticket.png}
+                    \centering \includegraphics[height=0.575\textheight]{out/plantuml/sequence/idev/idev3/Melihat Detail Ticket.png}
                     \caption{Sequence Diagram Melihat Detail Ticket (DEV)}
                     \label{fig:SQ-DEV-03}
                 \end{sidewaysfigure}
 
                 \begin{sidewaysfigure}
-                    \centering \includegraphics[width=\textwidth]{out/plantuml/sequence/idev/idev4/Melaporkan Pengerjaan Ticket.png}
-                    \caption{Sequence Diagram Melaportkan Pengerjaan Ticket (DEV)}
+                    \centering \includegraphics[height=0.575\textheight]{out/plantuml/sequence/idev/idev4/Melaporkan Pengerjaan Ticket.png}
+                    \caption{Sequence Diagram Melaporkan Pengerjaan Ticket (DEV)}
                     \label{fig:SQ-DEV-04}
                 \end{sidewaysfigure}
             \end{enumerate}
@@ -649,43 +1045,43 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
                 \item Sequence Diagram Melihat List Ticket
                 
                 \begin{sidewaysfigure}
-                    \centering \includegraphics[width=\textwidth]{out/plantuml/sequence/ex/ex1/Melihat List Ticket.png}
+                    \centering \includegraphics[height=0.575\textheight]{out/plantuml/sequence/ex/ex1/Melihat List Ticket.png}
                     \caption{Sequence Diagram Melihat List Ticket (External User)}
                     \label{fig:SQ-PIC-01}
                 \end{sidewaysfigure}
 
                 \begin{sidewaysfigure}
-                    \centering \includegraphics[width=\textwidth]{out/plantuml/sequence/ex/ex2/Memfilter List Ticket.png}
+                    \centering \includegraphics[height=0.575\textheight]{out/plantuml/sequence/ex/ex2/Memfilter List Ticket.png}
                     \caption{Sequence Diagram Memfilter List Ticket (External User)}
                     \label{fig:SQ-PIC-02}
                 \end{sidewaysfigure}
 
                 \begin{sidewaysfigure}
-                    \centering \includegraphics[width=\textwidth]{out/plantuml/sequence/ex/ex3/Membuat Ticket.png}
+                    \centering \includegraphics[height=0.575\textheight]{out/plantuml/sequence/ex/ex3/Membuat Ticket.png}
                     \caption{Sequence Diagram Membuat Ticket (External User)}
                     \label{fig:SQ-PIC-03}
                 \end{sidewaysfigure}
 
                 \begin{sidewaysfigure}
-                    \centering \includegraphics[width=\textwidth]{out/plantuml/sequence/ex/ex4/Melihat Detail Ticket.png}
+                    \centering \includegraphics[height=0.575\textheight]{out/plantuml/sequence/ex/ex4/Melihat Detail Ticket.png}
                     \caption{Sequence Diagram Melihat Detail Ticket (External User)}
                     \label{fig:SQ-PIC-04}
                 \end{sidewaysfigure}
 
                 \begin{sidewaysfigure}
-                    \centering \includegraphics[width=\textwidth]{out/plantuml/sequence/ex/ex5/Menutup Ticket.png}
+                    \centering \includegraphics[height=0.575\textheight]{out/plantuml/sequence/ex/ex5/Menutup Ticket.png}
                     \caption{Sequence Diagram Menutup Ticket (External User)}
                     \label{fig:SQ-PIC-05}
                 \end{sidewaysfigure}
 
                 \begin{sidewaysfigure}
-                    \centering \includegraphics[width=\textwidth]{out/plantuml/sequence/ex/ex6/Merevisi Ticket.png}
+                    \centering \includegraphics[height=0.575\textheight]{out/plantuml/sequence/ex/ex6/Merevisi Ticket.png}
                     \caption{Sequence Diagram Merevisi Ticket (External User)}
                     \label{fig:SQ-PIC-06}
                 \end{sidewaysfigure}
 
                 \begin{sidewaysfigure}
-                    \centering \includegraphics[width=\textwidth]{out/plantuml/sequence/ex/ex7/Berkomunikasi Dengan PM Melalui Whatsapp.png}
+                    \centering \includegraphics[height=0.575\textheight]{out/plantuml/sequence/ex/ex7/Berkomunikasi Dengan PM Melalui Whatsapp.png}
                     \caption{Sequence Diagram Berkomunikasi Dengan PM Melalui Whatsapp (External User)}
                     \label{fig:SQ-PIC-07}
                 \end{sidewaysfigure}
@@ -706,23 +1102,82 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
 
 \newpage
 
+%  ██      ██     ██      ████████ ██ ██
+% ░██     ░██    ████    ██░░░░░░ ░██░██
+% ░██     ░██   ██░░██  ░██       ░██░██
+% ░██████████  ██  ░░██ ░█████████░██░██
+% ░██░░░░░░██ ██████████░░░░░░░░██░██░██
+% ░██     ░██░██░░░░░░██       ░██░██░██
+% ░██     ░██░██     ░██ ████████ ░██░████████
+% ░░      ░░ ░░      ░░ ░░░░░░░░  ░░ ░░░░░░░░
+
+%  ███████       ██     ████     ██
+% ░██░░░░██     ████   ░██░██   ░██
+% ░██    ░██   ██░░██  ░██░░██  ░██
+% ░██    ░██  ██  ░░██ ░██ ░░██ ░██
+% ░██    ░██ ██████████░██  ░░██░██
+% ░██    ██ ░██░░░░░░██░██   ░░████
+% ░███████  ░██     ░██░██    ░░███
+% ░░░░░░░   ░░      ░░ ░░      ░░░
+
+%  ███████  ████████ ████     ████ ██████       ██     ██      ██     ██
+% ░██░░░░██░██░░░░░ ░██░██   ██░██░█░░░░██     ████   ░██     ░██    ████
+% ░██   ░██░██      ░██░░██ ██ ░██░█   ░██    ██░░██  ░██     ░██   ██░░██
+% ░███████ ░███████ ░██ ░░███  ░██░██████    ██  ░░██ ░██████████  ██  ░░██
+% ░██░░░░  ░██░░░░  ░██  ░░█   ░██░█░░░░ ██ ██████████░██░░░░░░██ ██████████
+% ░██      ░██      ░██   ░    ░██░█    ░██░██░░░░░░██░██     ░██░██░░░░░░██
+% ░██      ░████████░██        ░██░███████ ░██     ░██░██     ░██░██     ░██
+% ░░       ░░░░░░░░ ░░         ░░ ░░░░░░░  ░░      ░░ ░░      ░░ ░░      ░░
+%   ████████     ██     ████     ██
+%  ██░░░░░░     ████   ░██░██   ░██
+% ░██          ██░░██  ░██░░██  ░██
+% ░█████████  ██  ░░██ ░██ ░░██ ░██
+% ░░░░░░░░██ ██████████░██  ░░██░██
+%        ░██░██░░░░░░██░██   ░░████
+%  ████████ ░██     ░██░██    ░░███
+% ░░░░░░░░  ░░      ░░ ░░      ░░░
 
 \section{BAB V\\HASIL DAN PEMBAHASAN}
 
-% \begin{center}
-% {
-%     \setstretch{2}
-%     \textbf{\large BAB IV} \\
-%     \textbf{\large PENUTUP} \\
-% }
-% \end{center}
+\setcounter{table}{0}
+\setcounter{figure}{0}
 
-\begin{enumerate}[label=\textbf{4.\arabic*}]
-    \item \textbf{Kesimpulan} \\
-    Dalam praktikum ini, kami mempelajari konsep dasar Style dan Theme di android yang membantu untuk 
-    mengurangi duplikasi kode yang berada di file Layout. Kami juga mempelajari constrained layout
-    yang bisa mempermudah penataan agar posisi dari setiap widget dapat flexible dan mengikuti 
-    aturan yang sudah di berikan
+\begin{enumerate}[label=\textbf{5.\arabic*}]
+    \listsection{Implementasi Sistem}
+
+    \begin{enumerate}[label=\textbf{5.1\arabic*}]
+        \listsection{Perangkat Pengembangan}
+        
+        Spesifikasi perangkat keras dan lunak yang digunakan dalam mengembangkan Sistem Informasi Manajemen Produk dan Ticketing bagian ticketing di PT. Teknologi Aplikasi Sejahtera .
+
+        \begin{table}[h!]
+            \centering
+            \begin{tabularx}{\linewidth}{ |l|X| }
+                \hline
+                CPU                        & Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz \\ %\addlinespace
+                \hline
+                Sistem Operasi             & Microsoft Windows 10 Home Single Language build 19045 \\ %\addlinespace
+                \hline
+                Bahasa pemograman          & PHP dan Javascript \\ %\addlinespace
+                \hline
+                Framework frontend         & React.js\\ %\addlinespace
+                \hline
+                Framework backend          & Laravel \\ %\addlinespace
+                \hline
+                Database Management System & PostgreSQL \\ %\addlinespace
+                \hline
+                IDE                        & Visual Studio Code \\ %\addlinespace
+                \hline
+                Web browser                & Google Chrome \\ %\addlinespace
+                \hline
+            \end{tabularx}
+            \caption{Informasi Hardware pengembangan}
+            \label{table:hardware-pengembangan}
+        \end{table}
+
+    \end{enumerate}
+
+
 
 \end{enumerate}
 

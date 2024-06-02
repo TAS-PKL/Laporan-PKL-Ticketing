@@ -7,16 +7,16 @@ hide footbox
 actor EU as "__: External User__"
 boundary TicketPage as "__: TicketPage__"
 control TicketController as "__: TicketController__"
-entity Users as "__: Users__"
-entity Employees as "__: Employees__"
+entity User as "__: User__"
+entity Employee as "__: Employee__"
 entity Ticket as "__: Ticket__"
 entity TicketMember as "__: TicketMember__"
-entity ProductMembers as "__: Product Members__"
+entity ProductMember as "__: Product Member__"
 ' entity ProductMemberRoles as "__: Product Member Roles__"
-entity TicketCategories as "__: Ticket Categories__"
-entity TicketStatuses as "__: Ticket Statuses__"
-entity TicketPriorities as "__: Ticket Priorities__"
-' entity Products as "__: Products__"
+entity TicketCategories as "__: Ticket Category__"
+entity TicketStatuses as "__: Ticket Status__"
+entity TicketPriorities as "__: Ticket Priority__"
+' entityProductas "__: Products__"
 ' entity Companies as "__: Companies__"
 
 autonumber 1
@@ -26,23 +26,23 @@ activate TicketPage
 TicketPage -> TicketController: getUserTickets()
 activate TicketController
 
-TicketController -> Users: getCurrentUser()
-activate Users
+TicketController -> User: getCurrentUser()
+activate User
 
-Users -> TicketController: current user
-deactivate Users
+User -> TicketController: current user
+deactivate User
 
-TicketController -> Employees: getCurrentEmployee()
-activate Employees
+TicketController -> Employee: getCurrentEmployee()
+activate Employee
 
-Employees -> TicketController: current employee
-deactivate Employees
+Employee -> TicketController: current employee
+deactivate Employee
 
-TicketController -> ProductMembers: getCurrentEmployeeAssignedProductMembers()
-activate ProductMembers
+TicketController -> ProductMember: getCurrentEmployeeAssignedProductMember()
+activate ProductMember
 
-ProductMembers -> TicketController: current employee product member datas
-deactivate ProductMembers
+ProductMember -> TicketController: current employee product member datas
+deactivate ProductMember
 
 TicketController -> TicketMember: getCurrentProductMemberTicketMember()
 activate TicketMember
@@ -73,6 +73,8 @@ activate TicketPriorities
 
 TicketPriorities --> TicketController : TicketPriorities
 deactivate TicketPriorities
+
+' TicketController -> TicketController : resolveRelation()
 
 TicketController --> TicketPage : Tickets
 deactivate TicketController

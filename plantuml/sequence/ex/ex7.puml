@@ -1,11 +1,18 @@
 @startuml Berkomunikasi Dengan PM Melalui Whatsapp
 
-title "Berkomunikasi Dengan PM Melalui Whatsapp"
+hide footbox
+
+' title "Berkomunikasi Dengan PM Melalui Whatsapp"
 
 actor EU as "__: External User__"
 boundary TicketPage as "__: TicketPage__"
 control TicketController as "__: TicketController__"
 entity Ticket as "__: Ticket__"
+entity TicketMember as "__: TicketMember__"
+entity ProductMembers as "__: Product Member__"
+entity ProductMemberRoles as "__: Product Member Role__"
+entity Employees as "__: Employee__"
+
 
 autonumber 1
 'list
@@ -25,10 +32,35 @@ activate TicketController
 TicketController -> Ticket: getTicket()
 activate Ticket
 
-Ticket --> TicketController : phone number
+Ticket --> TicketController : Ticket
 deactivate Ticket
 
-TicketController --> TicketPage : Ticket
+TicketController -> TicketMember: getCurrentTicketTicketMember()
+activate TicketMember
+
+TicketMember -> TicketController: current ticket's ticket member
+deactivate TicketMember
+
+TicketController -> ProductMemberRoles: getProductMemberRole()
+activate ProductMemberRoles
+
+ProductMemberRoles -> TicketController: product member roles
+deactivate ProductMemberRoles
+
+TicketController -> ProductMembers: getProductMembers()
+activate ProductMembers
+
+ProductMembers -> TicketController: product members
+deactivate ProductMembers
+
+TicketController -> Employees: getEmployeeData()
+activate Employees
+
+Employees -> TicketController: EmployeeData
+deactivate Employees
+
+
+TicketController --> TicketPage : Product manager's phone number
 TicketPage --> TicketPage : generateTemplateMessage()
 deactivate TicketController
 

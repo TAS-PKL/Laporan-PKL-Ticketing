@@ -1,21 +1,23 @@
 @startuml Melihat Detail Ticket
 
-title "Melihat Detail Ticket"
+hide footbox
+' title "Melihat Detail Ticket"
 
 actor IPM as "__: Product Manager__"
 boundary TicketPage as "__: TicketPage__"
 control TicketController as "__: TicketController__"
 entity Ticket as "__: Ticket__"
+entity Product as "__: Products__"
+entity Company as "__: Company__"
+entity TicketCategory as "__: Ticket Category__"
+entity TicketStatuses as "__: Ticket Status__"
+entity TicketPriority as "__: Ticket Priority__"
+entity TicketMember as "__: TicketMember__"
+entity ProductMembers as "__: Product Member__"
+entity ProductMemberRoles as "__: Product Member Role__"
+entity Employees as "__: Employee__"
 
 autonumber 1
-'list
-' IPM -> TicketPage: Membuka halaman list ticket
-' activate TicketPage
-
-' TicketPage -> IPM: Halaman list ticket
-' deactivate TicketPage
-
-'detail
 IPM -> TicketPage: Memilih ticket
 activate TicketPage
 
@@ -28,6 +30,60 @@ activate Ticket
 
 Ticket --> TicketController : Ticket
 deactivate Ticket
+
+TicketController -> Product: getProduct()
+activate Product
+
+Product --> TicketController : Product Data
+deactivate Product
+
+TicketController -> Company: getCompany()
+activate Company
+
+Company --> TicketController : Company Data
+deactivate Company
+
+TicketController -> TicketCategory: getTicketCategory()
+activate TicketCategory
+
+TicketCategory --> TicketController : Ticket category
+deactivate TicketCategory
+
+TicketController -> TicketStatuses: getTicketStatuses()
+activate TicketStatuses
+
+TicketStatuses --> TicketController : TicketStatuses
+deactivate TicketStatuses
+
+TicketController -> TicketPriority: getTicketPriority()
+activate TicketPriority
+
+TicketPriority --> TicketController : TicketPriority
+deactivate TicketPriority
+
+TicketController -> TicketMember: getCurrentTicketTicketMember()
+activate TicketMember
+
+TicketMember -> TicketController: current ticket's ticket member
+deactivate TicketMember
+
+TicketController -> ProductMembers: getProductMembers()
+activate ProductMembers
+
+ProductMembers -> TicketController: product members
+deactivate ProductMembers
+
+TicketController -> ProductMemberRoles: getProductMemberRole()
+activate ProductMemberRoles
+
+ProductMemberRoles -> TicketController: product member roles
+deactivate ProductMemberRoles
+
+TicketController -> Employees: getEmployeeData()
+activate Employees
+
+Employees -> TicketController: EmployeeData
+deactivate Employees
 
 TicketController --> TicketPage : Ticket
 deactivate TicketController

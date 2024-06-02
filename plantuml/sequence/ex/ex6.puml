@@ -1,6 +1,8 @@
 @startuml Merevisi Ticket
 
-title "Merevisi Ticket"
+hide footbox
+
+'title "Merevisi Ticket"
 
 actor EU as "__: External User__"
 boundary TicketPage as "__: TicketPage__"
@@ -15,12 +17,15 @@ activate TicketPage
 TicketPage --> EU: Halaman detail ticket
 deactivate TicketPage
 
-'Menutup ticket
+
 EU -> TicketPage: Revise dengan alasan
 activate TicketPage
 
 TicketPage -> TicketController: revise()
 activate TicketController
+
+TicketController -> TicketController: validate()
+
 
 TicketController -> Ticket: setTicketStatus()
 activate Ticket

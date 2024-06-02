@@ -17,7 +17,7 @@
 \usepackage{multirow} % merge row
 \usepackage{tocloft} % table of content
 \usepackage{rotating} % rotating figure
-\usepackage{caption} % need to explain?
+\usepackage[tableposition=top]{caption} % need to explain?
 \usepackage[none]{hyphenat} % no linebreak with -
 % \usepackage{showframe} % debugging
 \usepackage{natbib} % bib cite stuff
@@ -496,8 +496,10 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
 % }
 % \end{center}
 
+
+
 \begin{enumerate}[label=\textbf{4.\arabic*.}]
-    \listsection{Analisis Kebutuhan}
+    \listsection{Requirement Elicitation}
 
     Analisis kebutuhan digunakan untuk mengidentifikasi kebutuhan sistem yang akan dibangun. Pada bagian ini, terdapat penjelasan mengenai deskripsi umum sistem, kebutuhan fungsional, kebutuhan non-fungsional, use case diagram, activity diagram, dan sequence diagram
 
@@ -1397,41 +1399,71 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
 \begin{enumerate}[label=\textbf{5.\arabic*}]
     \listsection{Implementasi Sistem}
 
-    \begin{enumerate}[label=\textbf{5.1\arabic*}]
-        \listsection{Implementasi Sistem}
         
-        Spesifikasi perangkat keras dan lunak yang digunakan dalam mengembangkan Sistem Informasi Manajemen Produk dan Ticketing bagian ticketing di PT. Teknologi Aplikasi Sejahtera .
+    Spesifikasi perangkat keras dan lunak yang digunakan dalam mengembangkan Sistem Informasi Manajemen Produk dan Ticketing bagian ticketing di PT. Teknologi Aplikasi Sejahtera.
 
-        \begin{table}[h!]
-            \centering
-            \begin{tabularx}{\linewidth}{ |l|X| }
-                \hline
-                CPU                        & Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz \\ %\addlinespace
-                \hline
-                Sistem Operasi             & Microsoft Windows 10 Home Single Language build 19045 \\ %\addlinespace
-                \hline
-                Bahasa pemograman          & PHP dan Javascript \\ %\addlinespace
-                \hline
-                Framework frontend         & React.js\\ %\addlinespace
-                \hline
-                Framework backend          & Laravel \\ %\addlinespace
-                \hline
-                Database Management System & PostgreSQL \\ %\addlinespace
-                \hline
-                IDE                        & Visual Studio Code \\ %\addlinespace
-                \hline
-                Web browser                & Google Chrome \\ %\addlinespace
-                \hline
-            \end{tabularx}
-            \caption{Informasi Hardware pengembangan}
-            \label{table:hardware-pengembangan}
-        \end{table}
+    \begin{table}[h!]
+        \centering
+        \begin{tabularx}{\linewidth}{ |l|X| }
+            \hline
+            CPU                        & Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz \\ %\addlinespace
+            \hline
+            Sistem Operasi             & Microsoft Windows 10 Home Single Language build 19045 \\ %\addlinespace
+            \hline
+            Bahasa pemograman          & PHP dan Javascript \\ %\addlinespace
+            \hline
+            Framework frontend         & React.js\\ %\addlinespace
+            \hline
+            Framework backend          & Laravel \\ %\addlinespace
+            \hline
+            Database Management System & PostgreSQL \\ %\addlinespace
+            \hline
+            IDE                        & Visual Studio Code \\ %\addlinespace
+            \hline
+            Web browser                & Google Chrome \\ %\addlinespace
+            \hline
+        \end{tabularx}
+        \caption{Informasi Hardware pengembangan}
+        \label{table:hardware-pengembangan}
+    \end{table}
 
-        \begin{enumerate}
-            \listsection{Implementasi Antarmuka Ticketing}
+    \begin{enumerate}[label=\textbf{5.1\arabic*}]
+        \listsection{Implementasi Antarmuka Ticketing}
+
+        \begin{enumerate}[label=\textbf{5.1.1\arabic*}]
+            \listsection{Antarmuka List Ticket}
+
+            Halaman list ticket merupakan halaman utama dari modul ticketing di Sistem Informasi Manajemen Produk dan Ticketing. Pada halaman ini akan ditampilkan informasi mengenai ticket yang user tersebut memiliki tanggung jawab. Di halaman ini user dapat diberikan opsi untuk mencari dan memfilter kategori tiket yang ingin dicari. Sistem memberikan opsi untuk memfilter berdasarkan kategori dan status. User juga dapat mengurutkan berdasarkan kronologi pembuatan dan modifikasi. Pada halaman ini jika user merupakan seorang external user, sistem akan menampilkan tombol untuk membuat ticket baru yang akan diarahkan ke halaman membuat ticket. Desain antarmuka list ticket dapat dilihat pada gambar \ref{fig:antarmuka-list}.
+
+            \begin{figure}[H]
+                \centering \includegraphics[width=\textwidth]{images/antarmuka/list.png}
+                \caption{Antarmuka List Ticket}
+                \label{fig:antarmuka-list}
+            \end{figure}
+
+            \listsection{Antarmuka Membuat Ticket}
+            
+            Halaman pembuatan ticket merupakan halaman yang berasal dari halaman list ticket. Halaman ini hanya dapat diakses oleh seorang external user. Pada halaman ini user akan diberikan form untuk mengisikan informasi yang diperlukan untuk membuat ticket seperti product apa, prioritas dari ticket tersebut, kategori ticket, judul dari ticket, serta deskripsi kenapa ticket tersebut perlu dibuat.
+
+            \begin{figure}[H]
+                \centering \includegraphics[width=\textwidth]{images/antarmuka/create.png}
+                \caption{Antarmuka Membuat Ticket}
+                \label{fig:antarmuka-create}
+            \end{figure}
+
+            \listsection{Antarmuka Detail Ticket}
+
+            Halaman detail ticket memberikan informasi keseluruhan ticket tersebut. Informasi yang disampaikan berupa deskripsi ticket, judul ticket, status ticket, prioritas ticket, kategori ticket, dari product apa, dari company apa, siapa yang membuat, kapan di buat, kapan ada aktivitas terbaru di ticket tersebut, siapa yang mengerjakan, serta status pengerjaannya. User dengan role external user dapat merevisi dan menutup ticket yang ia buat. User dengan role product manager dapat memverifikasi atau mereject ticket yang baru dibuat, setelah dikerjakan product manager juga dapat memvalidasi pekerjaan developer dengan mengubah status menjadi done atau merevisi ulang. User dengan role developer hanya dapat mengubah status pengerjaan menjadi done untuk tugasnya. 
+
+            \begin{figure}[H]
+                \centering \includegraphics[width=\textwidth]{images/antarmuka/detail.png}
+                \caption{Antarmuka Detail Ticket}
+                \label{fig:antarmuka-detail}
+            \end{figure}
+    
         \end{enumerate}
-
     \end{enumerate}
+
 
 
 

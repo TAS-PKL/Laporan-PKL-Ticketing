@@ -1,5 +1,5 @@
 @startuml class diagram
-skinparam linetype polyline
+skinparam linetype ortho
 ' avoid problems with angled crows feet
 ' skinparam linetype ortho
 ' hide circle c
@@ -7,17 +7,19 @@ hide circle
 ' Hide the default visibility icons
 skinparam classAttributeIconSize 0
 
-' class ProductMemberRole <<entity>> {
-'   + id: INT
-'   - name: VARCHAR
-'   - code: VARCHAR
-' }
+'ok
+class ProductMemberRole <<entity>> {
+  ' + id: INT
+  - name: VARCHAR
+  - code: VARCHAR
+}
 
 ' class EmployeeCategory <<entity>> {
 '   - id: INT
 '   - name: VARCHAR
 ' }
 
+'ok
 class Employee <<entity>> {
 '   - id: INT
   - name: VARCHAR
@@ -26,6 +28,7 @@ class Employee <<entity>> {
 '   - employee_category_id: INT
 }
 
+'ok
 class ProductMember <<entity>> {
 '   - id: INT
 '   - product_id: INT
@@ -33,6 +36,7 @@ class ProductMember <<entity>> {
   - role: INT
 }
 
+'ok
 class Product <<entity>> {
 '   - id: INT
   - name: VARCHAR
@@ -41,21 +45,22 @@ class Product <<entity>> {
 '   - product_status_id: INT
 }
 
-' class TicketCategory <<entity>> {
-'   - id: INT
-'   - name: VARCHAR
-' }
-
-' class TicketPriority <<entity>> {
-'   - id: INT
-'   - name: VARCHAR
-' }
-
-' class TicketStatus <<entity>> {
-'   - id: INT
-'   - name: VARCHAR
-' }
-
+'ok
+class TicketCategory <<entity>> {
+  ' - id: INT
+  - name: VARCHAR
+}
+'ok
+class TicketPriority <<entity>> {
+  ' - id: INT
+  - name: VARCHAR
+}
+'ok
+class TicketStatus <<entity>> {
+  ' - id: INT
+  - name: VARCHAR
+}
+'ok
 class Ticket <<entity>> {
 '   - id: INT
 '   - ticket_category_id: INT
@@ -67,16 +72,18 @@ class Ticket <<entity>> {
   - attachment: TEXT
 }
 
-' class TicketMember <<entity>> {
-'   - id: INT
-'   - ticket_id: INT
-'   - employee_id: INT
-' }
+'ok
+class TicketMember <<entity>> {
+  ' - id: INT
+  - ticket_id: INT
+  - employee_id: INT
+}
 
-' class ProductStatus <<entity>>  {
-'   - id: INT
-'   - name: VARCHAR
-' }
+class Company <<entity>> {
+  ' - id: INT
+  - name: VARCHAR
+}
+
 
 class TicketController <<control>> {
     + create(title, description, attachment)
@@ -117,14 +124,17 @@ TicketDetailsPage -->  TicketController
 
 
 TicketController -->  Ticket
-' TicketCategory "1" *-- "n" Ticket : Categorizes
-' TicketPriority "1" *-- "n" Ticket : Categorizes
-' TicketStatus "1" *-- "n" Ticket : Categorizes
+TicketCategory "1" *-- "n" Ticket : Categorizes
+TicketPriority "1" *-- "n" Ticket : Categorizes
+TicketStatus "1" *-- "n" Ticket : Categorizes
 ' EmployeeCategory "1" *-- "n" Employee : Categorizes
-' ProductMemberRole "1" *-- "n" ProductMember : Specifies
+ProductMemberRole "1" *-- "n" ProductMember : Specifies
+Company "1" *-- "n" Product : create
 Product "1" *-- "n" ProductMember : Employs
 Employee "1" *-- "n" ProductMember : Works
 Employee "1" *-- "n" Product : Manages
 Product "1" *-- "n" Ticket : Issues
-Ticket "m" --- "n" ProductMember : Assigned to
+' Ticket "m" --- "n" ProductMember : Assigned to
+Ticket "1" --- "n" TicketMember : Assigned to
+ProductMember "1" --- "n"  TicketMember: Assigned to
 ' ProductStatus  "1" *-- "n" Product : Categorizes

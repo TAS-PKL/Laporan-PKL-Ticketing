@@ -1,0 +1,78 @@
+\documentclass{article}
+\usepackage{tocloft}
+\usepackage{titlesec}
+\usepackage{indentfirst}
+
+% Customize TOC
+\renewcommand{\cftpartfont}{\bfseries}
+\renewcommand{\cftsecfont}{\bfseries}
+\renewcommand{\cftsubsecfont}{}
+\renewcommand{\cftpartpagefont}{\bfseries}
+\renewcommand{\cftsecpagefont}{\bfseries}
+\renewcommand{\cftsubsecpagefont}{}
+
+% Adjust spacing
+\setlength{\cftbeforepartskip}{1em}
+\setlength{\cftbeforesecskip}{0.5em}
+\setlength{\cftbeforesubsecskip}{0.5em}
+
+% Customize section numbering
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+
+
+% Customize section formatting
+\titleformat{\section}{\normalfont\Large\bfseries}{BAB \Roman{section}}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+
+\begin{document}
+
+\tableofcontents
+
+\section*{DAFTAR ISI}
+\addcontentsline{toc}{section}{DAFTAR ISI}
+
+\section*{HALAMAN PENGESAHAN}
+\addcontentsline{toc}{section}{HALAMAN PENGESAHAN}
+
+\section*{ABSTRAK}
+\addcontentsline{toc}{section}{ABSTRAK}
+
+\section*{ABSTRACT}
+\addcontentsline{toc}{section}{ABSTRACT}
+
+\section*{KATA PENGANTAR}
+\addcontentsline{toc}{section}{KATA PENGANTAR}
+
+\section*{DAFTAR ISI}
+\addcontentsline{toc}{section}{DAFTAR ISI}
+
+\section*{DAFTAR GAMBAR}
+\addcontentsline{toc}{section}{DAFTAR GAMBAR}
+
+\section*{DAFTAR TABEL}
+\addcontentsline{toc}{section}{DAFTAR TABEL}
+
+\section{Pendahuluan}
+\subsection{Latar Belakang}
+\subsection{Rumusan Masalah}
+\subsection{Tujuan dan Manfaat}
+\subsection{Ruang Lingkup}
+\subsection{Sistematika Penulisan}
+
+\section{Tinjauan Perusahaan}
+\subsection{Profil Instansi}
+\subsection{Visi}
+\subsubsection{PT. Teknologi Aplikasi Sejahtera memiliki 4 Visi, yaitu}
+\subsection{Misi}
+\subsection{Struktur Organisasi}
+
+\section{Landasan Teori}
+\subsection{Sistem Informasi Berbasis Website}
+\subsection{Web Service}
+\subsection{Arsitektur Server-Client}
+
+\end{document}

@@ -19,7 +19,7 @@
 \usepackage{rotating} % rotating figure
 \usepackage[tableposition=top]{caption} % need to explain?
 \usepackage[none]{hyphenat} % no linebreak with -
-% \usepackage{showframe} % debugging
+\usepackage{showframe} % debugging
 \usepackage{natbib} % bib cite stuff
 \usepackage{chngcntr} % change counter
 \usepackage{afterpage} % change counter
@@ -41,7 +41,39 @@
 
 \usepackage{titlesec}
 
-\titleformat{\section}{\filcenter\normalfont\large\bfseries}{}{1em}{} 
+
+
+% Customize TOC
+\renewcommand{\cftsecfont}{\bfseries}
+\renewcommand{\cftsecpagefont}{\bfseries}
+\renewcommand{\cftsubsecfont}{}
+\renewcommand{\cftsubsecpagefont}{}
+\renewcommand{\cftsubsubsecfont}{}
+\renewcommand{\cftsubsubsecpagefont}{}
+
+
+% Add dot leaders
+\renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}
+
+
+\setlength{\cftbeforesecskip}{0.5em}
+\setlength{\cftbeforesubsecskip}{0.5em}
+\setlength{\cftbeforesubsubsecskip}{0.5em}
+
+% Customize section numbering
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+% Customize section formatting
+\titleformat{\section}[block]{\Large\bfseries\filcenter}{}{0em}{}
+\titleformat{\subsection}[hang]{\bfseries}{}{1em}{}
+% \titleformat{\section}{\normalfont\Large\bfseries}{BAB \Roman{section}}{1em}{}
+% \titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+% \titleformat{\subsubsection}{\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+
 
 \DeclareCaptionLabelFormat{nospace}{#1#2}
 \captionsetup[table]{name=Tabel }
@@ -69,7 +101,7 @@
 }
 \newcommand{\listsection}[1]{
     \item \textbf{#1}
-    \addcontentsline{toc}{section}{#1}
+    \addcontentsline{toc}{subsection}{#1}
 }
 
 
@@ -485,7 +517,7 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
 % ░██    ░░███ ░░████████ ░██     ░██░██    ░░███
 % ░░      ░░░   ░░░░░░░░  ░░      ░░ ░░      ░░░
 \newpage
-\section{BAB IV\\ANALISIS DAN PERANCANGAN}
+\section[BAB IV ANALISIS DAN PERANCANGAN]{BAB IV\\ANALISIS DAN PERANCANGAN}
 \setcounter{table}{0}
 \setcounter{figure}{0}
 % \begin{center}
@@ -496,14 +528,14 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
 % }
 % \end{center}
 
-
+Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil seperti yang modul ticket ini cocok untuk menggunakan metode waterfall adalah karena karakteristiknya yang sesuai dengan lingkup proyek yang terbatas. Metode waterfall terkenal karena pendekatannya yang linear dan terstruktur, di mana setiap tahap pengembangan dilakukan secara berurutan, mulai dari analisis kebutuhan hingga pengiriman produk akhir. Dalam kasus ticketing yang memiliki lingkup yang relatif kecil, pendekatan ini memberikan kejelasan dan keteraturan dalam proses pengembangan. Dengan demikian, pengembangan dapat dengan mudah memahami langkah-langkah yang diperlukan dan fokus pada tujuan yang ditetapkan.
 
 \begin{enumerate}[label=\textbf{4.\arabic*.}]
     \listsection{Requirement Elicitation}
 
     Analisis kebutuhan digunakan untuk mengidentifikasi kebutuhan sistem yang akan dibangun. Pada bagian ini, terdapat penjelasan mengenai deskripsi umum sistem, kebutuhan fungsional, kebutuhan non-fungsional, use case diagram, activity diagram, dan sequence diagram
 
-    \begin{enumerate}[label=\textbf{4.1.\arabic*.}, wide, labelwidth=!, labelindent=0pt]
+    \begin{enumerate}[label=\textbf{4.1.\arabic*.}]
         \listsection{Deskripsi Sistem}
 
         Modul Ticket dalam Sistem Informasi Manajemen Produk dan Ticketing di PT TAS adalah sebuah sistem yang dirancang untuk mengelola data bisnis dan transaksi terkait manajemen ticketing. Sistem ini memungkinkan berbagai aktor untuk berinteraksi dalam proses pembuatan, verifikasi, pengerjaan, dan penyelesaian ticket. Adapun beberapa role yang terlibat dalam sistem ini meliputi internal user sebagai product manager, internal user sebagai developer, dan external user sebagai PIC (Person in Charge) pembuatan ticket. Setiap ticket dalam sistem ini memiliki beberapa status, yaitu pending verification, in progress, done, closed, dan rejected. Berikut adalah alur transaksi yang terjadi pada setiap tahap ticket:
@@ -576,6 +608,7 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
         Sistem Informasi Manajemen Produk dan Ticketing bagian modul ticketing di PT. Teknologi Aplikasi Sejahtera memiliki beberapa kebutuhan fungsional yang harus dipenuhi untuk memastikan kinerja yang optimal dan mendukung pengguna dalam menjalankan tugas-tugas mereka dengan efisien. Kebutuhan fungsional ini dirancang untuk memenuhi proses bisnis dan alur kerja yang terlibat dalam manajemen ticketing. Daftar kebutuhan fungsional dapat dilihat pada tabel \ref{table:srs}.
 
         \begin{longtable}{|l|p{0.7\textwidth}|}
+            \caption{Kebutuhan fungsional} \label{table:srs}\\
             \hline
             \textbf{SRS ID} & \textbf{Deskripsi} \\
             \hline
@@ -624,8 +657,6 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
             \hline
             SRS-TKT-PIC-07 & External user dapat berkomunikasi dengan pihak internal (PM) melalui WA \\
             \hline
-            \caption{Kebutuhan fungsional}
-            \label{table:srs}
         \end{longtable}
 
         \listsection{Kebutuhan Non-Fungsional}
@@ -633,6 +664,7 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
         Setelah mengidentifikasi kebutuhan fungsional, langkah selanjutnya adalah mengidentifikasi kebutuhan non-fungsional. Kebutuhan non-fungsional ini berfungsi sebagai elemen pendukung yang memastikan bahwa sistem dapat berjalan dengan efektif dan efisien dalam memenuhi kebutuhan fungsionalnya. Daftar kebutuhan non-fungsional untuk sistem ini disajikan dalam tabel \ref{table:kebutuhan-non-fungsional}.
 
         \begin{longtable}{|c|p{0.85\textwidth}|}
+            \caption{Kebutuhan Non-Fungsional} \label{table:kebutuhan-non-fungsional} \\
             \hline
             \textbf{No} & \textbf{Deskripsi} \\
             \hline
@@ -649,15 +681,15 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
             \hline
             % 3 & Sistem menggunakan standar enkripsi HTTPS \\
             % \hline
-            \caption{Kebutuhan Non-Fungsional}
-            \label{table:kebutuhan-non-fungsional}
+
         \end{longtable}
 
         \listsection{Daftar Use Case}
 
-        Sistem Informasi Manajemen Produk dan Ticketing bagian ticketing di PT. Teknologi Aplikasi Sejahtera melibatkan beberapa use case yang mencakup berbagai interaksi antara pengguna dengan sistem. Use case ini menggambarkan berbagai skenario di mana aktor-aktor dalam sistem berinteraksi untuk mencapai tujuan tertentu. Deskripsi mendetail mengenai setiap use case dijelaskan pada tabel \ref{table:use-case}
+        Sistem Informasi Manajemen Produk dan Ticketing bagian ticketing di PT. Teknologi Aplikasi Sejahtera melibatkan beberapa use case yang mencakup berbagai interaksi antara pengguna dengan sistem. Use case ini menggambarkan berbagai skenario di mana aktor-aktor dalam sistem berinteraksi untuk mencapai tujuan tertentu. Deskripsi mendetail mengenai setiap use case dijelaskan pada tabel \ref{table:use-case}.
 
         \begin{longtable}{|l|p{0.6\textwidth}|}
+            \caption{Daftar Use Case} \label{table:use-case} \\
             \hline
             \textbf{Aktor} & \textbf{Deskripsi} \\
             \hline
@@ -691,8 +723,7 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
             & Dapat mengubah status tiket yang sudah selesai menjadi closed \\\cline{2-2}
             & Dapat berkomunikasi dengan pihak internal (PM) melalui WA \\\cline{2-2}
             \hline
-            \caption{Daftar Use Case}
-            \label{table:use-case}
+
         \end{longtable}
         
         \listsection{Use Case Diagram}
@@ -704,21 +735,27 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
             \caption{Use Case Diagram Ticketing}
             \label{fig:use-case}
         \end{figure}
-    
+    \end{enumerate}
 
+    \listsection{Analysis}
+
+    \begin{enumerate} [label=\textbf{4.2.\arabic*.}, wide, labelwidth=!, labelindent=0pt]
         \listsection{Activity Diagram}
 
         Berdasarkan use case yang telah ditentukan, berikut adalah activity diagram untuk Sistem Informasi Manajemen Produk dan Ticketing bagian ticketing di PT. Teknologi Aplikasi Sejahtera
 
-        \begin{enumerate}[label=\textbf{4.1.7.\arabic*.}, wide, labelwidth=!, labelindent=0pt]
+        \begin{enumerate}[label=\textbf{4.2.1.\arabic*.}, wide, labelwidth=!, labelindent=0pt]
             \listsection{Activity Diagram Internal User (Product Manager)}
             
-            \begin{enumerate}[label=\arabic*.]
+            \begin{enumerate}[label=\arabic*.,wide,labelindent=27pt]
                 \item Activity Diagram Melihat List Ticket
                 
-                \noindent ID Activity \quad : AD-PM-01
-
-                \noindent Deskripsi	  \quad : Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk melihat list ticket oleh seorang internal user dengan role product manager yang ditunjukkan pada gambar \ref{fig:AD-PM-01}.
+                % \noindent
+                \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
+                    \noindent ID Activity & : & AD-PM-01 \\
+                    \noindent Deskripsi & : &  Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk melihat list ticket oleh seorang internal user dengan role product manager yang ditunjukkan pada gambar \ref{fig:AD-PM-01}.
+                \end{tabularx}
+                
 
                 \begin{figure}[H]
                     \centering \includegraphics[width=0.8\textwidth]{images/activity/ipm/Melihat List Ticket.png}
@@ -974,7 +1011,7 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
 
         Berdasarkan activity diagram yang telah dibuat, berikut adalah sequence diagram untuk Sistem Informasi Manajemen Produk dan Ticketing bagian ticketing di PT. Teknologi Aplikasi Sejahtera
 
-        \begin{enumerate}[label=\textbf{4.1.7.\arabic*.}, wide, labelwidth=!, labelindent=0pt]
+        \begin{enumerate}[label=\textbf{4.2.2.\arabic*.}, wide, labelwidth=!, labelindent=0pt]
             \listsection{Sequence Diagram Internal User (Product Manager)}
             
             \begin{enumerate}[label=\arabic*.]
@@ -1341,6 +1378,9 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
                 \end{sidewaysfigure}
             \end{enumerate}
 
+            \listsection{Class Diagram}
+            Class diagram merupakan diagram yang menggambarkan kelas-kelas yang akan digunakan dalam perangkat lunak beserta hubungan antar kelas. Setiap kelas memiliki nama kelas, atribut, dan metode dari kelas yang dibuat. Berikut merupakan class diagram dari aplikasi Sistem Informasi Manajemen Produk dan Ticketing
+
         \end{enumerate}
 
           
@@ -1403,6 +1443,7 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
     Spesifikasi perangkat keras dan lunak yang digunakan dalam mengembangkan Sistem Informasi Manajemen Produk dan Ticketing bagian ticketing di PT. Teknologi Aplikasi Sejahtera.
 
     \begin{table}[h!]
+        \caption{Informasi Hardware pengembangan}
         \centering
         \begin{tabularx}{\linewidth}{ |l|X| }
             \hline
@@ -1423,7 +1464,6 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
             Web browser                & Google Chrome \\ %\addlinespace
             \hline
         \end{tabularx}
-        \caption{Informasi Hardware pengembangan}
         \label{table:hardware-pengembangan}
     \end{table}
 

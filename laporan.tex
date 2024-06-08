@@ -548,6 +548,8 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
             
             Status ini merupakan status ketika ticket dibuat oleh external user dan menunggu verifikasi dari product manager apakah ticket ini valid atau tidak. Jika ticket ini valid, ticket akan dialokasikan developer yang akan mengerjakannya dan ticket akan berubah statusnya menjadi in progress. Jika ticket tidak valid, status ticket akan berubah menjadi rejected.
             
+\vspace*{1cm}
+
             \item In progress
             
             Ticket saat status ini sedang dikerjakan para developer, tiap developer yang mengerjakan ticket ini juga memiliki status pengerjaan yang dapat dilihat oleh user lain. Ketika semua developer sudah ok, product manager dapat mengecek apakah pengerjaan ticket sudah sesuai atau belum. Jika sesuai, ticket akan masuk ke tahap done untuk divalidasi pembuat ticket. Jika tidak sesuai, status pengerjaan developer akan direset dan status ticket tidak berubah.
@@ -604,7 +606,6 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
             \end{enumerate}
 
         \end{enumerate}
-
 
         \listsection{Kebutuhan Fungsional}
 
@@ -734,11 +735,13 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
         Dari tabel yang telah dibuat pada daftar use case, kita dapat melihat hubungan interaksi antara aktor-aktor dalam sistem dengan menggunakan use case diagram. Berikut merupakan use case diagram yang menggambarkan interaksi tersebut yang dapat dilihat pada gambar \ref{fig:use-case}
 
         \begin{figure}[H]
-            \centering \includegraphics[width=\textwidth]{images/use-case.png}
+            \centering \includegraphics[width=0.8\textwidth]{images/use-case.png}
             \caption{Use Case Diagram Ticketing}
             \label{fig:use-case}
         \end{figure}
     \end{enumerate}
+
+    \newpage
 
     \listsection{Analysis}
 
@@ -761,7 +764,7 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 
 
                 \begin{figure}[H]
-                    \centering \includegraphics[width=0.8\textwidth]{images/activity/ipm/Melihat List Ticket.png}
+                    \centering \includegraphics[width=0.75\textwidth]{images/activity/ipm/Melihat List Ticket.png}
                     \caption{Activity Diagram Melihat List Ticket (PM)}
                     \label{fig:AD-PM-01}
                 \end{figure}
@@ -775,7 +778,7 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 \end{tabularx}
                 
                 \begin{figure}[H]
-                    \centering \includegraphics[width=0.8\textwidth]{images/activity/ipm/Memfilter List Ticket.png}
+                    \centering \includegraphics[width=0.75\textwidth]{images/activity/ipm/Memfilter List Ticket.png}
                     \caption{Activity Diagram Memfilter List Ticket (PM)}
                     \label{fig:AD-PM-02}
                 \end{figure}
@@ -790,7 +793,7 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 \end{tabularx}
 
                 \begin{figure}[H]
-                    \centering \includegraphics[width=0.8\textwidth]{images/activity/ipm/Melihat Detail Ticket.png}
+                    \centering \includegraphics[width=0.75\textwidth]{images/activity/ipm/Melihat Detail Ticket.png}
                     \caption{Activity Diagram Melihat Detail Ticket (PM)}
                     \label{fig:AD-PM-03}
                 \end{figure}
@@ -805,7 +808,7 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 \end{tabularx}
 
                 \begin{figure}[H]
-                    \centering \includegraphics[width=0.8\textwidth]{images/activity/ipm/Memverifikasi Ticket.png}
+                    \centering \includegraphics[width=0.75\textwidth]{images/activity/ipm/Memverifikasi Ticket.png}
                     \caption{Activity Diagram Memverifikasi Ticket (PM)}
                     \label{fig:AD-PM-04}
                 \end{figure}
@@ -821,7 +824,7 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 \end{tabularx}
 
                 \begin{figure}[H]
-                    \centering \includegraphics[width=0.8\textwidth]{images/activity/ipm/Menolak Ticket.png}
+                    \centering \includegraphics[width=0.75\textwidth]{images/activity/ipm/Menolak Ticket.png}
                     \caption{Activity Diagram Menolak Ticket (PM)}
                     \label{fig:AD-PM-05}
                 \end{figure}
@@ -836,7 +839,7 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 \end{tabularx}
 
                 \begin{figure}[H]
-                    \centering \includegraphics[width=0.8\textwidth]{images/activity/ipm/Merevisi Ticket.png}
+                    \centering \includegraphics[width=0.75\textwidth]{images/activity/ipm/Merevisi Ticket.png}
                     \caption{Activity Diagram Merevisi Ticket (PM)}
                     \label{fig:AD-PM-06}
                 \end{figure}
@@ -851,7 +854,7 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 \end{tabularx}
 
                 \begin{figure}[H]
-                    \centering \includegraphics[width=0.8\textwidth]{images/activity/ipm/Berkomunikasi Dengan External User Melalui Whatsapp.png}
+                    \centering \includegraphics[width=0.75\textwidth]{images/activity/ipm/Berkomunikasi Dengan External User Melalui Whatsapp.png}
                     \caption{Activity Diagram Berkomunikasi Dengan PM Melalui Whatsapp (PM)}
                     \label{fig:AD-PM-07}
                 \end{figure}
@@ -866,7 +869,7 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 \end{tabularx}
 
                 \begin{figure}[H]
-                    \centering \includegraphics[width=0.8\textwidth]{images/activity/ipm/Mengubah Status Ticket Menjadi Done.png}
+                    \centering \includegraphics[width=0.75\textwidth]{images/activity/ipm/Mengubah Status Ticket Menjadi Done.png}
                     \caption{Activity Diagram Mengubah Status Ticket Menjadi Done (PM)}
                     \label{fig:AD-PM-08}
                 \end{figure}
@@ -884,7 +887,7 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                     Deskripsi &	: & Activity Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk melihat list ticket oleh internal user dengan role developer yang ditunjukkan pada gambar \ref{fig:AD-DEV-01}.
                 \end{tabularx}
                 \begin{figure}[H]
-                    \centering \includegraphics[width=0.8\textwidth]{images/activity/idev/Melihat List Ticket.png}
+                    \centering \includegraphics[width=0.75\textwidth]{images/activity/idev/Melihat List Ticket.png}
                     \caption{Activity Diagram Melihat List Ticket (DEV)}
                     \label{fig:AD-DEV-01}
                 \end{figure}
@@ -899,7 +902,7 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 \end{tabularx}
 
                 \begin{figure}[H]
-                    \centering \includegraphics[width=0.8\textwidth]{images/activity/idev/Memfilter List Ticket.png}
+                    \centering \includegraphics[width=0.75\textwidth]{images/activity/idev/Memfilter List Ticket.png}
                     \caption{Activity Diagram Memfilter List Ticket (DEV)}
                     \label{fig:AD-DEV-02}
                 \end{figure}
@@ -914,7 +917,7 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 \end{tabularx}
 
                 \begin{figure}[H]
-                    \centering \includegraphics[width=0.8\textwidth]{images/activity/idev/Melihat Detail Ticket.png}
+                    \centering \includegraphics[width=0.75\textwidth]{images/activity/idev/Melihat Detail Ticket.png}
                     \caption{Activity Diagram Melihat Detail Ticket (DEV)}
                     \label{fig:AD-DEV-03}
                 \end{figure}
@@ -929,7 +932,7 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 \end{tabularx}
 
                 \begin{figure}[H]
-                    \centering \includegraphics[width=0.8\textwidth]{images/activity/idev/Melaporkan Pengerjaan Ticket.png}
+                    \centering \includegraphics[width=0.75\textwidth]{images/activity/idev/Melaporkan Pengerjaan Ticket.png}
                     \caption{Activity Diagram Melaporkan Pengerjaan Ticket (DEV)}
                     \label{fig:AD-DEV-04}
                 \end{figure}
@@ -947,7 +950,7 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 \end{tabularx}
                 
                 \begin{figure}[H]
-                    \centering \includegraphics[width=0.8\textwidth]{images/activity/ex/Melihat List Ticket.png}
+                    \centering \includegraphics[width=0.75\textwidth]{images/activity/ex/Melihat List Ticket.png}
                     \caption{Activity Diagram Melihat List Ticket (External User)}
                     \label{fig:AD-PIC-01}
                 \end{figure}
@@ -962,7 +965,7 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 \end{tabularx}
 
                 \begin{figure}[H]
-                    \centering \includegraphics[width=0.8\textwidth]{images/activity/ex/Memfilter List Ticket.png}
+                    \centering \includegraphics[width=0.75\textwidth]{images/activity/ex/Memfilter List Ticket.png}
                     \caption{Activity Diagram Memfilter List Ticket (External User)}
                     \label{fig:AD-PIC-02}
                 \end{figure}
@@ -977,7 +980,7 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 \end{tabularx}
 
                 \begin{figure}[H]
-                    \centering \includegraphics[width=0.8\textwidth]{images/activity/ex/Membuat Ticket.png}
+                    \centering \includegraphics[width=0.75\textwidth]{images/activity/ex/Membuat Ticket.png}
                     \caption{Activity Diagram Membuat Ticket (External User)}
                     \label{fig:AD-PIC-03}
                 \end{figure}
@@ -992,7 +995,7 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 \end{tabularx}
 
                 \begin{figure}[H]
-                    \centering \includegraphics[width=0.8\textwidth]{images/activity/ex/Melihat Detail Ticket.png}
+                    \centering \includegraphics[width=0.75\textwidth]{images/activity/ex/Melihat Detail Ticket.png}
                     \caption{Activity Diagram Melihat Detail Ticket (External User)}
                     \label{fig:AD-PIC-04}
                 \end{figure}
@@ -1007,7 +1010,7 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 \end{tabularx}
 
                 \begin{figure}[H]
-                    \centering \includegraphics[width=0.8\textwidth]{images/activity/ex/Menutup Ticket.png}
+                    \centering \includegraphics[width=0.75\textwidth]{images/activity/ex/Menutup Ticket.png}
                     \caption{Activity Diagram Menutup Ticket (External User)}
                     \label{fig:AD-PIC-05}
                 \end{figure}
@@ -1022,7 +1025,7 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 \end{tabularx}
 
                 \begin{figure}[H]
-                    \centering \includegraphics[width=0.8\textwidth]{images/activity/ex/Merevisi Ticket.png}
+                    \centering \includegraphics[width=0.75\textwidth]{images/activity/ex/Merevisi Ticket.png}
                     \caption{Activity Diagram Merevisi Ticket (External User)}
                     \label{fig:AD-PIC-06}
                 \end{figure}
@@ -1037,7 +1040,7 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 \end{tabularx}
 
                 \begin{figure}[H]
-                    \centering \includegraphics[width=0.8\textwidth]{images/activity/ex/berkomunikasi dengan PM melalui Whatsapp.png}
+                    \centering \includegraphics[width=0.75\textwidth]{images/activity/ex/berkomunikasi dengan PM melalui Whatsapp.png}
                     \caption{Activity Diagram Berkomunikasi Dengan PM Melalui Whatsapp (External User)}
                     \label{fig:AD-PIC-07}
                 \end{figure}
@@ -1643,6 +1646,68 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
 
 
         \listsection{Desain Antarmuka Aplikasi}
+
+        Berikut merupakan penjelasan rancangan desain antarmuka Sistem Informasi Manajemen Produk dan Ticketing bagian ticketing di PT. Teknologi Aplikasi Sejahtera:
+
+        \begin{enumerate}[label=\arabic*.]
+            \item Halaman List Ticket
+            
+            Pada halaman list ticket akan ditampilkan list ticket yang user sedang login memiliki tanggung jawab. Semisal sebagai PM maka seluruh tiket product yang di assign akan muncul dan jika sebagai external user maka semua ticket yang ia buat akan muncul di sini. Sebagai tambahan user dapat melakukan searching menggunakan kolom search. User juga bisa melakukan filter berdasarkan statusnya. User juga bisa melakukan sorting berdasarkan seberapa baru ticket itu dibuat. Jika user merasa tampilan dalam satu halaman terlalu sedikit atau terlalu banyak, user juga bisa mengatur banyaknya ticket yang ditampilkan dalam satu halaman. Khusus untuk external user, akan muncul tombol new ticket untuk membuat ticket baru. Tampilan mockup ui halaman list ticket dapat dilihat pada gambar \ref{fig:figma-list}.
+        
+            \begin{figure}[H]
+                \centering \includegraphics[width=0.9\textwidth]{images/figma/[Project Manager] Tickets.png}
+                \caption{Prototype List Ticket}
+                \label{fig:figma-list}
+            \end{figure}
+
+            \item Halaman Membuat Ticket
+        
+            Untuk external user yang ingin membuat ticket, akan diteruskan ke halaman ini, user akan mengisi informasi yang diperlukan untuk membuat ticket dengan field yang wajib adalah project, tingkat prioritas, judul atau nama ticket, serta deskripsi permasalahan. User dapat menambahkan attachment untuk memberikan tambahan informasi jika tidak dapat dijelaskan menggunakan kata kata. Tampilan mockup ui halaman pembuatan ticket dapat dilihat pada gambar \ref{fig:figma-create}.
+
+            \begin{figure}[H]
+                \centering \includegraphics[width=0.9\textwidth]{images/figma/[Client] Ticket Create.png}
+                \caption{Prototype Create Ticket}
+                \label{fig:figma-create}
+            \end{figure}
+        
+
+            \item Halaman Detail Ticket
+
+            Halaman ini adalah halaman di mana transaksi ticket berlangsung. Fungsionalitas halaman ini akan berubah tergantung role user dan kondisi ticket. Ketika ticket menunggu verifikasi, hanya product manager yang dapat memverifikasi ticket tersebut atau menolak ticket tersebut. Jika product manager memilih untuk memverifikasi ticket tersebut, akan muncul popup untuk memilih developer mana yang akan mengerjakan ticket tersebut. Developer yang mengerjakan ticket tersebut dapat melaporkan pekerjaannya dengan menekan tombol done. Setelah semua developer sudah OK, product manager dapat melakukan pengecekan apakah pekerjaan sudah selesai dan benar. Jika belum progress pekerjaan developer akan direset ulang. Jika sudah, ticket akan ke tahap selanjutnya untuk divalidasi dari sisi client atau pembuat ticket. Jika tidak sesuai maka akan dikembalikan ke fase pengerjaan, jika sesuai ticket akan menjadi closed. Tampilan mockup ui halaman detail ticket dapat dilihat pada gambar \ref{fig:figma-details}.
+
+            \begin{figure}[H]
+                \centering \includegraphics[width=0.9\textwidth]{images/figma/[Project Manager] Tickets Details.png}
+                \caption{Prototype Ticket Details}
+                \label{fig:figma-details}
+            \end{figure}
+
+            \item Popup Verify Ticket
+            
+
+            \begin{figure}[H]
+                \centering \includegraphics[width=0.9\textwidth]{images/figma/Verify Ticket.png}
+                \caption{Prototype Popup Verify Ticket}
+                \label{fig:figma-verify}
+            \end{figure}
+            
+            \item Popup Reject Ticket
+            
+            \begin{figure}[H]
+                \centering \includegraphics[width=0.9\textwidth]{images/figma/Reject Ticket.png}
+                \caption{Prototype Popup Reject Ticket}
+                \label{fig:figma-reject}
+            \end{figure}
+            
+            \item Popup Revise Ticket
+            
+            \begin{figure}[H]
+                \centering \includegraphics[width=0.9\textwidth]{images/figma/Revise Ticket.png}
+                \caption{Prototype Popup Revise Ticket}
+                \label{fig:figma-revise}
+            \end{figure}
+
+
+        \end{enumerate}
     \end{enumerate}
 
     asd \citep{doe2021} dan  \citep{smith2020}

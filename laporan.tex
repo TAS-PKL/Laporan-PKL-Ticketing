@@ -1072,9 +1072,9 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar \ref{fig:SQ-PM-01}:
 
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
-                    Class Boundary &	: &  TicketPage \\
-                    Class Control &	: &  TicketController \\
-                    Class Entity &	: &  User, Employee, Ticket, Ticket Member, Product Member, Ticket Category, Ticket Status, dan Ticket Priority
+                    Class Boundary & : &  Ticket List Page \\
+                    Class Control  & : &  Ticket Controller \\
+                    Class Entity   & : &  User, Employee, Ticket, Ticket Member, Product Member, Ticket Category, Ticket Status, dan Ticket Priority
 
                 \end{tabularx}
             
@@ -1083,16 +1083,16 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
                     ID Sequence &	: & SQ-PM-02 \\
-                    Deskripsi &	: & Sequence Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk memfilter ticket oleh seorang internal user dengan role product manager. 
+                    Deskripsi &	: & Sequence Diagram yang ditunjukkan pada gambar \ref{fig:SQ-PM-02} merupakan sebuah proses aktivitas yang dilakukan untuk memfilter ticket oleh seorang internal user dengan role product manager. 
         
                 \end{tabularx}
 
-                \noindent Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar 4.22:
+                \noindent Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan \ref{fig:SQ-PM-02}:
 
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
                     Class Boundary & : & TicketPage \\
                     Class Control & : & TicketController \\
-                    Class Entity & : &  User, Employee, Ticket, Ticket Member, Product Member, Ticket Category, Ticket Status, Ticket Priority
+                    Class Entity & : &  User, Employee, Ticket, Ticket Member, Product Member, Ticket Category, Ticket Status, dan Ticket Priority
                     
                 \end{tabularx}
 
@@ -1101,16 +1101,16 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
                     ID Sequence &	: & SQ-PM-03 \\
-                    Deskripsi &	: & Sequence Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk melihat detail ticket oleh seorang internal user dengan role product manager. 
+                    Deskripsi &	: & Sequence Diagram yang ditunjukkan pada gambar \ref{fig:SQ-PM-03} merupakan sebuah proses aktivitas yang dilakukan untuk melihat detail ticket oleh seorang internal user dengan role product manager. 
         
                 \end{tabularx}
 
-                \noindent Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar 4.23:
+                \noindent Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar \ref{fig:SQ-PM-03}:
 
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
-                    Class Boundary & : & TicketPage \\
+                    Class Boundary & : & Ticket List Page dan Ticket Details Page\\
                     Class Control & : & TicketController \\
-                    Class Entity & : & Ticket
+                    Class Entity & : & Ticket, Product, Company, Ticket Category, Ticket Status, Ticket Priority, Ticket Member, Product Member,Ticket Member Role, dan Employee
                 
                 \end{tabularx}
                 
@@ -1118,16 +1118,16 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
                     ID Sequence &	: & SQ-PM-04 \\
-                    Deskripsi &	: & Sequence Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk memverifikasi ticket yang dibuat external user oleh seorang internal user dengan role product manager. 
+                    Deskripsi &	: & Sequence Diagram yang ditunjukkan pada gambar \ref{fig:SQ-PM-04}  merupakan sebuah proses aktivitas yang dilakukan untuk memverifikasi ticket yang dibuat external user oleh seorang internal user dengan role product manager. 
         
                 \end{tabularx}
 
-                \noindent Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar 4.24:
+                \noindent Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar \ref{fig:SQ-PM-04}:
 
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
-                    Class Boundary & : & TicketPage \\
-                    Class Control & : & TicketController \\
-                    Class Entity & : & Ticket
+                    Class Boundary & : & Ticket Details Page dan Ticket Verify Form \\
+                    Class Control & : & Ticket Controller \\
+                    Class Entity & : & Ticket, Product Member, dan Ticket Member
                 
                 \end{tabularx}
                 
@@ -1135,16 +1135,16 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
                     ID Sequence &	: & SQ-PM-05 \\
-                    Deskripsi &	: & Sequence Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk menolak ticket yang dibuat external user oleh seorang internal user dengan role product manager. 
+                    Deskripsi &	: & Sequence Diagram yang ditunjukkan pada gambar \ref{fig:SQ-PM-05} merupakan sebuah proses aktivitas yang dilakukan untuk menolak ticket yang dibuat external user oleh seorang internal user dengan role product manager. 
         
                 \end{tabularx}
 
-                \noindent Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar 4.25:
+                \noindent Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar \ref{fig:SQ-PM-05}:
 
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
-                    Class Boundary & : & TicketPage \\
-                    Class Control & : & TicketController \\
-                    Class Entity & : & Ticket, ProductMember, TicketMember  
+                    Class Boundary & : & Ticket Details Page dan Ticket Reject Form \\
+                    Class Control & : & Ticket Controller \\
+                    Class Entity & : & Ticket 
                 
                 \end{tabularx}
 
@@ -1152,14 +1152,14 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
                     ID Sequence &	: & SQ-PM-06 \\
-                    Deskripsi &	: & Sequence Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk merevisi ticket yang telah dikerjakan developer oleh seorang internal user dengan role product manager. 
+                    Deskripsi &	: & Sequence Diagram yang ditunjukkan pada gambar \ref{fig:SQ-PM-06} merupakan sebuah proses aktivitas yang dilakukan untuk merevisi ticket yang telah dikerjakan developer oleh seorang internal user dengan role product manager. 
         
                 \end{tabularx}
 
-                \noindent Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar 4.26:
+                \noindent Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar \ref{fig:SQ-PM-06}:
 
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
-                    Class Boundary & : & TicketPage \\
+                    Class Boundary & : & Ticket Details Page dan Ticket Revise Form\\
                     Class Control & : & TicketController \\
                     Class Entity & : & Ticket
                 
@@ -1170,16 +1170,16 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
                     ID Sequence &	: & SQ-PM-07 \\
-                    Deskripsi &	: & Sequence Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk berkomunikasi dengan external user oleh seorang internal user dengan role product manager. 
+                    Deskripsi &	: & Sequence Diagram yang ditunjukkan pada gambar \ref{fig:SQ-PM-07} merupakan sebuah proses aktivitas yang dilakukan untuk berkomunikasi dengan external user oleh seorang internal user dengan role product manager. 
         
                 \end{tabularx}
 
-                \noindent Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar 4.27:
+                \noindent Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar \ref{fig:SQ-PM-07}:
 
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
-                    Class Boundary & : & TicketPage \\
+                    Class Boundary & : & Ticket Details Page \\
                     Class Control & : & TicketController \\
-                    Class Entity & : & Ticket
+                    Class Entity & : & Ticket, Ticket Member, Product Member, dan Employee
                 
                 \end{tabularx}
 
@@ -1188,14 +1188,14 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
                     ID Sequence &	: & SQ-PM-08 \\
-                    Deskripsi &	: & Sequence Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk mengubah status ticket menjadi done oleh internal user dengan role product manager. 
+                    Deskripsi &	: & Sequence Diagram yang ditunjukkan pada gambar \ref{fig:SQ-PM-08} merupakan sebuah proses aktivitas yang dilakukan untuk mengubah status ticket menjadi done oleh internal user dengan role product manager. 
         
                 \end{tabularx}
 
-                \noindent Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar 4.28:
+                \noindent Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar \ref{fig:SQ-PM-08}:
 
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
-                    Class Boundary & : & TicketPage \\
+                    Class Boundary & : & Ticket Details Page \\
                     Class Control & : & TicketController \\
                     Class Entity & : & Ticket
                 
@@ -1259,16 +1259,16 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
                     ID Sequence &	: & SQ-DEV-01 \\
-                    Deskripsi &	: & Sequence Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk melihat list ticket oleh internal user dengan role developer. 
+                    Deskripsi &	: & Sequence Diagram yang ditunjukkan pada gambar \ref{fig:SQ-DEV-01} merupakan sebuah proses aktivitas yang dilakukan untuk melihat list ticket oleh internal user dengan role developer. 
         
                 \end{tabularx}
 
-                \noindent Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar 4.29:
+                \noindent Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar \ref{fig:SQ-DEV-01}:
 
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
-                    Class Boundary & : & TicketPage \\
-                    Class Control & : & TicketController \\
-                    Class Entity & : & Ticket
+                    Class Boundary & : &  Ticket List Page \\
+                    Class Control  & : &  Ticket Controller \\
+                    Class Entity   & : &  User, Employee, Ticket, Ticket Member, Product Member, Ticket Category, Ticket Status, dan Ticket Priority
                 
                 \end{tabularx}
                 
@@ -1276,16 +1276,16 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
                     ID Sequence &	: & SQ-DEV-02 \\
-                    Deskripsi &	: & Sequence Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk memfilter list ticket oleh internal user dengan role developer. 
+                    Deskripsi &	: & Sequence Diagram yang ditunjukkan pada gambar \ref{fig:SQ-DEV-02} merupakan sebuah proses aktivitas yang dilakukan untuk memfilter list ticket oleh internal user dengan role developer. 
         
                 \end{tabularx}
 
-                \noindent Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar 4.30:
+                \noindent Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar \ref{fig:SQ-DEV-02}:
 
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
                     Class Boundary & : & TicketPage \\
                     Class Control & : & TicketController \\
-                    Class Entity & : & Ticket
+                    Class Entity & : &  User, Employee, Ticket, Ticket Member, Product Member, Ticket Category, Ticket Status, dan Ticket Priority
                 
                 \end{tabularx}
                 
@@ -1293,16 +1293,16 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
                     ID Sequence &	: & SQ-DEV-03 \\
-                    Deskripsi &	: & Sequence Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk melihat detail ticket oleh internal user dengan role developer. 
+                    Deskripsi &	: & Sequence Diagram yang ditunjukkan pada gambar \ref{fig:SQ-DEV-03} merupakan sebuah proses aktivitas yang dilakukan untuk melihat detail ticket oleh internal user dengan role developer. 
         
                 \end{tabularx}
 
-                \noindent Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar 4.31:
+                \noindent Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar \ref{fig:SQ-DEV-03}:
 
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
-                    Class Boundary & : & TicketPage \\
+                    Class Boundary & : & Ticket List Page dan Ticket Details Page\\
                     Class Control & : & TicketController \\
-                    Class Entity & : & Ticket
+                    Class Entity & : & Ticket, Product, Company, Ticket Category, Ticket Status, Ticket Priority, Ticket Member, Product Member,Ticket Member Role, dan Employee
                 
                 \end{tabularx}
                 
@@ -1310,16 +1310,16 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
                     ID Sequence &	: & SQ-DEV-04 \\
-                    Deskripsi &	: & Sequence Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk melaporkan pengerjaan ticket oleh internal user dengan role developer. 
+                    Deskripsi &	: & Sequence Diagram yang ditunjukkan pada gambar \ref{fig:SQ-DEV-04} merupakan sebuah proses aktivitas yang dilakukan untuk melaporkan pengerjaan ticket oleh internal user dengan role developer. 
         
                 \end{tabularx}
 
-                \noindent Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar 4.32:
+                \noindent Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar \ref{fig:SQ-DEV-04}:
 
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
-                    Class Boundary & : & TicketPage \\
-                    Class Control & : & TicketController \\
-                    Class Entity & : & Ticket
+                    Class Boundary & : & Ticket Details Page \\
+                    Class Control & : & Ticket Controller \\
+                    Class Entity & : & Ticket dan Ticket Member
                 
                 \end{tabularx}
 
@@ -1359,16 +1359,16 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
                     ID Sequence &	: & SQ-PIC-01 \\
-                    Deskripsi &	: & Sequence Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk melihat list ticket oleh seorang external user. 
+                    Deskripsi &	: & Sequence Diagram yang ditunjukkan pada gambar \ref{fig:SQ-PIC-01} merupakan sebuah proses aktivitas yang dilakukan untuk melihat list ticket oleh seorang external user. 
         
                 \end{tabularx}
 
-                \noindent Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar 4.33:
+                \noindent Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar \ref{fig:SQ-PIC-01}:
 
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
-                    Class Boundary & : & TicketPage \\
-                    Class Control & : & TicketController \\
-                    Class Entity & : & Ticket
+                    Class Boundary & : &  Ticket List Page \\
+                    Class Control  & : &  Ticket Controller \\
+                    Class Entity   & : &  User, Employee, Ticket, Ticket Member, Product Member, Ticket Category, Ticket Status, dan Ticket Priority
                 
                 \end{tabularx}
 
@@ -1376,16 +1376,16 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
                     ID Sequence &	: & SQ-PIC-02 \\
-                    Deskripsi &	: & Sequence Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk memfilter ticket oleh seorang external user. 
+                    Deskripsi &	: & Sequence Diagram yang ditunjukkan pada gambar \ref{fig:SQ-PIC-02} merupakan sebuah proses aktivitas yang dilakukan untuk memfilter ticket oleh seorang external user. 
         
                 \end{tabularx}
 
-                \noindent Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar 4.34:
+                \noindent Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar \ref{fig:SQ-PIC-02}:
 
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
                     Class Boundary & : & TicketPage \\
                     Class Control & : & TicketController \\
-                    Class Entity & : & Ticket
+                    Class Entity & : &  User, Employee, Ticket, Ticket Member, Product Member, Ticket Category, Ticket Status, dan Ticket Priority
                 
                 \end{tabularx}
 
@@ -1393,16 +1393,16 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
                     ID Sequence &	: & SQ-PIC-03 \\
-                    Deskripsi &	: & Sequence Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk membuat ticket oleh seorang external user. 
+                    Deskripsi &	: & Sequence Diagram yang ditunjukkan pada gambar \ref{fig:SQ-PIC-03} merupakan sebuah proses aktivitas yang dilakukan untuk membuat ticket oleh seorang external user. 
         
                 \end{tabularx}
 
-                \noindent Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar 4.35:
+                \noindent Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar \ref{fig:SQ-PIC-03}:
 
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
-                    Class Boundary & : & TicketPage \\
+                    Class Boundary & : & Ticket List Page dan Ticket Create Page\\
                     Class Control & : & TicketController \\
-                    Class Entity & : & Ticket
+                    Class Entity & : & Ticket, Product, Ticket Category, Ticket Status, Ticket Priority, Ticket Member, Product Member, dan Employee
                 
                 \end{tabularx}
                 
@@ -1410,32 +1410,32 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
                     ID Sequence &	: & SQ-PIC-04 \\
-                    Deskripsi &	: & Sequence Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk melihat detail ticket oleh seorang external user. 
+                    Deskripsi &	: & Sequence Diagram yang ditunjukkan pada gambar \ref{fig:SQ-PIC-04} merupakan sebuah proses aktivitas yang dilakukan untuk melihat detail ticket oleh seorang external user. 
         
                 \end{tabularx}
 
-                \noindent Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar 4.36:
+                \noindent Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar \ref{fig:SQ-PIC-04}:
 
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
-                    Class Boundary & : & TicketPage \\
+                    Class Boundary & : & Ticket List Page dan Ticket Details Page\\
                     Class Control & : & TicketController \\
-                    Class Entity & : & Ticket
-                
+                    Class Entity & : & Ticket, Product, Company, Ticket Category, Ticket Status, Ticket Priority, Ticket Member, Product Member,Ticket Member Role, dan Employee
+
                 \end{tabularx}
                 
                 \item Sequence Diagram Menutup Ticket
                 
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
                     ID Sequence &	: & SQ-PIC-05 \\
-                    Deskripsi &	: & Sequence Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk menutup ticket oleh seorang external user. 
+                    Deskripsi &	: & Sequence Diagram yang ditunjukkan pada gambar \ref{fig:SQ-PIC-05} merupakan sebuah proses aktivitas yang dilakukan untuk menutup ticket oleh seorang external user. 
         
                 \end{tabularx}
 
-                \noindent Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar 4.37:
+                \noindent Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar \ref{fig:SQ-PIC-05}:
 
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
-                    Class Boundary & : & TicketPage \\
-                    Class Control & : & TicketController \\
+                    Class Boundary & : & Ticket Details Page \\
+                    Class Control & : & Ticket Controller \\
                     Class Entity & : & Ticket
                 
                 \end{tabularx}
@@ -1444,14 +1444,14 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
                     ID Sequence &	: & SQ-PIC-06 \\
-                    Deskripsi &	: & Sequence Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk merevisi ticket oleh seorang external user. 
+                    Deskripsi &	: & Sequence Diagram yang ditunjukkan pada gambar \ref{fig:SQ-PIC-06} merupakan sebuah proses aktivitas yang dilakukan untuk merevisi ticket oleh seorang external user. 
         
                 \end{tabularx}
 
-                \noindent Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar 4.38:
+                \noindent Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar \ref{fig:SQ-PIC-06}:
 
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
-                    Class Boundary & : & TicketPage \\
+                    Class Boundary & : & Ticket Details Page dan Ticket Revise Form\\
                     Class Control & : & TicketController \\
                     Class Entity & : & Ticket
                 
@@ -1461,23 +1461,19 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
                     ID Sequence &	: & SQ-PIC-07 \\
-                    Deskripsi &	: & Sequence Diagram berikut merupakan sebuah proses aktivitas yang dilakukan untuk berkomunikasi dengan Product Manager oleh seorang external user. 
+                    Deskripsi &	: & Sequence Diagram yang ditunjukkan pada gambar \ref{fig:SQ-PIC-07} merupakan sebuah proses aktivitas yang dilakukan untuk berkomunikasi dengan Product Manager oleh seorang external user. 
         
                 \end{tabularx}
 
-                \noindent Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar 4.39:
+                \noindent Berikut merupakan class class yang ada pada sequence diagram yang ditunjukkan pada gambar \ref{fig:SQ-PIC-07}:
 
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
-                    Class Boundary & : & TicketPage \\
+                    Class Boundary & : & Ticket Details Page \\
                     Class Control & : & TicketController \\
-                    Class Entity & : & Ticket
+                    Class Entity & : & Ticket, Ticket Member, Product Member, dan Employee
                 
                 \end{tabularx}
 
-
-
-
-                
                 
                 \begin{sidewaysfigure}
                     \centering \includegraphics[width=\textwidth]{out/plantuml/sequence/ex/ex1/Melihat List Ticket.png}
@@ -1794,10 +1790,12 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
     \begin{enumerate}[label=\textbf{5.1.\arabic*.}]
         \listsection{Implementasi Back End}
 
-        Berikut merupakan sebagian fungsi yang diimplementasikan di backend menggunakan PHP dengan framework Laravel. Pengimplementasian kode menggunakan gaya campuran antara ORM Eloquent dan query builder.
+        Berikut adalah sebagian fungsi yang diimplementasikan di backend menggunakan PHP dengan framework Laravel. Pengimplementasian kode menggunakan gaya campuran antara ORM Eloquent dan query builder.
 
-        \begin{enumerate}
+        \begin{enumerate}[label=\arabic*.,wide, labelwidth=!, labelindent=0pt]
             \item Create Ticket
+            
+            Create ticket merupakan fungsi yang tujuannya membuat ticket. Langkah pertama dari create ticket adalah validasi input. Input yang diambil lewat request dipastikan sudah memenuhi standar. Setelah divalidasi akan diambil product manager dari product dari ticket yang bersangkutan melalu ProductMember. Setelah mendapatkan data product manager, kita akan membuat Ticket, kemudian dua TicketMember awal yakni Product Manager dan PIC. Setelah itu ticket yang baru dibuat akan dikirim sebagai return value.
             
             \begin{lstlisting}
 public function create(Request $request) {
@@ -1845,6 +1843,8 @@ public function create(Request $request) {
 
             \item List Ticket
             
+
+            
             \begin{lstlisting}
 public function get_ticket_list_by_logged_in_user(Request $request) {
     $user = auth('api')->user();
@@ -1869,7 +1869,6 @@ public function get_ticket_list_by_logged_in_user(Request $request) {
             
         ], [], array_merge([
             "ticket_members.product_member_id IN ($product_member_id_commas)"
-            // OR tickets.created_by = $user_id"
         ], $additional_filter)
     );
 
@@ -1981,10 +1980,6 @@ public function show(Request $request, $id) {
             \end{lstlisting}
 
         \end{enumerate}
-
-        
-        
-
 
         
         \listsection{Implementasi Front End}

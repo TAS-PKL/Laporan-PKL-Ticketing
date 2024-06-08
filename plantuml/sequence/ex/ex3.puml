@@ -7,10 +7,13 @@ hide footbox
 actor EU as "__: External User__"
 boundary TicketListPage as "__: Ticket List Page__"
 boundary TicketCreatePage as "__: Ticket Create Page__"
-control TicketController as "__: TicketController__"
+control TicketController as "__: Ticket Controller__"
 entity Ticket as "__: Ticket__"
 entity TicketCategories as "__: Ticket Category__"
 entity TicketPriorities as "__: Ticket Priority__"
+entity Product as "__: Products__"
+entity TicketMember as "__: Ticket Member__"
+entity ProductMembers as "__: Product Member__"
 
 
 autonumber 1
@@ -28,6 +31,12 @@ activate TicketCategories
 
 TicketCategories --> TicketController : Ticket categories
 deactivate TicketCategories
+
+TicketController -> Product: getProducts()
+activate Product
+
+Product --> TicketController : Products
+deactivate Product
 
 
 TicketController -> TicketPriorities: getTicketPriorities()
@@ -49,11 +58,29 @@ activate TicketController
 TicketController -> TicketController: validate()
 TicketController -> TicketController: setStatusToPending()
 
+TicketController -> ProductMembers: getProductMembers()
+activate ProductMembers
+
+ProductMembers --> TicketController : ProductMembers
+deactivate ProductMembers
+
 TicketController -> Ticket: createTicket()
 activate Ticket
 
 Ticket --> TicketController : Ticket
 deactivate Ticket
+
+TicketController -> TicketMember: createTicketPM()
+activate TicketMember
+
+TicketMember --> TicketController : TicketMember
+deactivate TicketMember
+
+TicketController -> TicketMember: createTicketPIC()
+activate TicketMember
+
+TicketMember --> TicketController : TicketMember
+deactivate TicketMember
 
 TicketController --> TicketCreatePage : Ticket
 deactivate TicketController

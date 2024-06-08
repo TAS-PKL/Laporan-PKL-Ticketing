@@ -5,7 +5,6 @@ hide footbox
 
 actor IPM as "__: Product Manager__"
 boundary TicketPage as "__: Ticket Details Page__"
-boundary TicketRejectPage as "__: Ticket RejectPage__"
 control TicketController as "__: Ticket Controller__"
 entity Ticket as "__: Ticket__"
 
@@ -14,12 +13,16 @@ autonumber 1
 IPM -> TicketPage: Membuka detail ticket
 activate TicketPage
 
-TicketPage -> TicketRejectPage : Memilih tombol\ndone
-activate TicketRejectPage
+TicketPage --> IPM: Halaman detail Ticket
 
 
-TicketRejectPage -> TicketController: doneTicket()
+IPM -> TicketPage : Memilih tombol\ndone
+
+TicketPage -> TicketController: doneTicket()
 activate TicketController
+
+
+
 
 TicketController -> TicketController: validate()
 
@@ -29,13 +32,12 @@ activate Ticket
 Ticket --> TicketController : Ticket
 deactivate Ticket
 
-TicketController --> TicketRejectPage : Pesan ticket berhasil diubah
+TicketController --> TicketPage : Pesan ticket berhasil diubah statusnya menjadi done
 deactivate TicketController
 
-TicketRejectPage --> TicketPage : Pesan ticket\nberhasil berubah\nstatus menjadi done
-deactivate TicketRejectPage
+' TicketPage -> TicketPage : Pesan ticket berhasil \n berubah status menjadi done
 
-TicketPage --> IPM : Halaman detail ticket\nyang sudah diupdate\nmenjadi rejected
+TicketPage --> IPM : Halaman detail ticket yang sudah \n diupdate menjadi rejected
 deactivate TicketPage
 
 

@@ -1,0 +1,62 @@
+@startuml package diagram
+' Tentukan layout
+skinparam linetype ortho
+
+title "Package Diagram IT Service Desk PT Teknologi Aplikasi Sejahtera Modul Ticketing"
+
+folder "Subsistem Akses Data Ticket" as akses
+
+folder "Subsistem List Data Ticket" as list
+
+folder "Subsistem Pencarian Ticket" as pencarian
+
+folder "Subsistem Detail Data Ticket" as detail
+
+folder "Subsistem Pembuatan Ticket" as buat
+
+folder "Subsistem Pengurusan Ticket" as manage
+
+
+pencarian --> list
+list -> akses
+detail -> akses
+buat -> akses
+manage -> akses
+
+
+' Tentukan node
+' node "Klien ReactJS" as React {
+'     [Aplikasi React]
+'     node "Web Browser" as Browser {
+'         [Halaman Web]
+'     }
+' }
+
+' node "Web Server" as Web {
+'     folder "Aplikasi Laravel" {
+'         [Controller]
+'         [Model]
+'     }
+'     database "Basis Data" {
+'         [PostgreSQL]
+'     }
+' }
+
+' node "Load Balancer" as API {
+'     [Proxy Web Internal]
+' }
+
+' cloud "Internet" {
+' }
+
+' ' Tentukan hubungan
+' React -- API : HTTPS > JSON/API
+' API --> Web : Rute Permintaan API
+' Web --> "Basis Data" : SQL > Query
+' Web ..> React : Layani Respons API
+
+' ' Deskripsi tambahan
+' note right of React : Sisi Klien\nSPA ReactJS
+' note right of Web : Sisi Server\nBackend Laravel
+
+@enduml

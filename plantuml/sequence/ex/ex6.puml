@@ -1,31 +1,27 @@
 @startuml Merevisi Ticket
 
+' title "Menolak Ticket"
 hide footbox
 
-'title "Merevisi Ticket"
-
-actor EU as "__: External User__"
-boundary TicketPage as "__: TicketPage__"
-control TicketController as "__: TicketController__"
+actor IPM as "__: External User__"
+boundary TicketDetailsPage as "__: Ticket Details Page__"
+boundary TicketRevisePage as "__: Ticket Revise Page__"
+control TicketController as "__: Ticket Controller__"
 entity Ticket as "__: Ticket__"
 
 autonumber 1
 'list
-EU -> TicketPage: Memilih ticket
-activate TicketPage
+IPM -> TicketDetailsPage: Melihat detail ticket
+activate TicketDetailsPage
 
-TicketPage --> EU: Halaman detail ticket
-deactivate TicketPage
+TicketDetailsPage -> TicketRevisePage : Memilih tombol\nRevise
+activate TicketRevisePage
 
 
-EU -> TicketPage: Revise dengan alasan
-activate TicketPage
-
-TicketPage -> TicketController: revise()
+TicketRevisePage -> TicketController: reviseTicket()
 activate TicketController
 
 TicketController -> TicketController: validate()
-
 
 TicketController -> Ticket: setTicketStatus()
 activate Ticket
@@ -33,11 +29,16 @@ activate Ticket
 Ticket --> TicketController : Ticket
 deactivate Ticket
 
-TicketController --> TicketPage : Ticket
+TicketController --> TicketRevisePage : Pesan ticket berhasil direvisi
 deactivate TicketController
 
-TicketPage --> EU : Halaman detail ticket yang sudah\ndiupdate menjadi in progress
-deactivate TicketPage
+TicketRevisePage -> TicketDetailsPage : Menutup halaman
+deactivate TicketRevisePage
+
+TicketDetailsPage --> IPM : Halaman detail ticket\nyang sudah diupdate\nmenjadi Reviseed
+deactivate TicketDetailsPage
 
 
 @enduml
+
+

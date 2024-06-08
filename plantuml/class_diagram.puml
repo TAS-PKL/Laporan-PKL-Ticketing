@@ -9,19 +9,12 @@ skinparam classAttributeIconSize 0
 
 'ok
 class ProductMemberRole <<entity>> {
-  ' + id: INT
   - name: VARCHAR
   - code: VARCHAR
 }
 
-' class EmployeeCategory <<entity>> {
-'   - id: INT
-'   - name: VARCHAR
-' }
-
 'ok
 class Employee <<entity>> {
-'   - id: INT
   - name: VARCHAR
   - email: VARCHAR
   - phone: VARCHAR
@@ -30,59 +23,65 @@ class Employee <<entity>> {
 
 'ok
 class ProductMember <<entity>> {
-'   - id: INT
 '   - product_id: INT
 '   - employee_id: INT
   - role: INT
 }
 
-'ok
-class Product <<entity>> {
-'   - id: INT
-  - name: VARCHAR
-  - description: TEXT
-'   - product_manager_id: INT
-'   - product_status_id: INT
-}
 
-'ok
-class TicketCategory <<entity>> {
-  ' - id: INT
-  - name: VARCHAR
-}
-'ok
-class TicketPriority <<entity>> {
-  ' - id: INT
-  - name: VARCHAR
-}
-'ok
-class TicketStatus <<entity>> {
-  ' - id: INT
-  - name: VARCHAR
-}
-'ok
-class Ticket <<entity>> {
-'   - id: INT
-'   - ticket_category_id: INT
-'   - ticket_priority_id: INT
-'   - ticket_status_id: INT
-'   - issue_by_user_id: INT
-  - title: VARCHAR
-  - description: TEXT
-  - attachment: TEXT
-}
-
-'ok
 class TicketMember <<entity>> {
-  ' - id: INT
-  - ticket_id: INT
-  - employee_id: INT
+    - ticket_id: INT
+    - employee_id: INT
+  }
+
+together {
+  'ok
+  class Company <<entity>> {
+    - name: VARCHAR
+  }
+
+  'ok
+  class Product <<entity>> {
+    - name: VARCHAR
+    - description: TEXT
+  '   - product_manager_id: INT
+  '   - product_status_id: INT
+  }
 }
 
-class Company <<entity>> {
-  ' - id: INT
-  - name: VARCHAR
+
+together {
+  'ok
+  class TicketCategory <<entity>> {
+    - name: VARCHAR
+  }
+  'ok
+  class TicketPriority <<entity>> {
+    - name: VARCHAR
+  }
+  'ok
+  class TicketStatus <<entity>> {
+    - name: VARCHAR
+  }
+  
+  class Ticket <<entity>> {
+  '   - ticket_category_id: INT
+  '   - ticket_priority_id: INT
+  '   - ticket_status_id: INT
+  '   - issue_by_user_id: INT
+    - title: VARCHAR
+    - description: TEXT
+    - attachment: TEXT
+  }
+
+  'ok
+  
+
 }
+
+
+
+
 
 
 class TicketController <<control>> {
@@ -97,30 +96,62 @@ class TicketController <<control>> {
     + show(ticket)
 }
 
-class TicketListPage <<boundary>> {
-    + list(ticket)
-    + redirectCreate()
-    + redirectDetail(ticket)
+together {
+  class TicketListPage <<boundary>> {
+      + list(ticket)
+      + redirectCreate()
+      + redirectDetail(ticket)
+  }
+
+  class TicketCreatePage <<boundary>> {
+    + create(title, description, attachment)
+  } 
+
 }
+
+
 TicketListPage -->  TicketCreatePage
 TicketListPage -->  TicketDetailsPage
 TicketListPage -->  TicketController
-
-class TicketCreatePage <<boundary>> {
-    + create(title, description, attachment)
-}
 TicketCreatePage -->  TicketController
+TicketDetailsPage -->  TicketController
+TicketDetailsPage -->  TicketRejectForm
+TicketDetailsPage -->  TicketReviseForm
+TicketDetailsPage -->  TicketVerifyForm
 
 class TicketDetailsPage <<boundary>> {
     + show(ticket)
-    + reject(ticket, reason)
-    + revise(ticket, reason)
-    + verify(ticket)
+    + redirectReject()
+    + redirectRevise()
+    + redirectVerify(ticket)
     + done(ticket)
     + close(ticket)
-    + assign(ticket, employees)
 }
-TicketDetailsPage -->  TicketController
+
+together {
+
+
+
+  class TicketRejectForm <<boundary>> {
+    + reject(ticket, reason)
+  }
+  TicketRejectForm -->  TicketController
+
+  class TicketReviseForm <<boundary>> {
+    + reject(ticket, reason)
+  }
+  
+
+  class TicketVerifyForm <<boundary>> {
+    + verify(ticket)
+    + assign(ticket, employees)
+  }
+}
+
+TicketReviseForm -->  TicketController
+TicketVerifyForm -->  TicketController
+
+
 
 
 TicketController -->  Ticket
@@ -129,12 +160,13 @@ TicketPriority "1" *-- "n" Ticket : Categorizes
 TicketStatus "1" *-- "n" Ticket : Categorizes
 ' EmployeeCategory "1" *-- "n" Employee : Categorizes
 ProductMemberRole "1" *-- "n" ProductMember : Specifies
-Company "1" *-- "n" Product : create
-Product "1" *-- "n" ProductMember : Employs
+Company "1" *-up- "n" Product : create
+Product "1" *-up- "n" ProductMember : Employs
 Employee "1" *-- "n" ProductMember : Works
-Employee "1" *-- "n" Product : Manages
+Employee "1" --right-- "1" Product : Manages
+Company "1" *-right-- "n" Employee : Employs
 Product "1" *-- "n" Ticket : Issues
 ' Ticket "m" --- "n" ProductMember : Assigned to
-Ticket "1" --- "n" TicketMember : Assigned to
-ProductMember "1" --- "n"  TicketMember: Assigned to
+Ticket "1" *-right-- "n" TicketMember : Assigned to
+ProductMember "1" *-left-- "n"  TicketMember: Assigned to
 ' ProductStatus  "1" *-- "n" Product : Categorizes

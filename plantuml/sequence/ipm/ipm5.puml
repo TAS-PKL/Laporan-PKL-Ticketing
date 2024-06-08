@@ -1,32 +1,24 @@
 @startuml Menolak Ticket
 
-title "Menolak Ticket"
+' title "Menolak Ticket"
+hide footbox
 
 actor IPM as "__: Product Manager__"
-boundary TicketPage as "__: TicketPage__"
-control TicketController as "__: TicketController__"
+boundary TicketDetailsPage as "__: Ticket Details Page__"
+boundary TicketRejectPage as "__: Ticket Reject Form__"
+control TicketController as "__: Ticket Controller__"
 entity Ticket as "__: Ticket__"
 
 autonumber 1
 'list
-IPM -> TicketPage: Memilih ticket
-activate TicketPage
+IPM -> TicketDetailsPage: Melihat detail ticket
+activate TicketDetailsPage
 
-TicketPage --> IPM: Halaman detail ticket
-deactivate TicketPage
-
-
-IPM -> TicketPage: Reject Ticket
-activate TicketPage
-
-TicketPage --> IPM: Popup alasan rejection
-deactivate TicketPage
-
-IPM -> TicketPage: Submit Reject Ticket
-activate TicketPage
+TicketDetailsPage -> TicketRejectPage : Memilih tombol\nreject Ticket
+activate TicketRejectPage
 
 
-TicketPage -> TicketController: rejectTicket()
+TicketRejectPage -> TicketController: rejectTicket()
 activate TicketController
 
 TicketController -> TicketController: validate()
@@ -37,11 +29,14 @@ activate Ticket
 Ticket --> TicketController : Ticket
 deactivate Ticket
 
-TicketController --> TicketPage : Ticket
+TicketController --> TicketRejectPage : Pesan ticket berhasil direject
 deactivate TicketController
 
-TicketPage --> IPM : Halaman detail ticket yang sudah\ndiupdate menjadi rejected
-deactivate TicketPage
+TicketRejectPage --> TicketDetailsPage : Pesan ticket berhasil direject
+deactivate TicketRejectPage
+
+TicketDetailsPage --> IPM : Halaman detail ticket\nyang sudah diupdate\nmenjadi rejected
+deactivate TicketDetailsPage
 
 
 @enduml

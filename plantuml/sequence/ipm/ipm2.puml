@@ -4,7 +4,7 @@ hide footbox
 
 
 actor IPM as "__: Product Manager__"
-boundary TicketPage as "__: TicketPage__"
+boundary TicketPage as "__: Ticket List Page__"
 control TicketController as "__: TicketController__"
 entity Users as "__: User__"
 entity Employees as "__: Employee__"
@@ -34,25 +34,25 @@ activate TicketController
 TicketController -> Users: getCurrentUser()
 activate Users
 
-Users -> TicketController: current user
+Users --> TicketController: current user
 deactivate Users
 
 TicketController -> Employees: getCurrentEmployee()
 activate Employees
 
-Employees -> TicketController: current employee
+Employees --> TicketController: current employee
 deactivate Employees
 
 TicketController -> ProductMembers: getCurrentEmployeeAssignedProductMembers()
 activate ProductMembers
 
-ProductMembers -> TicketController: current employee product member datas
+ProductMembers --> TicketController: current employee product member datas
 deactivate ProductMembers
 
 TicketController -> TicketMember: getCurrentProductMemberTicketMember()
 activate TicketMember
 
-TicketMember -> TicketController: current product member's ticket member
+TicketMember --> TicketController: current product member's ticket member
 deactivate TicketMember
 
 TicketController -> Ticket: getTickets()

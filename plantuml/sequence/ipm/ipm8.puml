@@ -1,26 +1,27 @@
-@startuml Menguba Status Ticket Menjadi Done
+@startuml Mengubah Status Ticket Menjadi Done
 
-title "Menguba Status Ticket Menjadi Done"
+' title "Mengubah Status Ticket Menjadi Done"
+hide footbox
 
 actor IPM as "__: Product Manager__"
-boundary TicketPage as "__: TicketPage__"
-control TicketController as "__: TicketController__"
+boundary TicketPage as "__: Ticket Details Page__"
+boundary TicketRejectPage as "__: Ticket RejectPage__"
+control TicketController as "__: Ticket Controller__"
 entity Ticket as "__: Ticket__"
 
 autonumber 1
 'list
-IPM -> TicketPage: Memilih ticket
+IPM -> TicketPage: Membuka detail ticket
 activate TicketPage
 
-TicketPage --> IPM: Halaman detail ticket
-deactivate TicketPage
+TicketPage -> TicketRejectPage : Memilih tombol\ndone
+activate TicketRejectPage
 
-'Menutup ticket
-IPM -> TicketPage: Menekan tombol done
-activate TicketPage
 
-TicketPage -> TicketController: done()
+TicketRejectPage -> TicketController: doneTicket()
 activate TicketController
+
+TicketController -> TicketController: validate()
 
 TicketController -> Ticket: setTicketStatus()
 activate Ticket
@@ -28,11 +29,15 @@ activate Ticket
 Ticket --> TicketController : Ticket
 deactivate Ticket
 
-TicketController --> TicketPage : Ticket
+TicketController --> TicketRejectPage : Pesan ticket berhasil diubah
 deactivate TicketController
 
-TicketPage --> IPM : Halaman detail ticket yang sudah\ndiupdate menjadi done
+TicketRejectPage --> TicketPage : Pesan ticket\nberhasil berubah\nstatus menjadi done
+deactivate TicketRejectPage
+
+TicketPage --> IPM : Halaman detail ticket\nyang sudah diupdate\nmenjadi rejected
 deactivate TicketPage
 
 
 @enduml
+

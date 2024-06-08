@@ -1,32 +1,25 @@
 @startuml Berkomunikasi Dengan PM Melalui Whatsapp
 
+' title "Berkomunikasi Dengan PM Melalui Whatsapp"
 hide footbox
 
-' title "Berkomunikasi Dengan PM Melalui Whatsapp"
 
-actor EU as "__: External User__"
-boundary TicketPage as "__: TicketPage__"
-control TicketController as "__: TicketController__"
+actor IPM as "__: External User__"
+boundary TicketDetailsPage as "__: Ticket Details Page__"
+control TicketController as "__: Ticket Controller__"
 entity Ticket as "__: Ticket__"
-entity TicketMember as "__: TicketMember__"
-entity ProductMembers as "__: Product Member__"
-entity ProductMemberRoles as "__: Product Member Role__"
+entity TicketMember as "__: Ticket Member__"
+entity ProductMember as "__: Product Member__"
 entity Employees as "__: Employee__"
-
 
 autonumber 1
 'list
-EU -> TicketPage: Memilih ticket
-activate TicketPage
+IPM -> TicketDetailsPage: Melihat detail ticket
+activate TicketDetailsPage
 
-TicketPage --> EU: Halaman detail ticket
-deactivate TicketPage
 
-'Menutup ticket
-EU -> TicketPage: Menekan Tombol Chat on Whatsapp
-activate TicketPage
-
-TicketPage -> TicketController: getResponsiblePhoneNumber()
+'Chat
+TicketDetailsPage -> TicketController: Menekan Tombol Chat on Whatsapp
 activate TicketController
 
 TicketController -> Ticket: getTicket()
@@ -35,37 +28,31 @@ activate Ticket
 Ticket --> TicketController : Ticket
 deactivate Ticket
 
-TicketController -> TicketMember: getCurrentTicketTicketMember()
+TicketController -> TicketMember: getTicketMember()
 activate TicketMember
 
-TicketMember -> TicketController: current ticket's ticket member
+TicketMember --> TicketController : TicketMember
 deactivate TicketMember
 
-TicketController -> ProductMemberRoles: getProductMemberRole()
-activate ProductMemberRoles
+TicketController -> ProductMember: getProductMember()
+activate ProductMember
 
-ProductMemberRoles -> TicketController: product member roles
-deactivate ProductMemberRoles
+ProductMember --> TicketController : ProductMember
+deactivate ProductMember
 
-TicketController -> ProductMembers: getProductMembers()
-activate ProductMembers
-
-ProductMembers -> TicketController: product members
-deactivate ProductMembers
-
-TicketController -> Employees: getEmployeeData()
+TicketController -> Employees: getEmployees()
 activate Employees
 
-Employees -> TicketController: EmployeeData
+Employees --> TicketController : PM phone number
 deactivate Employees
 
+TicketController -> TicketController : generateTemplateMessage()
 
-TicketController --> TicketPage : Product manager's phone number
-TicketPage --> TicketPage : generateTemplateMessage()
+TicketController --> TicketDetailsPage : Whapsapp Link
 deactivate TicketController
 
-TicketPage --> EU : Diarahkan ke Whatsapp Web
-deactivate TicketPage
+TicketDetailsPage --> IPM : Diarahkan ke Whatsapp Web
+deactivate TicketDetailsPage
 
 
 @enduml

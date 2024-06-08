@@ -4,12 +4,12 @@ hide footbox
 
 
 actor EU as "__: External User__"
-boundary TicketPage as "__: TicketPage__"
-control TicketController as "__: TicketController__"
+boundary TicketPage as "__: Ticket List Page__"
+control TicketController as "__: Ticket Controller__"
 entity Users as "__: User__"
 entity Employees as "__: Employee__"
 entity Ticket as "__: Ticket__"
-entity TicketMember as "__: TicketMember__"
+entity TicketMember as "__: Ticket Member__"
 entity ProductMembers as "__: Product Member__"
 ' entity ProductMemberRoles as "__: Product Member Roles__"
 entity TicketCategories as "__: Ticket Category__"
@@ -23,10 +23,8 @@ EU -> TicketPage: membuka halaman list ticket
 activate TicketPage
 
 TicketPage --> EU : Halaman list ticket
-deactivate TicketPage
 
 EU -> TicketPage: Memilih filter ticket
-activate TicketPage
 
 TicketPage -> TicketController: getfilteredUserTickets()
 activate TicketController

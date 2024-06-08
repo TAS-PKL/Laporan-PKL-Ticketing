@@ -3,26 +3,29 @@
 hide footbox
 ' title "Melihat Detail Ticket"
 
-actor DEV as "__: Developer__"
-boundary TicketPage as "__: TicketPage__"
-control TicketController as "__: TicketController__"
+actor IPM as "__: Developer__"
+boundary TicketListPage as "__: Ticket List Page__"
+boundary TicketDetailsPage as "__: Ticket Details Page__"
+control TicketController as "__: Ticket Controller__"
 entity Ticket as "__: Ticket__"
 entity Product as "__: Products__"
 entity Company as "__: Company__"
 entity TicketCategory as "__: Ticket Category__"
 entity TicketStatuses as "__: Ticket Status__"
 entity TicketPriority as "__: Ticket Priority__"
-entity TicketMember as "__: TicketMember__"
+entity TicketMember as "__: Ticket Member__"
 entity ProductMembers as "__: Product Member__"
 entity ProductMemberRoles as "__: Product Member Role__"
 entity Employees as "__: Employee__"
 
 autonumber 1
-DEV -> TicketPage: Memilih ticket
-activate TicketPage
+IPM -> TicketListPage: Membuka halaman list ticket
+activate TicketListPage
 
+TicketListPage -> TicketDetailsPage: Memilih ticket
+activate TicketDetailsPage
 
-TicketPage -> TicketController: getTicket()
+TicketDetailsPage -> TicketController: getTicket()
 activate TicketController
 
 TicketController -> Ticket: getTicket()
@@ -85,11 +88,14 @@ activate Employees
 Employees -> TicketController: EmployeeData
 deactivate Employees
 
-TicketController --> TicketPage : Ticket
+TicketController --> TicketDetailsPage : Menampilkan\ndetail ticket
 deactivate TicketController
 
-TicketPage --> DEV : Halaman detail ticket
-deactivate TicketPage
+TicketDetailsPage -> TicketListPage : Menutup detail tiket
+deactivate TicketDetailsPage
+
+TicketListPage --> IPM : Halaman detail ticket
+deactivate TicketListPage
 
 
 @enduml

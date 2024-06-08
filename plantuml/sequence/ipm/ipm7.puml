@@ -1,39 +1,58 @@
-@startuml Berkomunikasi Dengan PM Melalui Whatsapp
+@startuml Berkomunikasi Dengan PIC Melalui Whatsapp
 
-title "Berkomunikasi Dengan PM Melalui Whatsapp"
+' title "Berkomunikasi Dengan PM Melalui Whatsapp"
+hide footbox
+
 
 actor IPM as "__: Product Manager__"
-boundary TicketPage as "__: TicketPage__"
-control TicketController as "__: TicketController__"
+boundary TicketDetailsPage as "__: Ticket Details Page__"
+control TicketController as "__: Ticket Controller__"
 entity Ticket as "__: Ticket__"
+entity TicketMember as "__: Ticket Member__"
+entity ProductMember as "__: Product Member__"
+entity Employees as "__: Employee__"
 
 autonumber 1
 'list
-IPM -> TicketPage: Memilih ticket
-activate TicketPage
+IPM -> TicketDetailsPage: Melihat detail ticket
+activate TicketDetailsPage
 
-TicketPage --> IPM: Halaman detail ticket
-deactivate TicketPage
 
 'Chat
-IPM -> TicketPage: Menekan Tombol Chat on Whatsapp
-activate TicketPage
-
-TicketPage -> TicketController: getResponsiblePhoneNumber()
+TicketDetailsPage -> TicketController: Menekan Tombol Chat on Whatsapp
 activate TicketController
 
 TicketController -> Ticket: getTicket()
 activate Ticket
 
-Ticket --> TicketController : phone number
+Ticket --> TicketController : Ticket
 deactivate Ticket
 
-TicketController --> TicketPage : Ticket
-TicketPage -> TicketPage : generateTemplateMessage()
+TicketController -> TicketMember: getTicketMember()
+activate TicketMember
+
+TicketMember --> TicketController : TicketMember
+deactivate TicketMember
+
+TicketController -> ProductMember: getProductMember()
+activate ProductMember
+
+ProductMember --> TicketController : ProductMember
+deactivate ProductMember
+
+TicketController -> Employees: getEmployees()
+activate Employees
+
+Employees --> TicketController : PIC phone number
+deactivate Employees
+
+TicketController -> TicketController : generateTemplateMessage()
+
+TicketController --> TicketDetailsPage : Whapsapp Link
 deactivate TicketController
 
-TicketPage --> IPM : Diarahkan ke Whatsapp Web
-deactivate TicketPage
+TicketDetailsPage --> IPM : Diarahkan ke Whatsapp Web
+deactivate TicketDetailsPage
 
 
 @enduml

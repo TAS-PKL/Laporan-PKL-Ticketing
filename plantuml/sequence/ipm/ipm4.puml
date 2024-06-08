@@ -1,27 +1,29 @@
 @startuml Memverifikasi Ticket
 
-title "Memverifikasi Ticket"
+hide footbox
+
+' title "Memverifikasi Ticket"
 
 actor IPM as "__: Product Manager__"
-boundary TicketPage as "__: TicketPage__"
-control TicketController as "__: TicketController__"
+boundary TicketDetailsPage as "__: Ticket Details Page__"
+boundary TicketVerifyForm as "__: Ticket Verify Form__"
+control TicketController as "__: Ticket Controller__"
 entity Ticket as "__: Ticket__"
-entity ProductMember as "__: ProductMember"
-entity TicketMember as "__: TicketMember__"
+entity ProductMember as "__: Product Member__"
+entity TicketMember as "__: Ticket Member__"
 
 autonumber 1
 'list
-IPM -> TicketPage: Memilih ticket
-activate TicketPage
+IPM -> TicketDetailsPage: Memilih ticket
+activate TicketDetailsPage
 
-TicketPage --> IPM: Halaman detail ticket
-deactivate TicketPage
+TicketDetailsPage --> IPM: Halaman detail ticket
 
 'Pilih member
-IPM -> TicketPage: Verify
-activate TicketPage
+TicketDetailsPage -> TicketVerifyForm: Verify Ticket
+activate TicketVerifyForm
 
-TicketPage -> TicketController: getProductDevelopers()
+TicketVerifyForm -> TicketController: getProductDevelopers()
 activate TicketController
 
 TicketController -> ProductMember: getProductDevelopers()
@@ -30,17 +32,15 @@ activate ProductMember
 ProductMember --> TicketController: product developers
 deactivate ProductMember
 
-TicketController --> TicketPage: product developers
+TicketController --> TicketVerifyForm: product developers
 deactivate TicketController
 
 
-TicketPage --> IPM: Popup memilih developer
-deactivate TicketPage
+TicketVerifyForm --> IPM: Popup memilih developer
 
-IPM -> TicketPage: Submit developer
-activate TicketPage
+IPM -> TicketVerifyForm: Submit developer
 
-TicketPage -> TicketController: verifyTicket()
+TicketVerifyForm -> TicketController: verifyTicket()
 activate TicketController
 
 TicketController -> TicketController: validate()
@@ -57,11 +57,14 @@ activate Ticket
 Ticket --> TicketController : Ticket
 deactivate Ticket
 
-TicketController --> TicketPage : Ticket
+TicketController --> TicketVerifyForm : Ticket
 deactivate TicketController
 
-TicketPage --> IPM : Halaman detail ticket yang sudah\ndiupdate menjadi in progress
-deactivate TicketPage
+TicketVerifyForm -> TicketDetailsPage : Menutup menu
+deactivate TicketVerifyForm
+
+TicketDetailsPage --> IPM : Halaman detail ticket yang sudah\ndiupdate menjadi in progress
+deactivate TicketDetailsPage
 
 
 @enduml

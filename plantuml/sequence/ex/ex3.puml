@@ -5,7 +5,8 @@ hide footbox
 ' title "Membuat Ticket"
 
 actor EU as "__: External User__"
-boundary TicketPage as "__: TicketPage__"
+boundary TicketListPage as "__: Ticket List Page__"
+boundary TicketCreatePage as "__: Ticket Create Page__"
 control TicketController as "__: TicketController__"
 entity Ticket as "__: Ticket__"
 entity TicketCategories as "__: Ticket Category__"
@@ -13,10 +14,13 @@ entity TicketPriorities as "__: Ticket Priority__"
 
 
 autonumber 1
-EU -> TicketPage: Membuka halaman membuat ticket
-activate TicketPage
+EU -> TicketListPage: Membuka halaman ticket ticket
+activate TicketListPage
 
-TicketPage -> TicketController: getTicketRequiredDropdown()
+TicketListPage -> TicketCreatePage: Membuka halaman ticket ticket
+activate TicketCreatePage
+
+TicketCreatePage -> TicketController: getTicketRequiredDropdown()
 activate TicketController
 
 TicketController -> TicketCategories: getTicketCategories()
@@ -32,17 +36,14 @@ activate TicketPriorities
 TicketPriorities --> TicketController : TicketPriorities
 deactivate TicketPriorities
 
-TicketController -> TicketPage: dropdownData
+TicketController --> TicketCreatePage: dropdownData
 deactivate TicketController
 
-TicketPage -> EU: Halaman membuat ticket
-deactivate TicketPage
 
+' EU -> TicketCreatePage: Mengisi field ticket
+' activate TicketCreatePage
 
-EU -> TicketPage: Mengisi field ticket
-activate TicketPage
-
-TicketPage -> TicketController: createTicket()
+TicketCreatePage -> TicketController: createTicket()
 activate TicketController
 
 TicketController -> TicketController: validate()
@@ -54,11 +55,14 @@ activate Ticket
 Ticket --> TicketController : Ticket
 deactivate Ticket
 
-TicketController --> TicketPage : Ticket
+TicketController --> TicketCreatePage : Ticket
 deactivate TicketController
 
-TicketPage --> EU : Halaman ticket berhasil dibuat
-deactivate TicketPage
+TicketCreatePage --> TicketListPage : Halaman ticket berhasil dibuat
+deactivate TicketCreatePage
+
+TicketListPage --> EU : Halaman list ticket dengan\nticket yang baru dibuat
+deactivate TicketCreatePage
 
 
 @enduml

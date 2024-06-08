@@ -1603,7 +1603,7 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
         Deployment diagram ini memberikan visualisasi tentang bagaimana aplikasi di-deploy dalam lingkungan produksi, termasuk perangkat keras dan perangkat lunak yang digunakan dalam mendistribusikan dan menjalankan komponen aplikasi. Deployment diagram Sistem Informasi Manajemen Produk dan Ticketing dapat dilihat pada gambar \ref{fig:deployement-diagram}.
         
         \begin{figure}[H]
-            \centering \includegraphics[width=0.9\textwidth]{images/deployment_diagram.png}
+            \centering \includegraphics[width=0.9\textwidth]{images/deployment.png}
             \caption{Deployment Diagram}
             \label{fig:deployement-diagram}
         \end{figure}
@@ -1624,10 +1624,21 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
 
             \item Backend Server dan Laravel Application
             
+            Backend server merupakan perangkat yang akan digunakan sebagai penyedia layanan backend dari Sistem Informasi Manajemen Produk dan Ticketing. Backend server akan lebih berfokus pada manipulasi data yang persisten serta mengatur logika bisnis. Untuk implementasinya, tim pengembang memilih menggunakan PHP dengan framework Laravel sebagai backend.
             
             \item Frontend Server dan React.JS Application
+            
+            Frontend server merupakan perangkat yang akan digunakan sebagai penyedia layanan frontend dari Sistem Informasi Manajemen Produk dan Ticketing. Berbeda dari backend, frontend lebih berfokus kepada bagaimana data disajikan dan ditampilkan. Untuk implementasinya, tim pengembang memilih menggunakan React.JS sebagai framework frontend.
+            
             \item Load Balancer dengan NGINX Proxy
-            \item PC Client dan Web Server
+            
+            Load balancer digunakan sebagai penyeimbang beban requests yang masuk. Load balancer akan di-host di layanan cloud yang memiliki IP publik. Selain sebagai penyeimbang beban, mesin ini juga akan digunakan sebagai gateway akses ke bagian private server karena private server tidak memiliki IP publik yang statis. Dengan menggunakan NGINX proxy, mesin dapat meneruskan request sesuai service yang dituju meskipun berada di IP yang sama namun dengan domain yang berbeda.
+
+            \item PC Client dan Web Browser
+            
+            PC client merupakan device yang digunakan pengguna untuk mengakses Sistem Informasi Manajemen Produk dan Ticketing. Pengguna akan memasukkan url ke dalam navigasi web browser yang akan melakukan request ke frontend server dan backend server melalu load balancer.
+            
+
         \end{enumerate}
 
 
@@ -1920,7 +1931,7 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                     \item Popup assign developer ditampilkan
                     \item Memilih developer
                     \item Menekan tombol verify
-                    \item Halaman detail ticket diperbaharui menjadi in progress
+                    \item Halaman detail ticket diperbarui menjadi in progress
                 \end{enumerate} 
                 & product member & Sistem merubah status ticket menjadi in progress dan developer diassign ke ticket tersebut 
                 & Ticket status berubah menjadi in progress dan developer yang dipilih terassign ke ticket tersebut & diterima \\
@@ -1956,6 +1967,7 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                     \item Popup reject ticket ditampilkan
                     \item Mengisi alasan menolak
                     \item Menekan tombol reject
+                    \item Halaman detail ticket diperbarui menjadi rejected
                 \end{enumerate} 
                 & reject reason & Sistem merubah status ticket menjadi rejected dan alasan reject ditampilkan
                 & Ticket status berubah menjadi in progress dan alasan reject ditampilkan& diterima \\
@@ -2019,7 +2031,27 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 \hline
                 SRS-TKT-PM-07 & a & a & a & a & a & diterima \\
                 \hline
-                SRS-TKT-PM-08 & a & a & a & a & a & diterima \\
+                SRS-TKT-PM-08 & Pengguna dapat mengganti status ticket menjadi done dengan status in progress & 
+                \begin{enumerate}[label=\arabic*.] 
+                    \item Mengakses Sistem
+                    \item Membuka halaman ticket
+                    \item Memilih ticket dengan status in progress
+                    \item Menekan tombol done
+                    \item Halaman detail ticket diperbarui menjadi done
+                \end{enumerate} 
+                &  & Sistem merubah status ticket menjadi done
+                & Ticket status berubah menjadi done & diterima \\
+                \hline
+                SRS-TKT-PM-08 & Pengguna tidak dapat mengganti status ticket
+                menjadi done dengan status selain in progress & 
+                \begin{enumerate}[label=\arabic*.] 
+                    \item Mengakses Sistem
+                    \item Membuka halaman ticket
+                    \item Memilih ticket dengan status selain in progress
+                    \item Menekan tombol done
+                \end{enumerate} 
+                &  & Sistem tidak memperbolehkan mengganti status ticket menjadi done 
+                & Pengguna tidak dapat mengganti status tiket menjadi done dengan tombol done tidak dapat ditemukan & diterima \\
                 \hline
                 SRS-TKT-DEV-01 & Pengguna dapat melihat list ticket tanggung jawabnya & 
                 \begin{enumerate}[label=\arabic*.] 

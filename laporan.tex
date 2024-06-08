@@ -120,7 +120,7 @@
 \definecolor{mauve}{rgb}{0.58,0,0.82}
 
 \lstset{frame=tb,
-    language=Python,
+    language=PHP,
     aboveskip=3mm,
     belowskip=3mm,
     showstringspaces=true,
@@ -1792,7 +1792,205 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
     \end{table}
 
     \begin{enumerate}[label=\textbf{5.1.\arabic*.}]
-        \listsection{Implementasi Antarmuka Ticketing}
+        \listsection{Implementasi Back End}
+
+        Berikut merupakan sebagian fungsi yang diimplementasikan di backend menggunakan PHP dengan framework Laravel. Pengimplementasian kode menggunakan gaya campuran antara ORM Eloquent dan query builder.
+
+        \begin{enumerate}
+            \item Create Ticket
+            
+            \begin{lstlisting}
+public function create(Request $request) {
+    $user = auth('api')->user();
+    $employee = $user->employee;
+    $request->validate([
+        'name' => 'required',
+        'attachment' => 'required',
+        'content' => 'required',
+        'product_id' => 'required',
+        'ticket_category_id' => 'required',
+        'ticket_priority_id' => 'required',
+        'ticket_status_id' => 'required',
+    ]);
+
+    $request->merge(['created_by' => $user->id]);
+    $request->merge(['updated_by' => $user->id]);
+
+    $raw = HomebrewQueryBuilder::select(
+        $request, ProductMember::class,
+        [], [], [
+            "product_id = $request->product_id"
+        ]
+    );
+
+    $res = collect(DB::select($raw['query']));
+    $pm = $res->firstWhere('product_member_role_id', 1);
+    $issuer = $res->firstWhere('employee_id', $employee->id);
+    $ticket = Ticket::factory()->create($request->all());
+
+    $ticket_member = TicketMember::factory()->create([
+        'ticket_id' => $ticket->id,
+        'product_member_id' => $pm->product_member_id,
+    ]);
+    $ticket_member = TicketMember::factory()->create([
+        'ticket_id' => $ticket->id,
+        'product_member_id' => $issuer->product_member_id,
+    ]);
+
+    return json_encode([
+        'ticket' => $ticket,
+    ]); 
+}
+            \end{lstlisting}
+
+            \item List Ticket
+            
+            \begin{lstlisting}
+public function get_ticket_list_by_logged_in_user(Request $request) {
+    $user = auth('api')->user();
+    $user_id = $user->id;
+    $employee_id = $user->employee->id;
+
+    $productMembers = ProductMember::where('employee_id', $employee_id)->get();
+    $product_member_ids = $productMembers->pluck('id')->toArray();
+    $product_member_id_commas = implode(", ", $product_member_ids);
+
+    $additional_filter = [];
+
+    if ($request->filled('status'))
+        array_push($additional_filter, "ticket_statuses.name = '$request->status'");
+    if ($request->filled('category'))
+        array_push($additional_filter, "ticket_categories.name = '$request->category'");
+
+    $raw = HomebrewQueryBuilder::select(
+        $request,
+        TicketMember::class,
+        [
+            
+        ], [], array_merge([
+            "ticket_members.product_member_id IN ($product_member_id_commas)"
+            // OR tickets.created_by = $user_id"
+        ], $additional_filter)
+    );
+
+    // Do the query
+    $res = DB::select($raw['query']);
+    $count = DB::select($raw['query_count'])[0]->count;
+
+    return [
+        'data' => $res,
+        'total'=> $count,
+        'limit'=> $raw['limit'],
+        'page' => $raw['page'],
+        'totalPage' => ceil($count / $raw['limit']),
+        'data' => $res
+    ];
+
+}
+            \end{lstlisting}
+
+            \item Show Ticket
+            
+            \begin{lstlisting}
+
+public function show(Request $request, $id) {
+    $user = auth('api')->user();
+    $employee = $user->employee;
+    $employee_id = $employee->id;
+
+
+    $raw = HomebrewQueryBuilder::select(
+        $request,
+        Ticket::class,
+        [
+            'employee_name' => 'employees.name',
+            'created_by_employee_name' => 'c_employees.name',
+            'created_by_user_id' => 'u_created.id',
+            'updated_by_employee_name' => 'u_employees.name',
+            'updated_by_user_id' => 'u_updated.id',
+            'employee_id' => 'employees.id',
+            'employee_phone' => 'employees.phone',
+            'ticket_member_status' => 'ticket_members.status'
+        ], [
+            'employees' => [
+                JOIN::L_TABLE => 'product_members',
+                JOIN::L_FKEY  => 'employee_id',
+            ], 
+            'users u_created' => [
+                JOIN::L_FKEY  => 'created_by',
+            ], 
+            'users u_updated' => [
+                JOIN::L_FKEY  => 'updated_by',
+            ], 
+            'employees c_employees' => [
+                JOIN::L_TABLE => 'u_created',
+                JOIN::L_FKEY  => 'employee_id',
+            ], 
+            'employees u_employees' => [
+                JOIN::L_TABLE => 'u_updated',
+                JOIN::L_FKEY  => 'employee_id',
+            ]
+        ], [
+            "tickets.id = $id",
+        ]
+    );
+    
+
+    // Do the query
+    $res = DB::select($raw['query']);
+    
+    $common = [
+        'ticket_id', 'ticket_name', 'ticket_content',
+        'ticket_description', 'ticket_attachment',
+        'ticket_status_id', 'ticket_status',
+        'ticket_status_hex', 'ticket_category_id',
+        'ticket_category', 'ticket_category_hex',
+        'ticket_priority_id', 'ticket_priority',
+        'ticket_priority_hex', 'product_id', 'product_name', 
+        'company_id', 'company_name', 'created_by_employee_name', 
+        'created_by_user_id', 'updated_by_employee_name', 
+        'updated_by_user_id', 'created_at',
+    ];
+
+    // sampling base ticket columns
+    $base = array_filter((array) $res[0], function($v) use ($common) {
+        return in_array($v, $common);
+    }, ARRAY_FILTER_USE_KEY);
+
+    $ticket_member_info = array_map(function ($item) {
+        $ticket_member_columns = [
+            'product_member_role_id',
+            'product_member_role_name',
+            'employee_id',
+            'employee_name',
+            'employee_phone',
+            'ticket_member_status',
+        ];
+
+        return array_filter((array) $item, function($v) use ($ticket_member_columns) {
+            return in_array($v, $ticket_member_columns);
+        }, ARRAY_FILTER_USE_KEY);
+    }, $res);
+
+    return [
+        "query" => $raw['query'],
+        "message" => "Success",
+        "data" => $base
+    ];
+}
+            \end{lstlisting}
+
+        \end{enumerate}
+
+        
+        
+
+
+        
+        \listsection{Implementasi Front End}
+
+
+        \listsection{Implementasi Antarmuka}
 
         \begin{enumerate}[label=\textbf{5.1.1.\arabic*.}]
             \listsection{Antarmuka List Ticket}
@@ -1916,7 +2114,6 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                                                             \end{enumerate}\\\cline{2-3}
                                 & Membuat ticket  & \begin{enumerate}[label=\arabic*.]
                                                                 \item Pengguna dapat membuat ticket
-                                                                \item Pengguna mengisi semua field
                                                                 \item Pengguna tidak mengisi beberapa field
                                                             \end{enumerate}\\\cline{2-3}
                                 & Melihat detail tiket  & \begin{enumerate}[label=\arabic*.]
@@ -2094,7 +2291,16 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 &  & Sistem tidak memperbolehkan merevisi ticket 
                 & Pengguna tidak dapat merevisi tiket dengan tombol revise tidak dapat ditemukan & diterima \\
                 \hline
-                SRS-TKT-PM-07 & a & a & a & a & a & diterima \\
+                SRS-TKT-PM-07 & Pengguna dapat berkomunikasi dengan pihak eksternal (pembuat tiket) melalui whatsapp & 
+                \begin{enumerate}[label=\arabic*.] 
+                    \item Mengakses Sistem
+                    \item Membuka halaman ticket
+                    \item Memilih ticket
+                    \item Menekan Chat on WhatsApp
+                    \item Pengguna akan diarahkan ke whatsapp dengan template message
+                \end{enumerate} 
+                &  & Sistem mengarahkan pengguna ke whatsapp dengan template message
+                & Pengguna diarahkan ke whatsapp dengan template message & diterima \\
                 \hline
                 SRS-TKT-PM-08 & Pengguna dapat mengganti status ticket menjadi done dengan status in progress & 
                 \begin{enumerate}[label=\arabic*.] 
@@ -2135,9 +2341,33 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 \end{enumerate} 
                 & status ticket & Sistem menampilkan list ticket tanggung jawab user yang login yang sudah difilter & Ditampilkan list ticket tanggung jawab user yang difilter berdasarkan filter status yang dipilih user& diterima \\
                 \hline
-                SRS-TKT-DEV-03 & a & a & a & a & a & diterima \\
+                SRS-TKT-DEV-03 & Pengguna dapat melihat detail tiket yang sudah ada &  
+                \begin{enumerate}[label=\arabic*.] 
+                    \item Mengakses Sistem
+                    \item Membuka halaman ticket
+                    \item Memilih ticket
+                    \item Halaman detail ticket ditampilkan
+                \end{enumerate} 
+                &  & Sistem menampilkan detail ticket yang dipilih user & Ditampilkan detail ticket yang dipilih user & diterima \\
                 \hline
-                SRS-TKT-DEV-04 & a & a & a & a & a & diterima \\
+                SRS-TKT-DEV-04 & Pengguna dapat melaporkan pengerjaan ketika status in progress &  
+                \begin{enumerate}[label=\arabic*.] 
+                    \item Mengakses Sistem
+                    \item Membuka halaman ticket
+                    \item Memilih ticket dengan status in progress
+                    \item Memilih tombol done
+                    \item Halaman detail ticket diperbarui dengan status pengerjaan menjadi done
+                \end{enumerate} 
+                &  & Sistem mengubah status pengerjaan pengguna menjadi done & Status pengerjaan ticket pengguna menjadi done & diterima \\
+                \hline
+                SRS-TKT-DEV-04 & Pengguna tidak dapat melaporkan pengerjaan ketika status selain in progress &  
+                \begin{enumerate}[label=\arabic*.] 
+                    \item Mengakses Sistem
+                    \item Membuka halaman ticket
+                    \item Memilih ticket dengan status in progress
+                    \item Memilih tombol done
+                \end{enumerate} 
+                &  & Sistem melarang pelaporan pengerjaan pengguna & Pengguna tidak dapat mengganti melaporkan pengerjaan karena tombol done tidak dapat ditemukan & diterima \\
                 \hline
                 SRS-TKT-PIC-01 & Pengguna dapat melihat list ticket tanggung jawabnya & 
                 \begin{enumerate}[label=\arabic*.] 
@@ -2156,11 +2386,58 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 \end{enumerate} 
                 & status ticket & Sistem menampilkan list ticket tanggung jawab user yang login yang sudah difilter & Ditampilkan list ticket tanggung jawab user yang difilter berdasarkan filter status yang dipilih user& diterima \\
                 \hline
-                SRS-TKT-PIC-03 & a & a & a & a & a & diterima \\
+                SRS-TKT-PIC-03 & Pengguna dapat membuat ticket & 
+                \begin{enumerate}[label=\arabic*.] 
+                    \item Mengakses Sistem
+                    \item Membuka halaman ticket
+                    \item Memilih menu membuat ticket
+                    \item Mengisi field
+                    \item Menekan tombol create
+                    \item Ticket berhasil dibuat
+                \end{enumerate} 
+                & company, project, judul ticket, deskripsi ticket, attachment, & Sistem membuat 
+                & Pengguna tidak dapat membuat tiket dengan tombol revise tidak dapat ditemukan & diterima \\
                 \hline
-                SRS-TKT-PIC-04 & a & a & a & a & a & diterima \\
+                SRS-TKT-PIC-03 & Pengguna tidak mengisi beberapa field & 
+                \begin{enumerate}[label=\arabic*.] 
+                    \item Mengakses Sistem
+                    \item Membuka halaman ticket
+                    \item Memilih menu membuat ticket
+                    \item Tidak Mengisi field
+                    \item Menekan tombol create
+                \end{enumerate} 
+                &  & Sistem tidak memperbolehkan membuat ticket 
+                & Pengguna diberikan warning field yang kosong dan ticket tidak dibuat & diterima \\
                 \hline
-                SRS-TKT-PIC-05 & a & a & a & a & a & diterima \\
+                SRS-TKT-PIC-04 & Pengguna dapat melihat detail tiket yang sudah ada &  
+                \begin{enumerate}[label=\arabic*.] 
+                    \item Mengakses Sistem
+                    \item Membuka halaman ticket
+                    \item Memilih ticket
+                    \item Halaman detail ticket ditampilkan
+                \end{enumerate} 
+                &  & Sistem menampilkan detail ticket yang dipilih user & Ditampilkan detail ticket yang dipilih user & diterima \\
+                \hline
+                SRS-TKT-PIC-05 & Pengguna dapat menutup ticket & 
+                \begin{enumerate}[label=\arabic*.] 
+                    \item Mengakses Sistem
+                    \item Membuka halaman ticket
+                    \item Memilih ticket dengan status done
+                    \item Menekan tombol close
+                    \item Halaman detail ticket diperbarui menjadi closed
+                \end{enumerate} 
+                &  & Sistem merubah status ticket menjadi closed
+                & Ticket status berubah menjadi done & diterima \\
+                \hline
+                SRS-TKT-PIC-05 & Pengguna tidak dapat menutup ticket dengan status selain close & 
+                \begin{enumerate}[label=\arabic*.] 
+                    \item Mengakses Sistem
+                    \item Membuka halaman ticket
+                    \item Memilih ticket dengan status selain done
+                    \item Menekan tombol close
+                \end{enumerate} 
+                &  & Sistem tidak memperbolehkan menutup ticket
+                & Pengguna tidak dapat menutup ticket karena tombol close tidak dapat ditemukan & diterima \\
                 \hline
                 SRS-TKT-PIC-06 & Pengguna dapat merevisi tiket dengan status done & 
                 \begin{enumerate}[label=\arabic*.] 
@@ -2197,7 +2474,16 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 &  & Sistem tidak memperbolehkan merevisi ticket 
                 & Pengguna tidak dapat merevisi tiket dengan tombol revise tidak dapat ditemukan & diterima \\
                 \hline
-                SRS-TKT-PIC-07 & a & a & a & a & a & diterima \\
+                SRS-TKT-PM-07 & Pengguna dapat berkomunikasi dengan pihak internal (PM) melalui whatsapp & 
+                \begin{enumerate}[label=\arabic*.] 
+                    \item Mengakses Sistem
+                    \item Membuka halaman ticket
+                    \item Memilih ticket
+                    \item Menekan Chat on WhatsApp
+                    \item Pengguna akan diarahkan ke whatsapp dengan template message
+                \end{enumerate} 
+                &  & Sistem mengarahkan pengguna ke whatsapp dengan template message
+                & Pengguna diarahkan ke whatsapp dengan template message & diterima \\
                 \hline
 
                 \hline

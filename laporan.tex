@@ -24,7 +24,7 @@
 \usepackage{natbib} % bib cite stuff
 \usepackage{chngcntr} % change counter
 \usepackage{afterpage} % change counter
-\usepackage{lscape}
+\usepackage{pdflscape}
 
 % \usepackage{cite}
 % \bibliographystyle{abbrvnat}
@@ -622,43 +622,43 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
             \hline
             \endhead
           
-            SRS-TKT-PM-01 & Internal user (PM) dapat melihat list tiket yang dibuat oleh pihak eksternal berdasarkan product yang menjadi tanggung jawabnya \\
+            SRS-TKT-PM-01 & Sistem dapat menampilkan list tiket yang dibuat oleh pihak eksternal berdasarkan product yang menjadi tanggung jawabnya untuk Internal user (PM)\\
             \hline
-            SRS-TKT-PM-02 & Internal user (PM) dapat memfilter list tiket berdasarkan status tiket \\
+            SRS-TKT-PM-02 & Sistem dapat memfilter list tiket berdasarkan status tiket untuk Internal user (PM)\\
             \hline
-            SRS-TKT-PM-03 & Internal user (PM) dapat melihat detail tiket yang sudah ada \\
+            SRS-TKT-PM-03 & Sistem dapat memberikan detail tiket yang sudah ada untuk Internal user (PM)\\
             \hline
-            SRS-TKT-PM-04 & Internal user (PM) dapat mem-verify tiket yang dibuat oleh pihak eksternal dan mengalokasikan developer yang bertanggung jawab \\
+            SRS-TKT-PM-04 & Sistem dapat mem-verify tiket yang dibuat oleh pihak eksternal dan mengalokasikan developer yang bertanggung jawab untuk Internal user (PM)\\
             \hline
-            SRS-TKT-PM-05 & Internal user (PM) dapat menolak tiket yang dibuat oleh pihak eksternal dan memberikan alasan menolak \\
+            SRS-TKT-PM-05 & Sistem dapat menolak tiket yang dibuat oleh pihak eksternal dan memberikan alasan menolak untuk Internal user (PM)\\
             \hline
-            SRS-TKT-PM-06 & Internal user (PM) dapat mengusulkan revisi tiket yang sudah dikerjakan oleh developer dan memberikan alasan revisi \\
+            SRS-TKT-PM-06 & Sistem dapat mengusulkan revisi tiket yang sudah dikerjakan oleh developer dan memberikan alasan revisi untuk Internal user (PM)\\
             \hline
-            SRS-TKT-PM-07 & Internal user (PM) dapat berkomunikasi dengan pihak eksternal (pembuat tiket) melalui whatsapp \\
+            SRS-TKT-PM-07 & Sistem dapat berkomunikasi dengan pihak eksternal (pembuat tiket) melalui whatsapp untuk Internal user (PM)\\
             \hline
-            SRS-TKT-PM-08 & Internal user (PM) dapat mengubah status tiket menjadi done \\
+            SRS-TKT-PM-08 & Sistem dapat mengubah status tiket menjadi done untuk Internal user (PM)\\
             \hline
-            SRS-TKT-DEV-01 & Internal user (DEV) dapat melihat list data tiket yang diassign oleh PM berdasarkan produk yang menjadi tanggung jawabnya \\
+            SRS-TKT-DEV-01 & Sistem dapat memberikan list data tiket yang diassign oleh PM berdasarkan produk yang menjadi tanggung jawabnya untuk Internal user (DEV)\\
             \hline
-            SRS-TKT-DEV-02 & Internal user (DEV) dapat memfilter list tiket berdasarkan status tiket \\
+            SRS-TKT-DEV-02 & Sistem dapat memfilter list tiket berdasarkan status tiket untuk Internal user (DEV)\\
             \hline
-            SRS-TKT-DEV-03 & Internal user (DEV) dapat melihat detail tiket yang sudah ada \\
+            SRS-TKT-DEV-03 & Sistem dapat memberikan detail tiket yang sudah ada untuk Internal user (DEV)\\
             \hline
-            SRS-TKT-DEV-04 & Internal user (DEV) dapat mengganti status pengerjaan tiket menjadi done dari tiket yang diassign oleh PM \\
+            SRS-TKT-DEV-04 & Sistem dapat mengganti status pengerjaan tiket menjadi done dari tiket yang diassign oleh PM untuk Internal user (DEV)\\
             \hline
-            SRS-TKT-PIC-01 & External user dapat melihat list tiket yang dibuat oleh dirinya berdasarkan product yang menjadi tanggung jawabnya \\
+            SRS-TKT-PIC-01 & Sistem dapat menampilkan list tiket yang dibuat oleh dirinya berdasarkan product yang menjadi tanggung jawabnya untuk External user\\
             \hline
-            SRS-TKT-PIC-02 & External user dapat memfilter list tiket berdasarkan status tiket \\
+            SRS-TKT-PIC-02 & Sistem dapat memfilter list tiket berdasarkan status tiket untuk External user\\
             \hline
-            SRS-TKT-PIC-03 & External user dapat membuat tiket baru berdasarkan produk yang menjadi tanggung jawabnya \\
+            SRS-TKT-PIC-03 & Sistem dapat membuat tiket baru berdasarkan produk yang menjadi tanggung jawabnya untuk External user\\
             \hline
-            SRS-TKT-PIC-04 & External user dapat melihat detail tiket yang telah dibuat \\
+            SRS-TKT-PIC-04 & Sistem dapat menampilkan detail tiket yang telah dibuat untuk External user\\
             \hline
-            SRS-TKT-PIC-05 & External user dapat mengubah status tiket yang sudah selesai menjadi closed \\
+            SRS-TKT-PIC-05 & Sistem dapat mengubah status tiket yang sudah selesai menjadi closed untuk External user \\
             \hline
-            SRS-TKT-PIC-06 & External user dapat mengubah status tiket yang sudah selesai kembali menjadi in progress jika masih ada yang belum terpenuhi \\
+            SRS-TKT-PIC-06 & Sistem dapat mengubah status tiket yang sudah selesai kembali menjadi in progress jika masih ada yang belum terpenuhi untuk External user\\
             \hline
-            SRS-TKT-PIC-07 & External user dapat berkomunikasi dengan pihak internal (PM) melalui WA \\
+            SRS-TKT-PIC-07 & Sistem dapat berkomunikasi dengan pihak internal (PM) melalui WA untuk External user\\
             \hline
         \end{longtable}
 
@@ -1591,7 +1591,7 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
 
     \listsection{Design}
 
-    Eksplorasi mendalam mengenai desain arsitektural dari sistem yang sedang dikembangkan akan dilakukan. Untuk memastikan pemahaman yang komprehensif mengenai integrasi dan interaksi antar-komponen dalam aplikasi, dua bentuk diagram utama akan diperkenalkan: Package Diagram dan Deployment Diagram. Package Diagram akan menguraikan struktur organisasi dan modularisasi dari komponen-komponen sistem, menunjukkan pemecahan dan pengelompokan fungsi- fungsi sistem. Deployment Diagram akan menyediakan perspektif terkait dengan distribusi fisik sumber daya komputasi yang digunakan oleh aplikasi serta cara berkomunikasi antar-komponen di lingkungan produksi. Pemaparan ini bertujuan untuk mendukung analisis terhadap aspek skalabilitas, performa, dan keamanan sistem, sehingga memberikan gambaran yang lebih jelas dan menyeluruh tentang kerangka kerja arsitektural yang dipilih.
+    Eksplorasi mendalam mengenai desain arsitektural dari sistem yang sedang dikembangkan akan dilakukan. Untuk memastikan pemahaman yang komprehensif mengenai integrasi dan interaksi antar-komponen dalam aplikasi, dua bentuk diagram utama akan diperkenalkan: Package Diagram dan Deployment Diagram. Package Diagram akan menguraikan struktur organisasi dan modularisasi dari komponen-komponen sistem, menunjukkan pemecahan dan pengelompokan fungsi-fungsi sistem. Deployment Diagram akan menyediakan perspektif terkait dengan distribusi fisik sumber daya komputasi yang digunakan oleh aplikasi serta cara berkomunikasi antar-komponen di lingkungan produksi. Pemaparan ini bertujuan untuk mendukung analisis terhadap aspek skalabilitas, performa, dan keamanan sistem, sehingga memberikan gambaran yang lebih jelas dan menyeluruh tentang kerangka kerja arsitektural yang dipilih.
     
     \begin{enumerate} [label=\textbf{4.3.\arabic*.}, wide, labelwidth=!, labelindent=0pt]
         \listsection{Package Diagram}
@@ -1599,6 +1599,36 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
         Package Diagram digunakan untuk mengilustrasikan organisasi struktural serta hubungan antar komponen yang ada dalam Sistem IT Service Desk di PT Teknologi Aplikasi Sejahtera.  
 
         \listsection{Deployment Diagram}
+
+        Deployment diagram ini memberikan visualisasi tentang bagaimana aplikasi di-deploy dalam lingkungan produksi, termasuk perangkat keras dan perangkat lunak yang digunakan dalam mendistribusikan dan menjalankan komponen aplikasi. Deployment diagram Sistem Informasi Manajemen Produk dan Ticketing dapat dilihat pada gambar \ref{fig:deployement-diagram}.
+        
+        \begin{figure}[H]
+            \centering \includegraphics[width=0.9\textwidth]{images/deployment_diagram.png}
+            \caption{Deployment Diagram}
+            \label{fig:deployement-diagram}
+        \end{figure}
+
+        Diagram diatas menunjukkan bagian bagian utama deployment Sistem Informasi Manajemen Produk dan Ticketing. Penjelasan untuk masing masing komponen akan dijelaskan sebagai berikut:
+
+        \begin{enumerate}[label=\arabic*.]
+            \item Private Server
+            
+            Private server merupakan device utama yang digunakan sebagai host dari backend server, frontend server, dan database server. Mesin ini memiliki kemampuan komputasi yang tinggi dengan ram yang cukup besar. Alasan private server melakukan virtualisasi ini adalah untuk memungkinkan isolasi antar service dan dapat mengalokasikan sumber daya dengan efisien, sehingga setiap service yang dibuat server dapat dikelola secara independen dan fleksibel. Penggunaan satu mesin seperti ini dapat memudahkan untuk memanage service yang ada pada satu device. Namun, dengan hanya ada satu mesin saja skalabilitas aplikasi menjadi terbatas.
+
+
+            \item Database Server dan PostgreSQL
+            
+            Database server perangkat yang dirancang khusus untuk menyediakan layanan database kepada backend server. Database server dipisah dengan backend dengan tujuan tim pengembang dapat menggunakan database bersama tanpa menghiraukan masa pemeliharaan server backend. Database server beroperasi sebagai virtual machine di bawah private server.
+            
+            Database server memiliki satu layanan yakni PostgreSQL. PostgreSQL akan digunakan sebagai sumber penyimpanan persistent backend server.
+
+            \item Backend Server dan Laravel Application
+            
+            
+            \item Frontend Server dan React.JS Application
+            \item Load Balancer dengan NGINX Proxy
+            \item PC Client dan Web Server
+        \end{enumerate}
 
 
         \listsection{Desain Antarmuka Aplikasi}
@@ -1719,8 +1749,6 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 \label{fig:antarmuka-detail}
             \end{figure}
 
-            \citep*{smith2020} \citep*{rainer2004}
-    
         \end{enumerate}
     \end{enumerate}
 
@@ -1758,7 +1786,7 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
             \endhead
           
             \multirow{8}{*}{PM} & Melihat list ticket     & \begin{enumerate}[label=\arabic*.] 
-                                                                \item Pengguna dapat melihat hanya list ticket yang merupakan tanggung jawabnya 
+                                                                \item Pengguna dapat melihat list ticket yang merupakan tanggung jawabnya 
                                                             \end{enumerate}\\\cline{2-3}
                                 & Memfilter list ticket & \begin{enumerate}[label=\arabic*.]
                                                                 \item Pengguna dapat memfilter list tiket berdasarkan status tiket  
@@ -1768,19 +1796,18 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                                                             \end{enumerate}\\\cline{2-3}
                                 & Memverifikasi ticket  & \begin{enumerate}[label=\arabic*.]
                                                                 \item Pengguna dapat mem-verify tiket dengan status pending verification
+                                                                \item Pengguna berusaha mem-verify tiket tanpa mengassign developer
                                                                 \item Pengguna tidak dapat mem-verify tiket dengan status selain pending verification
                                                             \end{enumerate}\\\cline{2-3}
                                 & Menolak ticket        & \begin{enumerate}[label=\arabic*.]
                                                                 \item Pengguna dapat menolak tiket dengan status pending verification
-                                                                \item Pengguna tidak dapat menolak tiket dengan status selain pending verification
-                                                                \item Pengguna mengisi alasan penolakan
                                                                 \item Pengguna tidak mengisi alasan penolakan
+                                                                \item Pengguna tidak dapat menolak tiket dengan status selain pending verification
                                                             \end{enumerate}\\\cline{2-3}
                                 & Revisi ticket         & \begin{enumerate}[label=\arabic*.]
                                                                 \item Pengguna dapat mengusulkan revisi tiket dengan status done
-                                                                \item Pengguna tidak dapat mengusulkan revisi tiket dengan status selain done
-                                                                \item Pengguna mengisi alasan revisi
                                                                 \item Pengguna tidak mengisi alasan revisi
+                                                                \item Pengguna tidak dapat mengusulkan revisi tiket dengan status selain done
                                                             \end{enumerate}\\\cline{2-3}
                                 & Komunikasi ticket     & \begin{enumerate}[label=\arabic*.]
                                                                 \item Pengguna dapat berkomunikasi dengan pihak eksternal (pembuat tiket) melalui whatsapp 
@@ -1791,7 +1818,7 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                                                             \end{enumerate}\\\cline{2-3}
             \hline
             \multirow{4}{*}{DEV} & Melihat list ticket  & \begin{enumerate}[label=\arabic*.] 
-                                                                \item Pengguna dapat melihat hanya list ticket yang merupakan tanggung jawabnya 
+                                                                \item Pengguna dapat melihat list ticket yang merupakan tanggung jawabnya 
                                                             \end{enumerate}\\\cline{2-3}
                                 & Memfilter list ticket & \begin{enumerate}[label=\arabic*.]
                                                                 \item Pengguna dapat memfilter list tiket berdasarkan status tiket  
@@ -1806,7 +1833,7 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
             \hline
 
             \multirow{7}{*}{PIC} & Melihat list ticket     & \begin{enumerate}[label=\arabic*.] 
-                                                                \item Pengguna dapat melihat hanya list ticket yang merupakan tanggung jawabnya 
+                                                                \item Pengguna dapat melihat list ticket yang merupakan tanggung jawabnya 
                                                             \end{enumerate}\\\cline{2-3}
                                 & Memfilter list ticket & \begin{enumerate}[label=\arabic*.]
                                                                 \item Pengguna dapat memfilter list tiket berdasarkan status tiket  
@@ -1825,9 +1852,8 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                                                             \end{enumerate}\\\cline{2-3}
                                 & Revisi ticket         & \begin{enumerate}[label=\arabic*.]
                                                                 \item Pengguna dapat mengusulkan revisi tiket dengan status done
-                                                                \item Pengguna tidak dapat mengusulkan revisi tiket dengan status selain done
-                                                                \item Pengguna mengisi alasan revisi
                                                                 \item Pengguna tidak mengisi alasan revisi
+                                                                \item Pengguna tidak dapat mengusulkan revisi tiket dengan status selain done
                                                             \end{enumerate}\\\cline{2-3}
                                 & Komunikasi ticket     & \begin{enumerate}[label=\arabic*.]
                                                                 \item Pengguna dapat berkomunikasi dengan pihak internal (PM) melalui whatsapp 
@@ -1838,45 +1864,250 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
 
         \listsection{Pelaksaanaan Pengujian Sistem}
 
-            Pengujian untuk Sistem Manajemen Produk dan Ticketing pada level Admin untuk Modul Master Data di PT Teknologi Aplikasi Sejahtera dijalankan berdasarkan rancangan yang telah diuraikan dalam Tabel 5.3. Hasil dari pengujian ini dapat ditemukan pada Tabel 5.4 yang disajikan di bawah ini.
+            Pengujian untuk Sistem Manajemen Produk dan Ticketing pada level Admin untuk Modul Master Data di PT Teknologi Aplikasi Sejahtera dijalankan berdasarkan rancangan yang telah diuraikan dalam Tabel \ref{table:rencana-pengujian-sistem}. Hasil dari pengujian ini dapat ditemukan pada Tabel \ref{table:pelaksanaan-pengujian} yang disajikan di bawah ini.
             
         \newpage
+        \newgeometry{bottom=2.5cm, right=1.2cm, left=1.2cm}
         \begin{landscape}
-            \begin{longtable}{ |l|l|l|l|l|l|l|l| }
+            \begin{longtable}{ |l|p{0.15\textwidth}|p{0.3\textwidth}|p{0.125\textwidth}|p{0.175\textwidth}|p{0.175\textwidth}|l| }
                 \caption{Pelaksaanaan Pengujian}\label{table:pelaksanaan-pengujian}\\
     
                 \hline
-                \textbf{Identifikasi} & \textbf{Deskripsi} & \textbf{Prosedur pengujian}  & \textbf{Masukan}  & \textbf{Hasil yang diharapkan}  & \textbf{Hasil yang diperoleh}  & \textbf{Kesimpulan}\\
+                \textbf{Identifikasi} & \textbf{Butir Uji} & \textbf{Prosedur pengujian}  & \textbf{Masukan}  & \textbf{Hasil yang diharapkan}  & \textbf{Hasil yang diperoleh}  & \textbf{Kesimpulan}\\
                 \hline
                 \endfirsthead
               
                 \hline
-                \textbf{Identifikasi} & \textbf{Deskripsi} & \textbf{Prosedur pengujian}  & \textbf{Masukan}  & \textbf{Hasil yang diharapkan}  & \textbf{Hasil yang diperoleh}  & \textbf{Kesimpulan}\\
+                \textbf{Identifikasi} & \textbf{Butir Uji} & \textbf{Prosedur pengujian}  & \textbf{Masukan}  & \textbf{Hasil yang diharapkan}  & \textbf{Hasil yang diperoleh}  & \textbf{Kesimpulan}\\
                 \hline
                 \endhead
               
  
                 
                 \hline
-                a & a & a & a & a & a & a \\
-                a & a & a & a & a & a & a \\
-                a & a & a & a & a & a & a \\
-                a & a & a & a & a & a & a \\
-                a & a & a & a & a & a & a \\
-                a & a & a & a & a & a & a \\
-                a & a & a & a & a & a & a \\
-                a & a & a & a & a & a & a \\
-                a & a & a & a & a & a & a \\
-                a & a & a & a & a & a & a \\
-                a & a & a & a & a & a & a \\
-                a & a & a & a & a & a & a \\
-                a & a & a & a & a & a & a \\
-                a & a & a & a & a & a & a \\
+                SRS-TKT-PM-01 & Pengguna dapat melihat list ticket tanggung jawabnya & 
+                \begin{enumerate}[label=\arabic*.] 
+                    \item Mengakses Sistem
+                    \item Membuka halaman ticket
+                    \item Halaman ticket ditampilkan
+                \end{enumerate} 
+                &  & Sistem menampilkan list ticket tanggung jawab user yang login & Ditampilkan list ticket tanggung jawab user & diterima \\
+                \hline
+                SRS-TKT-PM-02 & Pengguna dapat memfilter list ticket berdasarkan status tiket & 
+                \begin{enumerate}[label=\arabic*.] 
+                    \item Mengakses Sistem
+                    \item Membuka halaman ticket
+                    \item Memilih filter ticket
+                    \item Halaman ticket yang telah difilter ditampilkan
+                \end{enumerate} 
+                & status ticket & Sistem menampilkan list ticket tanggung jawab user yang login yang sudah difilter & Ditampilkan list ticket tanggung jawab user yang difilter berdasarkan filter status yang dipilih user& diterima \\
+                \hline
+                SRS-TKT-PM-03 & Pengguna dapat melihat detail tiket yang sudah ada &  
+                \begin{enumerate}[label=\arabic*.] 
+                    \item Mengakses Sistem
+                    \item Membuka halaman ticket
+                    \item Memilih ticket
+                    \item Halaman detail ticket ditampilkan
+                \end{enumerate} 
+                &  & Sistem menampilkan detail ticket yang dipilih user & Ditampilkan detail ticket yang dipilih user & diterima \\
+                \hline
+                SRS-TKT-PM-04 & Pengguna dapat mem-verify tiket dengan status pending verification & 
+                \begin{enumerate}[label=\arabic*.] 
+                    \item Mengakses Sistem
+                    \item Membuka halaman ticket
+                    \item Memilih ticket dengan status pending verification
+                    \item Menekan tombol verify
+                    \item Popup assign developer ditampilkan
+                    \item Memilih developer
+                    \item Menekan tombol verify
+                    \item Halaman detail ticket diperbaharui menjadi in progress
+                \end{enumerate} 
+                & product member & Sistem merubah status ticket menjadi in progress dan developer diassign ke ticket tersebut 
+                & Ticket status berubah menjadi in progress dan developer yang dipilih terassign ke ticket tersebut & diterima \\
+                \hline
+                SRS-TKT-PM-04 & Pengguna berusaha mem-verify tiket tanpa mengassign developer & 
+                \begin{enumerate}[label=\arabic*.] 
+                    \item Mengakses Sistem
+                    \item Membuka halaman ticket
+                    \item Memilih ticket dengan status pending verification
+                    \item Menekan tombol verify
+                    \item Popup assign developer ditampilkan
+                    \item Menekan tombol verify tanpa memilih developer
+                \end{enumerate} 
+                &  & Sistem tidak memperbolehkan verifikasi ticket 
+                & Pengguna tidak dapat memverifikasi tiket dengan tombol verify tidak dapat ditekan & diterima \\
+                \hline
+                SRS-TKT-PM-04 & Pengguna tidak dapat mem-verify tiket dengan status selain pending verification & 
+                \begin{enumerate}[label=\arabic*.] 
+                    \item Mengakses Sistem
+                    \item Membuka halaman ticket
+                    \item Memilih ticket dengan status selain pending verification
+                    \item Menekan tombol verify
+                \end{enumerate} 
+                &  & Sistem tidak memperbolehkan verifikasi ticket 
+                & Pengguna tidak dapat memverifikasi tiket dengan tombol verify tidak dapat ditemukan & diterima \\
+                \hline
+                SRS-TKT-PM-05 & Pengguna dapat menolak tiket dengan status pending verification & 
+                \begin{enumerate}[label=\arabic*.] 
+                    \item Mengakses Sistem
+                    \item Membuka halaman ticket
+                    \item Memilih ticket dengan status pending verification
+                    \item Menekan tombol reject
+                    \item Popup reject ticket ditampilkan
+                    \item Mengisi alasan menolak
+                    \item Menekan tombol reject
+                \end{enumerate} 
+                & reject reason & Sistem merubah status ticket menjadi rejected dan alasan reject ditampilkan
+                & Ticket status berubah menjadi in progress dan alasan reject ditampilkan& diterima \\
+                \hline
+                SRS-TKT-PM-05 & Pengguna tidak mengisi alasan penolakan & 
+                \begin{enumerate}[label=\arabic*.] 
+                    \item Mengakses Sistem
+                    \item Membuka halaman ticket
+                    \item Memilih ticket dengan status selain pending verification
+                    \item Menekan tombol reject
+                    \item Popup reject ticket ditampilkan
+                    \item Menekan tombol reject tanpa mengisi alasan menolak
+                \end{enumerate} 
+                &  & Sistem tidak memperbolehkan penolakan ticket 
+                & Pengguna tidak dapat menolak tiket dengan tombol reject tidak dapat ditekan & diterima \\
+                \hline
+                SRS-TKT-PM-05 & Pengguna tidak dapat menolak tiket dengan status selain pending verification & 
+                \begin{enumerate}[label=\arabic*.] 
+                    \item Mengakses Sistem
+                    \item Membuka halaman ticket
+                    \item Memilih ticket dengan status selain pending verification
+                    \item Menekan tombol reject
+                \end{enumerate} 
+                &  & Sistem tidak memperbolehkan penolakan ticket 
+                & Pengguna tidak dapat menolak tiket dengan tombol reject tidak dapat ditemukan & diterima \\
+                \hline
+                SRS-TKT-PM-06 & Pengguna dapat merevisi tiket dengan status done & 
+                \begin{enumerate}[label=\arabic*.] 
+                    \item Mengakses Sistem
+                    \item Membuka halaman ticket
+                    \item Memilih ticket dengan status done
+                    \item Menekan tombol revise
+                    \item Popup revise ticket ditampilkan
+                    \item Mengisi alasan merevisi
+                    \item Menekan tombol revise
+                \end{enumerate} 
+                & revise reason & Sistem merubah status ticket menjadi in progress dan alasan revise ditampilkan
+                & Ticket status berubah menjadi in progress dan alasan revise ditampilkan& diterima \\
+                \hline
+                SRS-TKT-PM-06 & Pengguna tidak mengisi alasan merevisi & 
+                \begin{enumerate}[label=\arabic*.] 
+                    \item Mengakses Sistem
+                    \item Membuka halaman ticket
+                    \item Memilih ticket dengan status selain done
+                    \item Menekan tombol revise
+                    \item Popup revise ticket ditampilkan
+                    \item Menekan tombol revise tanpa mengisi alasan merevisi
+                \end{enumerate} 
+                &  & Sistem tidak memperbolehkan merevisi ticket 
+                & Pengguna tidak dapat merevisi tiket dengan tombol revise tidak dapat ditekan & diterima \\
+                \hline
+                SRS-TKT-PM-06 & Pengguna tidak dapat merevisi tiket dengan status selain done & 
+                \begin{enumerate}[label=\arabic*.] 
+                    \item Mengakses Sistem
+                    \item Membuka halaman ticket
+                    \item Memilih ticket dengan status selain done
+                    \item Menekan tombol revise
+                \end{enumerate} 
+                &  & Sistem tidak memperbolehkan merevisi ticket 
+                & Pengguna tidak dapat merevisi tiket dengan tombol revise tidak dapat ditemukan & diterima \\
+                \hline
+                SRS-TKT-PM-07 & a & a & a & a & a & diterima \\
+                \hline
+                SRS-TKT-PM-08 & a & a & a & a & a & diterima \\
+                \hline
+                SRS-TKT-DEV-01 & Pengguna dapat melihat list ticket tanggung jawabnya & 
+                \begin{enumerate}[label=\arabic*.] 
+                    \item Mengakses Sistem
+                    \item Membuka halaman ticket
+                    \item Halaman ticket ditampilkan
+                \end{enumerate} 
+                &  & Sistem menampilkan list ticket tanggung jawab user yang login & Ditampilkan list ticket tanggung jawab user & diterima \\
+                \hline
+                SRS-TKT-DEV-02 & Pengguna dapat memfilter list ticket berdasarkan status tiket & 
+                \begin{enumerate}[label=\arabic*.] 
+                    \item Mengakses Sistem
+                    \item Membuka halaman ticket
+                    \item Memilih filter ticket
+                    \item Halaman ticket yang telah difilter ditampilkan
+                \end{enumerate} 
+                & status ticket & Sistem menampilkan list ticket tanggung jawab user yang login yang sudah difilter & Ditampilkan list ticket tanggung jawab user yang difilter berdasarkan filter status yang dipilih user& diterima \\
+                \hline
+                SRS-TKT-DEV-03 & a & a & a & a & a & diterima \\
+                \hline
+                SRS-TKT-DEV-04 & a & a & a & a & a & diterima \\
+                \hline
+                SRS-TKT-PIC-01 & Pengguna dapat melihat list ticket tanggung jawabnya & 
+                \begin{enumerate}[label=\arabic*.] 
+                    \item Mengakses Sistem
+                    \item Membuka halaman ticket
+                    \item Halaman ticket ditampilkan
+                \end{enumerate} 
+                &  & Sistem menampilkan list ticket tanggung jawab user yang login & Ditampilkan list ticket tanggung jawab user & diterima \\
+                \hline
+                SRS-TKT-PIC-02 & Pengguna dapat memfilter list ticket berdasarkan status tiket & 
+                \begin{enumerate}[label=\arabic*.] 
+                    \item Mengakses Sistem
+                    \item Membuka halaman ticket
+                    \item Memilih filter ticket
+                    \item Halaman ticket yang telah difilter ditampilkan
+                \end{enumerate} 
+                & status ticket & Sistem menampilkan list ticket tanggung jawab user yang login yang sudah difilter & Ditampilkan list ticket tanggung jawab user yang difilter berdasarkan filter status yang dipilih user& diterima \\
+                \hline
+                SRS-TKT-PIC-03 & a & a & a & a & a & diterima \\
+                \hline
+                SRS-TKT-PIC-04 & a & a & a & a & a & diterima \\
+                \hline
+                SRS-TKT-PIC-05 & a & a & a & a & a & diterima \\
+                \hline
+                SRS-TKT-PIC-06 & Pengguna dapat merevisi tiket dengan status done & 
+                \begin{enumerate}[label=\arabic*.] 
+                    \item Mengakses Sistem
+                    \item Membuka halaman ticket
+                    \item Memilih ticket dengan status done
+                    \item Menekan tombol revise
+                    \item Popup revise ticket ditampilkan
+                    \item Mengisi alasan merevisi
+                    \item Menekan tombol revise
+                \end{enumerate} 
+                & revise reason & Sistem merubah status ticket menjadi in progress dan alasan revise ditampilkan
+                & Ticket status berubah menjadi in progress dan alasan revise ditampilkan& diterima \\
+                \hline
+                SRS-TKT-PIC-06 & Pengguna tidak mengisi alasan merevisi & 
+                \begin{enumerate}[label=\arabic*.] 
+                    \item Mengakses Sistem
+                    \item Membuka halaman ticket
+                    \item Memilih ticket dengan status selain done
+                    \item Menekan tombol revise
+                    \item Popup revise ticket ditampilkan
+                    \item Menekan tombol revise tanpa mengisi alasan merevisi
+                \end{enumerate} 
+                &  & Sistem tidak memperbolehkan merevisi ticket 
+                & Pengguna tidak dapat merevisi tiket dengan tombol revise tidak dapat ditekan & diterima \\
+                \hline
+                SRS-TKT-PIC-06 & Pengguna tidak dapat merevisi tiket dengan status selain done & 
+                \begin{enumerate}[label=\arabic*.] 
+                    \item Mengakses Sistem
+                    \item Membuka halaman ticket
+                    \item Memilih ticket dengan status selain done
+                    \item Menekan tombol revise
+                \end{enumerate} 
+                &  & Sistem tidak memperbolehkan merevisi ticket 
+                & Pengguna tidak dapat merevisi tiket dengan tombol revise tidak dapat ditemukan & diterima \\
+                \hline
+                SRS-TKT-PIC-07 & a & a & a & a & a & diterima \\
+                \hline
 
                 \hline
     
             \end{longtable}
             
+            \restoregeometry
         \end{landscape}
         % \KOMAoptions{paper=landscape,pagesize}
         % \recalctypearea
@@ -1915,6 +2146,9 @@ Bab ini merangkum hasil dan pengalaman dari praktik kerja lapangan, serta menyaj
     \begin{enumerate}[label=\arabic*.]
         \item Menambahkan fitur impor batch untuk semua master data menggunakan format Excel, yang memungkinkan admin untuk menginput banyak data master sekaligus tanpa perlu melakukannya satu per satu.
         \item Mengimplementasikan fitur pencetakan ticket yang sudah maupun sedang dikerjakan. Fitur ini akan membantu dalam pembuatan laporan dan dokumentasi secara fisik.
+        \item Mengintegrasikan fitur ticketing dengan github issues.
+        \item Memberikan fitur push notifications menggunakan email.
+        \item Memberikan fitur diskusi di web pada halaman ticket.
     \end{enumerate}
 
 \end{enumerate}

@@ -26,6 +26,17 @@
 \usepackage{chngcntr} % change counter
 \usepackage{afterpage} % change counter
 \usepackage{pdflscape}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{%
+    \renewcommand{\headrulewidth}{0pt}%
+    % \fancyhf{}%
+    \fancyfoot[R]{\thepage}%
+}
 
 
 % \usepackage{cite}
@@ -146,7 +157,7 @@
     \hfill
     \vtop{
         \hsize=#1in
-        \noindent{Semarang, ...}\par
+        \noindent{Semarang, 3 Juni 2024}\par
         \vspace*{2cm}
         \noindent{#2}\par
     }
@@ -156,7 +167,11 @@
     \vskip1cm
 }
 
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\newcolumntype{Z}{>{\centering\arraybackslash}p{7cm}}
+
 \begin{document}
+\pagenumbering{Roman}
 \begin{titlepage}
     \begin{center}
         {
@@ -204,7 +219,49 @@
 % ░██      ░██      ░██   ░░████░░██  ░░░░██░██             ░██░██░░░░░░██ ░██     ░██░██░░░░░░██░██   ░░████
 % ░██      ░████████░██    ░░███ ░░████████ ░████████ ████████ ░██     ░██ ░██     ░██░██     ░██░██    ░░███
 % ░░       ░░░░░░░░ ░░      ░░░   ░░░░░░░░  ░░░░░░░░ ░░░░░░░░  ░░      ░░  ░░      ░░ ░░      ░░ ░░      ░░░
+\section*{HALAMAN PENGESAHAN}
 
+\noindent
+\begin{tabularx}{\linewidth}{ p{2cm} l X}
+    Nama & : & Givanra Haikal Adjie\\
+    NIM & : & 24060121130063 \\ 
+    Judul PKL & : & Sistem Manajemen Produk dan Ticketing di PT. Teknologi Aplikasi Sejahtera \\
+
+\end{tabularx}
+
+\vspace*{10pt}
+\noindent Telah diseminarkan dan dinyatakan lulus pada tanggal 10, Juni 2024
+\vspace*{40pt}
+
+\begin{flushright}
+    Semarang, 10 Juni 2024
+\end{flushright}
+
+\noindent
+\begin{tabularx}{\linewidth}{@{} Z l Y @{}}
+                & Menyetujui, &  \\
+    Koordinator PKL      &  & Dosen Pembimbing, \\ 
+    \vspace*{50pt} &  & \\
+    \vspace*{50pt} &  & \\
+    Sandy Kurniawan, S.Kom., M.Kom. NPPU. H.7.199603032022041001 & & Beta Noranita, S.Si., M.Kom. NIP. 197308291998022001 \\
+\end{tabularx}
+
+\vspace*{40pt}
+
+
+\begin{center} 
+Mengetahui,
+
+ Ketua Departemen Informatika
+
+ \vspace*{70pt}
+
+ Dr. Aris Puji Widodo, S.Si., M.T.
+
+ NIP. 197404011999031002
+
+\end{center}
+% 
 \newpage
 
 
@@ -245,7 +302,7 @@
 
 \newpage
 
-\section{KATA PENGANTAR}
+\section*{KATA PENGANTAR}
 
 
 Puji syukur penulis panjatkan kepada Tuhan Yang Maha Esa atas segala berkat rahmat dan hikmat-Nya penulis dapat menyelesaikan Laporan Praktek Kerja Lapangan “Sistem Manajemen Produk dan Ticketing bagian Modul Ticketingdi PT Teknologi Aplikasi Sejahtera”. Penulis menyadari dalam menyelesaikan kegiatan PKL ini sangatlah sulit tanpa bantuan dan bimbingan dari berbagai  pihak. Bersama ini, penulis menyampaikan terima kasih kepada:
@@ -295,7 +352,7 @@ Penulis menyadari bahwa masih banyak kekurangan dalam laporan PKL ini. Maka dari
 \listoftables
 
 \newpage
-
+\pagenumbering{arabic}
 %  ███████  ████████ ████     ██ ███████       ██     ██      ██ ██     ██ ██       ██     ██     ██     ████     ██
 % ░██░░░░██░██░░░░░ ░██░██   ░██░██░░░░██     ████   ░██     ░██░██    ░██░██      ░██    ░██    ████   ░██░██   ░██
 % ░██   ░██░██      ░██░░██  ░██░██    ░██   ██░░██  ░██     ░██░██    ░██░██      ░██    ░██   ██░░██  ░██░░██  ░██

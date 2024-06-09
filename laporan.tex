@@ -235,6 +235,7 @@
 % ░██     ░██░███████  ████████     ░██    ░██   ░░██░██     ░██ ░░██████      ░██
 % ░░      ░░ ░░░░░░░  ░░░░░░░░      ░░     ░░     ░░ ░░      ░░   ░░░░░░       ░░
 \section*{ABSTRACT}
+\addtocontents{ext}{text}
 
 \noindent Ticketing is a crucial aspect of the platform that manages applications launched by PT Teknologi Aplikasi Sejahtera. As a company that produces various information system products for its clients, PT Teknologi Aplikasi Sejahtera requires a web-based information system to efficiently handle the ticketing system, which aids in resolving bugs and provides notifications for every ticket reported by users. The development and testing of this ticketing website follows the waterfall and black box testing methods. The process begins with a needs analysis conducted through interviews with the company to determine user needs and system requirements. The website is developed using the PHP language with the Laravel framework and is integrated with REST API. SQL is employed for relational databases, with PostgreSQL as the database management system. The interface is designed to be intuitive, facilitating users in submitting tickets and tracking their status. Additionally, the website includes features like WhatsApp notifications for new tickets and comprehensive product documentation management. These enhancements significantly improve the efficiency of the ticket management process at PT Teknologi Aplikasi Sejahtera, ensuring quicker resolution of issues and better communication between users and the development team.
 
@@ -244,9 +245,8 @@
 
 \newpage
 
-\begin{center}
-    \textbf{\large KATA PENGANTAR} \\
-\end{center}
+\section{KATA PENGANTAR}
+
 
 Puji syukur penulis panjatkan kepada Tuhan Yang Maha Esa atas segala berkat rahmat dan hikmat-Nya penulis dapat menyelesaikan Laporan Praktek Kerja Lapangan “Sistem Manajemen Produk dan Ticketing bagian Modul Ticketingdi PT Teknologi Aplikasi Sejahtera”. Penulis menyadari dalam menyelesaikan kegiatan PKL ini sangatlah sulit tanpa bantuan dan bimbingan dari berbagai  pihak. Bersama ini, penulis menyampaikan terima kasih kepada:
 
@@ -345,29 +345,29 @@ Penulis menyadari bahwa masih banyak kekurangan dalam laporan PKL ini. Maka dari
     
     \listsection{Sistematika Penulisan}
 
-    Berdasarkan latar belakang dan permasalahan yang telah dibahas, maka berikut adalah rumusah masalah dari projek yang dibuat:
+    Untuk memberikan gambaran mengenai penyusunan implementasi Sistem Manajemen Produk dan Ticketing di PT Teknologi Aplikasi Sejahtera. Berikut adalah sistematika pembahasan yang telah disesuaikan, yaitu:
 
-    \begin{enumerate}[listparindent=0pt, label=]
-        \item BAB I PENDAHULUAN
+    \begin{tabularx}{.9\linewidth}{@{}  l X @{}}
+        BAB I & PENDAHULUAN \\
+        & Bab ini membahas latar belakang masalah, rumusan masalah, tujuan dan manfaat, ruang lingkup, serta sistematika penulisan laporan yang dibuat. \\
+        BAB II & TINJAUAN PERUSAHAAN \\
+        & Bab ini berisikan mengenai informasi perusahaan tempat kegiatan Praktek Kerja Lapangan dilaksanakan, yaitu PT. Teknologi Aplikasi Sejahtera disertai dengan profil instansi, visi, misi, dan struktur organisasi.  \\
+        BAB III & LANDASAN TEORI \\
+        & Bab ini membahas mengenai landasan teori yang digunakan dalam pembangunan Laporan Praktek Kerja Lapangan pada Sistem Manajemen Produk dan Ticketing Pada PT. Teknologi Aplikasi Sejahtera. \\
+        BAB IV & ANALISIS DAN PERANCANGAN \\
+        & Bab ini menjelaskan tentang pembahasan yang meliputi deskripsi umum perangkat lunak, analisis, dan desain rancangan Laporan Praktek Kerja Lapangan pada Sistem Manajemen Produk dan Ticketing Pada PT. Teknologi Aplikasi Sejahtera. \\
+        
+    \end{tabularx}
+
+    \begin{tabularx}{.9\linewidth}{@{}  l X @{}}
+        
+        BAB V & HASIL DAN PEMBAHASAN \\
+        & Bab ini menjelaskan mengenai implementasi berdasarkan rancangan sistem dan pengujian dari sistem yang telah dibentuk, yaitu Laporan Praktek Kerja Lapangan pada Sistem Manajemen Produk dan Ticketing Pada PT. Teknologi Aplikasi Sejahtera. \\
+        BAB VI & PENUTUP \\
+        & Bab ini membahas kesimpulan dari Praktek Kerja Lapangan yang sudah dilakukan dan saran penulis untuk pengembangan lebih lanjut mengenai sistem yang telah dibuat. \\
+    \end{tabularx}
+
     
-        Bab ini berisikan mengenai informasi perusahaan tempat kegiatan Praktek Kerja Lapangan dilaksanakan, yaitu PT. Teknologi Aplikasi Sejahtera disertai dengan profil instansi, visi, misi, dan struktur organisasi. 
-        
-        \item BAB II LANDASAN TEORI
-        
-        Bab ini membahas mengenai landasan teori yang digunakan dalam pembangunan Laporan Praktek Kerja Lapangan pada Sistem Manajemen Produk dan Ticketing Pada PT. Teknologi Aplikasi Sejahtera. 
-        
-        \item BAB III ANALISIS KEBUTUHAN DAN PERANCANGAN
-        
-        Bab ini menjelaskan tentang pembahasan yang meliputi deskripsi umum perangkat lunak, analisis, dan desain rancangan Laporan Praktek Kerja Lapangan pada Sistem Manajemen Produk dan Ticketing Pada PT. Teknologi Aplikasi Sejahtera.
-        
-        \item BAB IV IMPLEMENTASI DAN PENGUJIAN
-        
-        Bab ini menjelaskan mengenai implementasi berdasarkan rancangan sistem dan pengujian dari sistem yang telah dibentuk, yaitu Laporan Praktek Kerja Lapangan pada Sistem Manajemen Produk dan Ticketing Pada PT. Teknologi Aplikasi Sejahtera.
-        
-        \item BAB V PENUTUP
-        
-        Bab ini membahas kesimpulan dari Praktek Kerja Lapangan yang sudah dilakukan dan saran penulis untuk pengembangan lebih lanjut mengenai sistem yang telah dibuat.
-    \end{enumerate}
 \end{enumerate}
 
 \newpage
@@ -544,26 +544,36 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
 
     \listsection{Model Proses Waterfall}
 
-    Model waterfall adalah model pengembangan perangkat lunak statis yang memiliki pendekatan secara linier, berurutan, dan mewajibkan penggunanya untuk menyelesaikan satu aktivitas sebelum lanjut ke aktivitas lainnya (Adenowo \& Adenowo, 2013). Fowler (2004) memecah model waterfall menjadi beberapa bagian berdasarkan aktivitas yang dilakukan: analisis kebutuhan, desain, coding, dan pengujian. Sedangkan Pressman (2005) membagi model waterfall menjadi: communication (inisiasi proyek dan pengumpulan persyaratan), planning (perkiraan, penjadwalan, dan tracking), modeling (analisis dan desain), construction (coding dan testing), dan deployment (delivery, support, dan feedback). Terakhir ada Shari L. Pfleeger \& Joanne M. Atlee (2006) yang membagi model waterfall menjadi: requirement analysis, system design, coding, unit and integration testing, system testing, acceptance testing, dan operation and maintenance. Dari beberapa pendapat ahli tersebut, dapat disimpulkan bahwa model waterfall dapat dibagi menjadi lima tahap: requirement analysis, design, implementation, testing, dan operation and maintenance.
+    Model waterfall adalah model pengembangan perangkat lunak statis yang memiliki pendekatan secara linier, berurutan, dan mewajibkan penggunanya untuk menyelesaikan satu aktivitas sebelum lanjut ke aktivitas lainnya (Adenowo, 2013). Fowler (2004) memecah model waterfall menjadi beberapa bagian berdasarkan aktivitas yang dilakukan: analisis kebutuhan, desain, coding, dan pengujian. Sedangkan Pressman (2005) membagi model waterfall menjadi: communication (inisiasi proyek dan pengumpulan persyaratan), planning (perkiraan, penjadwalan, dan tracking), modeling (analisis dan desain), construction (coding dan testing), dan deployment (delivery, support, dan feedback). Terakhir ada Shari L. Pfleeger \& Joanne M. Atlee (2006) yang membagi model waterfall menjadi: requirement analysis, system design, coding, unit and integration testing, system testing, acceptance testing, dan operation and maintenance. Dari beberapa pendapat ahli tersebut, dapat disimpulkan bahwa model waterfall dapat dibagi menjadi lima tahap: requirement analysis, design, implementation, testing, dan operation and maintenance.
 
 
     \begin{figure}[H]
         \centering \includegraphics[width=0.75\textwidth]{images/landasan teori/waterfall.png}
-        \caption{Tahapan dalam model waterfall (Pfleeger & Atlee, 2006)}
+        \caption{Tahapan dalam model waterfall (Pfleeger \& Atlee, 2006)}
         \label{fig:landasan-waterfall}
     \end{figure}    
     
 
     \begin{enumerate}[label=\arabic*.]
-        \item Requirement analysis. Pada tahap ini pihak pembuat perangkat lunak, yaitu developer, melakukan konsultasi dengan pihak pengguna perangkat lunak, yaitu klien. Dalam konsultasi ini, kedua belah pihak akan mendiskusikan tentang fitur, constraint, dan tujuan dari dibuatnya perangkat lunak tersebut. Hasil dari diskusi tersebut kemudian akan dipaparkan secara rinci dalam sebuah dokumen yang  berguna sebagai spesifikasi perangkat lunak. Tahap ini mencakup proses identifikasi dan penjelasan
-
-        \item Design. Di tahap ini terjadi pengalokasian hardware dan software yang akan digunakan dengan mendesain keseluruhan arsitektur perangkat lunak sesuai dengan spesifikasi yang telah dibuat. Proses desain mencakup pengidentifikasian dan pendeskripsian abstraksi fundamental dari perangkat lunak yang dibuat.
+        \item Requirement analysis. 
         
-        \item Implementation. Tahap ini merupakan tahap yang pelaksanaannya memerlukan resource paling banyak. Karena pada tahap ini terjadi realisasi desain perangkat lunak menjadi sekumpulan program atau program unit (contohnya seperti front end dan back end). Seluruh program unit yang telah dibuat kemudian diintegrasikan menjadi sebuah perangkat lunak yang utuh.
-        
-        \item Testing. Pengetesan dilakukan agar perangkat lunak dapat dipastikan memenuhi persyaratan yang sudah didesain sebelumnya. Setelah perangkat lunak sudah dipastikan berjalan sesuai dengan yang diinginkan, perangkat lunak kemudian akan diserahkan kepada klien.
+        Pada tahap ini pihak pembuat perangkat lunak, yaitu developer, melakukan konsultasi dengan pihak pengguna perangkat lunak, yaitu klien. Dalam konsultasi ini, kedua belah pihak akan mendiskusikan tentang fitur, constraint, dan tujuan dari dibuatnya perangkat lunak tersebut. Hasil dari diskusi tersebut kemudian akan dipaparkan secara rinci dalam sebuah dokumen yang  berguna sebagai spesifikasi perangkat lunak. Tahap ini mencakup proses identifikasi dan penjelasan
 
-        \item Operation and Maintenance. Biasanya (walaupun belum tentu), tahap ini adalah tahap terpanjang dari keseluruhan proses pengembangan perangkat lunak. Setelah sistem diinstal dan dapat digunakan oleh klien, pihak developer akan mulai melakukan pemantauan. Hal ini dilakukan agar ketika klien menemukan kesalahan baru yang tidak ditemukan pada tahap testing, pihak developer dapat langsung merilis pembaruan perangkat lunak yang memperbaiki kesalahan tersebut. Selain itu jika sewaktu-waktu terdapat requirement baru yang dimana perangkat lunak yang dibuat bergantung pada requirement tersebut, pihak developer juga dapat merilis pembaharuan perangkat lunak kepada klien.
+        \item Design. 
+        
+        Di tahap ini terjadi pengalokasian hardware dan software yang akan digunakan dengan mendesain keseluruhan arsitektur perangkat lunak sesuai dengan spesifikasi yang telah dibuat. Proses desain mencakup pengidentifikasian dan pendeskripsian abstraksi fundamental dari perangkat lunak yang dibuat.
+        
+        \item Implementation. 
+        
+        Tahap ini merupakan tahap yang pelaksanaannya memerlukan resource paling banyak. Karena pada tahap ini terjadi realisasi desain perangkat lunak menjadi sekumpulan program atau program unit (contohnya seperti front end dan back end). Seluruh program unit yang telah dibuat kemudian diintegrasikan menjadi sebuah perangkat lunak yang utuh.
+        
+        \item Testing. 
+        
+        Pengetesan dilakukan agar perangkat lunak dapat dipastikan memenuhi persyaratan yang sudah didesain sebelumnya. Setelah perangkat lunak sudah dipastikan berjalan sesuai dengan yang diinginkan, perangkat lunak kemudian akan diserahkan kepada klien.
+
+        \item Operation and Maintenance. 
+        
+        Biasanya (walaupun belum tentu), tahap ini adalah tahap terpanjang dari keseluruhan proses pengembangan perangkat lunak. Setelah sistem diinstal dan dapat digunakan oleh klien, pihak developer akan mulai melakukan pemantauan. Hal ini dilakukan agar ketika klien menemukan kesalahan baru yang tidak ditemukan pada tahap testing, pihak developer dapat langsung merilis pembaruan perangkat lunak yang memperbaiki kesalahan tersebut. Selain itu jika sewaktu-waktu terdapat requirement baru yang dimana perangkat lunak yang dibuat bergantung pada requirement tersebut, pihak developer juga dapat merilis pembaharuan perangkat lunak kepada klien.
 
     \end{enumerate}
 
@@ -588,9 +598,9 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
 
     \listsection{RESTful API}
 
-    RESTful API adalah API berbasis website yang menggunakan teknologi REST dan menggunakan format JSON (JavaScript Object Notation), yaitu sebuah format pertukaran data yang menggunakan metode http GET, POST, PUT, dan DELETE untuk menerima, membuat, memperbarui dan menghapus resource (Ramadan & Handaga, 2019). API (Application Programming Interface) sendiri merupakan cara untuk berinteraksi secara terprogram dengan komponen perangkat lunak atau sumber daya yang terpisah. Adanya API membuat produk atau layanan dapat terhubung dengan produk dan layanan lainnya tanpa harus tahu bagaimana cara penerapannya. Dalam pengimplementasiannya RESTful API memiliki 2 sisi yakni front end dan back end. Penjelasan masing masing bagian dapat dilihat sebagai berikut
+    RESTful API adalah API berbasis website yang menggunakan teknologi REST dan menggunakan format JSON (JavaScript Object Notation), yaitu sebuah format pertukaran data yang menggunakan metode http GET, POST, PUT, dan DELETE untuk menerima, membuat, memperbarui dan menghapus resource (Ramadan \& Handaga, 2019). API (Application Programming Interface) sendiri merupakan cara untuk berinteraksi secara terprogram dengan komponen perangkat lunak atau sumber daya yang terpisah. Adanya API membuat produk atau layanan dapat terhubung dengan produk dan layanan lainnya tanpa harus tahu bagaimana cara penerapannya. Dalam pengimplementasiannya RESTful API memiliki 2 sisi yakni front end dan back end. Penjelasan masing masing bagian dapat dilihat sebagai berikut
 
-    \begin{enumerate}[label=\textbf{3.8.\arabic*.}]
+    \begin{enumerate}[label=\textbf{3.7.\arabic*.}]
         \listsection{Front end}
 
 
@@ -600,6 +610,7 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
     \end{enumerate}
 
     \listsection{Laravel}
+
     Laravel adalah framework web berbasis PHP yang free dan open-source untuk membangun aplikasi web berkualitas tinggi. Laravel diciptakan oleh Taylor Otwell dan ditujukan untuk pengembangan aplikasi web yang mengikuti pola arsitektur model–view–controller (MVC) dan berbasis pada framework PHP lain, Symfony. Beberapa fitur dari Laravel termasuk sistem packaging yang modular dengan dependency manager. Laravel menyediakan berbagai cara untuk mengakses basis data relasional dari menggunakan SQL query secara langsung atau menggunakan wrapper dengan syntactic sugar pada library Eloquent. Laravel juga menyediakan berbagai script yang sangat membantu tugas tugas repetitif dan deployment.
 
     \listsection{ReactJS}

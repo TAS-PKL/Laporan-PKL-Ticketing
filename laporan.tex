@@ -216,6 +216,9 @@
 % ░██░░░░░░██░█    ░██       ░██    ░██    ░██  ░░██ ░██░░░░░░██░██░░██
 % ░██     ░██░███████  ████████     ░██    ░██   ░░██░██     ░██░██ ░░██
 % ░░      ░░ ░░░░░░░  ░░░░░░░░      ░░     ░░     ░░ ░░      ░░ ░░   ░░
+\section*{ABSTRAK}
+
+
 \noindent Manajemen ticketing adalah bagian integral dari platform yang mengelola aspek-aspek terkait dengan aplikasi yang telah diluncurkan oleh PT Teknologi Aplikasi Sejahtera. Sebagai perusahaan yang menghasilkan berbagai produk sistem informasi untuk kliennya, PT Teknologi Aplikasi Sejahtera memerlukan sistem informasi berbasis web untuk mengelola ticketing system yang membantu dalam menyelesaikan bug dan memberikan notifikasi untuk setiap tiket yang dilaporkan oleh pengguna. Pengembangan dan pengujian website ini mengikuti metode waterfall dan black box testing. Proses dimulai dengan analisis kebutuhan melalui wawancara dengan pihak perusahaan untuk menentukan kebutuhan pengguna dan persyaratan sistem. Website dikembangkan menggunakan bahasa PHP dengan framework Laravel dan diintegrasikan dengan REST API. SQL digunakan sebagai bahasa untuk basis data relasional, dengan PostgreSQL sebagai database management system-nya. Antarmuka website didesain intuitif untuk memudahkan pengguna dalam mengajukan tiket dan melacak status tiket yang dilaporkan. Selain itu, website ini juga dilengkapi dengan fitur notifikasi WhatsApp untuk tiket baru, memastikan pengguna mendapatkan informasi terkini mengenai status tiket mereka. Dengan adanya sistem ini, efisiensi proses manajemen tiket di PT Teknologi Aplikasi Sejahtera dapat ditingkatkan secara signifikan, memungkinkan penyelesaian masalah yang lebih cepat dan komunikasi yang lebih baik antara pengguna dan tim pengembang.
 
 \vspace*{1cm}
@@ -231,6 +234,7 @@
 % ░██░░░░░░██░█    ░██       ░██    ░██    ░██  ░░██ ░██░░░░░░██░░██    ██     ░██
 % ░██     ░██░███████  ████████     ░██    ░██   ░░██░██     ░██ ░░██████      ░██
 % ░░      ░░ ░░░░░░░  ░░░░░░░░      ░░     ░░     ░░ ░░      ░░   ░░░░░░       ░░
+\section*{ABSTRACT}
 
 \noindent Ticketing is a crucial aspect of the platform that manages applications launched by PT Teknologi Aplikasi Sejahtera. As a company that produces various information system products for its clients, PT Teknologi Aplikasi Sejahtera requires a web-based information system to efficiently handle the ticketing system, which aids in resolving bugs and provides notifications for every ticket reported by users. The development and testing of this ticketing website follows the waterfall and black box testing methods. The process begins with a needs analysis conducted through interviews with the company to determine user needs and system requirements. The website is developed using the PHP language with the Laravel framework and is integrated with REST API. SQL is employed for relational databases, with PostgreSQL as the database management system. The interface is designed to be intuitive, facilitating users in submitting tickets and tracking their status. Additionally, the website includes features like WhatsApp notifications for new tickets and comprehensive product documentation management. These enhancements significantly improve the efficiency of the ticket management process at PT Teknologi Aplikasi Sejahtera, ensuring quicker resolution of issues and better communication between users and the development team.
 
@@ -387,6 +391,9 @@ Penulis menyadari bahwa masih banyak kekurangan dalam laporan PKL ini. Maka dari
 % ░░       ░░░░░░░░ ░░     ░░  ░░░░░░░  ░░░░░░░░  ░░      ░░ ░░      ░░  ░░      ░░ ░░      ░░ ░░      ░░░
 
 \section[BAB II TINJAUAN PERUSAHAAN]{BAB II\\TINJAUAN PERUSAHAAN}
+\setcounter{table}{0}
+\setcounter{figure}{0}
+
 % \begin{center}
 % {
 %     \setstretch{2}
@@ -403,6 +410,7 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
     PT Teknologi Aplikasi Sejahtera (TAS) merupakan perusahaan pengembang teknologi yang berkantor di Semarang, PT Teknologi Aplikasi Sejahtera berkomitmen untuk menjadi perusahaan teknologi informasi terintegrasi dengan support system yang unggul, inovatif dan terpercaya. PT Teknologi Aplikasi Sejahtera menyediakan layanan pembuatan web apps, mobile apps, hingga IoT (Internet Of Things). Informasi detail terkait dengan PT Teknologi Aplikasi Sejahtera dapat dilihat pada tabel 2.1 dibawah ini.
 
     \begin{table}[h!]
+        \caption{Informasi PT Teknologi Aplikasi Sejahtera} \label{table:info} 
         \centering
         \begin{tabularx}{\linewidth}{ |l|X| }
             \hline
@@ -417,8 +425,6 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
             Website       & https://teknosejahtera.co.id/ \\ %\addlinespace
             \hline
         \end{tabularx}
-        \caption{Informasi PT Teknologi Aplikasi Sejahtera}
-        \label{table:info}
     \end{table}
 
     \listsection{Visi}
@@ -440,8 +446,13 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
 
     \listsection{Struktur Organisasi}
 
-    Pada gambar 2.1 di bawah ini merupakan struktur organisasi PT Teknologi Aplikasi Sejahtera. Dipimpin oleh Bapak Mardi Siswo Utomo selaku Direktur, dengan beberapa divisi di bawahnya, antara lain sekretaris, pengembangan bisnis, rumah tangga, keuangan, serta produksi dan teknis. Selama pelaksanaan praktek kerja lapangan, saya ditempatkan di divisi produksi dan teknis, di bawah bimbingan supervisor lapangan, Bapak Zidan Rafindra U. Fokus utama divisi ini adalah pada pengembangan sistem informasi.
+    Pada gambar \ref{fig:struktur-tas} di bawah ini merupakan struktur organisasi PT Teknologi Aplikasi Sejahtera. Dipimpin oleh Bapak Mardi Siswo Utomo selaku Direktur, dengan beberapa divisi di bawahnya, antara lain sekretaris, pengembangan bisnis, rumah tangga, keuangan, serta produksi dan teknis. Selama pelaksanaan praktek kerja lapangan, saya ditempatkan di divisi produksi dan teknis, di bawah bimbingan supervisor lapangan, Bapak Zidan Rafindra U. Fokus utama divisi ini adalah pada pengembangan sistem informasi.
 
+    \begin{figure}[H]
+        \centering \includegraphics[width=0.75\textwidth]{images/tas.png}
+        \caption{Struktur PT. Teknologi Aplikasi Sejahtera}
+        \label{fig:struktur-tas}
+    \end{figure}
     
 \end{enumerate}
 
@@ -517,11 +528,113 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
 
         Use Case Diagram adalah satu jenis dari diagram UML yang menggambarkan interaksi antara sistem dan aktor, Use Case dapat mendeskripsikan tipe interaksi antara si pengguna sistem dengan sistemnya (Hengki, 2017). Use Case merupakan sesuatu yang mudah dipelajari. Langkah awal untuk melakukan pemodelan perlu adanya suatu diagram yang mampu menjabarkan aksi aktor dengan aksi dalam sistem itu sendiri, seperti yang terdapat pada Use Case.
 
+        \listsection{Activity Diagram}
+
+        Activity diagram adalah Sebuah diagram alur kerja yang menjelaskan berbagai kegiatan pengguna (atau sistem), orang yang melakukan masing-masing aktivitas, dan aliran sekuensial dari aktivitas-aktivitas tersebut (Hengki, 2017). Activity diagram adalah salah satu contoh diagram dari UML dalam pengembangan dari Use Case.
+
+        \listsection{Sequence Diagram}
+
+        Sequence diagram merupakan diagram yang menjelaskan interaksi objek yang berdasarkan urutan waktu, sequence diagram juga dapat menggambarkan urutan atau tahapan yang harus dilakukan untuk dapat menghasilkan sesuatu seperti pada use case diagram (Hengki, 2017). Sequence dapat menggambarkan urutan atau tahapan yang harus dilakukan untuk dapat menghasilkan sesuatu, seperti yang tertera pada Use Case diagram.
 
     \end{enumerate}
 
+    \listsection{Metode Perangkat Lunak}
+
+    Metode pengembangan perangkat lunak yang digunakan oleh penulis yaitu OOAD (Object Oriented Analysis and Design). OOAD adalah metode analisis yang memeriksa requirement dari sudut pandang kelas-kelas dan objek yang ditemui dalam ruang lingkup permasalahan dan mengarah pada arsitektur software yang didasarkan pada manipulasi objek-objek sistem atau subsistem.
+
+    \listsection{Model Proses Waterfall}
+
+    Model waterfall adalah model pengembangan perangkat lunak statis yang memiliki pendekatan secara linier, berurutan, dan mewajibkan penggunanya untuk menyelesaikan satu aktivitas sebelum lanjut ke aktivitas lainnya (Adenowo \& Adenowo, 2013). Fowler (2004) memecah model waterfall menjadi beberapa bagian berdasarkan aktivitas yang dilakukan: analisis kebutuhan, desain, coding, dan pengujian. Sedangkan Pressman (2005) membagi model waterfall menjadi: communication (inisiasi proyek dan pengumpulan persyaratan), planning (perkiraan, penjadwalan, dan tracking), modeling (analisis dan desain), construction (coding dan testing), dan deployment (delivery, support, dan feedback). Terakhir ada Shari L. Pfleeger \& Joanne M. Atlee (2006) yang membagi model waterfall menjadi: requirement analysis, system design, coding, unit and integration testing, system testing, acceptance testing, dan operation and maintenance. Dari beberapa pendapat ahli tersebut, dapat disimpulkan bahwa model waterfall dapat dibagi menjadi lima tahap: requirement analysis, design, implementation, testing, dan operation and maintenance.
+
+
+    \begin{figure}[H]
+        \centering \includegraphics[width=0.75\textwidth]{images/landasan teori/waterfall.png}
+        \caption{Tahapan dalam model waterfall (Pfleeger & Atlee, 2006)}
+        \label{fig:landasan-waterfall}
+    \end{figure}    
     
 
+    \begin{enumerate}[label=\arabic*.]
+        \item Requirement analysis. Pada tahap ini pihak pembuat perangkat lunak, yaitu developer, melakukan konsultasi dengan pihak pengguna perangkat lunak, yaitu klien. Dalam konsultasi ini, kedua belah pihak akan mendiskusikan tentang fitur, constraint, dan tujuan dari dibuatnya perangkat lunak tersebut. Hasil dari diskusi tersebut kemudian akan dipaparkan secara rinci dalam sebuah dokumen yang  berguna sebagai spesifikasi perangkat lunak. Tahap ini mencakup proses identifikasi dan penjelasan
+
+        \item Design. Di tahap ini terjadi pengalokasian hardware dan software yang akan digunakan dengan mendesain keseluruhan arsitektur perangkat lunak sesuai dengan spesifikasi yang telah dibuat. Proses desain mencakup pengidentifikasian dan pendeskripsian abstraksi fundamental dari perangkat lunak yang dibuat.
+        
+        \item Implementation. Tahap ini merupakan tahap yang pelaksanaannya memerlukan resource paling banyak. Karena pada tahap ini terjadi realisasi desain perangkat lunak menjadi sekumpulan program atau program unit (contohnya seperti front end dan back end). Seluruh program unit yang telah dibuat kemudian diintegrasikan menjadi sebuah perangkat lunak yang utuh.
+        
+        \item Testing. Pengetesan dilakukan agar perangkat lunak dapat dipastikan memenuhi persyaratan yang sudah didesain sebelumnya. Setelah perangkat lunak sudah dipastikan berjalan sesuai dengan yang diinginkan, perangkat lunak kemudian akan diserahkan kepada klien.
+
+        \item Operation and Maintenance. Biasanya (walaupun belum tentu), tahap ini adalah tahap terpanjang dari keseluruhan proses pengembangan perangkat lunak. Setelah sistem diinstal dan dapat digunakan oleh klien, pihak developer akan mulai melakukan pemantauan. Hal ini dilakukan agar ketika klien menemukan kesalahan baru yang tidak ditemukan pada tahap testing, pihak developer dapat langsung merilis pembaruan perangkat lunak yang memperbaiki kesalahan tersebut. Selain itu jika sewaktu-waktu terdapat requirement baru yang dimana perangkat lunak yang dibuat bergantung pada requirement tersebut, pihak developer juga dapat merilis pembaharuan perangkat lunak kepada klien.
+
+    \end{enumerate}
+
+    \listsection{Bahasa pemograman}
+
+    Bahasa pemrograman yang digunakan dalam sistem manajemen produk dan ticketing bagian modul ticketing di PT Teknologi Aplikasi Sejahtera antara lain:
+
+    \begin{enumerate}[label=\textbf{3.8.\arabic*.}]
+        \listsection{PHP}
+
+        Hypertext Preprocessor (PHP) adalah bahasa server-side scripting yang menyatu dengan HTML untuk membuat halaman Website yang dinamis. PHP banyak dipakai untuk pemrograman situs Website dinamis karena PHP merupakan server-side scripting, maka sintaks dan perintah-perintah PHP akan dieksekusi oleh server kemudian hasilnya dikirim ke browser dalam format HTML.
+
+        \listsection{CSS}
+
+        Cascading Style Sheets (CSS) adalah bahasa stylesheet yang digunakan untuk menggambarkan tampilan sebuah dokumen yang ditulis dalam HTML atau XML (termasuk dialek XML seperti SVG, MathML, atau XHTML). CSS menjelaskan bagaimana elemen-elemen seharusnya ditampilkan di layar, di kertas, dalam suara, atau di media lainnya (Mozilla, 2024).
+
+        \listsection{JavaScript}
+
+        JavaScript (JS) adalah bahasa pemrograman yang ringan yang diinterpretasi dengan fitur first-class functions. JavaScript merupakan bahasa pemrograman berbasis prototipe, multi-paradigma, single-threaded, dinamis, yang mendukung gaya pemrograman berorientasi objek, imperatif, dan deklaratif (Mozilla, 2024).
+
+    \end{enumerate}
+
+    \listsection{RESTful API}
+
+    RESTful API adalah API berbasis website yang menggunakan teknologi REST dan menggunakan format JSON (JavaScript Object Notation), yaitu sebuah format pertukaran data yang menggunakan metode http GET, POST, PUT, dan DELETE untuk menerima, membuat, memperbarui dan menghapus resource (Ramadan & Handaga, 2019). API (Application Programming Interface) sendiri merupakan cara untuk berinteraksi secara terprogram dengan komponen perangkat lunak atau sumber daya yang terpisah. Adanya API membuat produk atau layanan dapat terhubung dengan produk dan layanan lainnya tanpa harus tahu bagaimana cara penerapannya. Dalam pengimplementasiannya RESTful API memiliki 2 sisi yakni front end dan back end. Penjelasan masing masing bagian dapat dilihat sebagai berikut
+
+    \begin{enumerate}[label=\textbf{3.8.\arabic*.}]
+        \listsection{Front end}
+
+
+        \listsection{Back end}
+
+
+    \end{enumerate}
+
+    \listsection{Laravel}
+    Laravel adalah framework web berbasis PHP yang free dan open-source untuk membangun aplikasi web berkualitas tinggi. Laravel diciptakan oleh Taylor Otwell dan ditujukan untuk pengembangan aplikasi web yang mengikuti pola arsitektur model–view–controller (MVC) dan berbasis pada framework PHP lain, Symfony. Beberapa fitur dari Laravel termasuk sistem packaging yang modular dengan dependency manager. Laravel menyediakan berbagai cara untuk mengakses basis data relasional dari menggunakan SQL query secara langsung atau menggunakan wrapper dengan syntactic sugar pada library Eloquent. Laravel juga menyediakan berbagai script yang sangat membantu tugas tugas repetitif dan deployment.
+
+    \listsection{ReactJS}
+
+    ReactJS adalah library JavaScript front-end yang free dan open-source untuk membangun antarmuka pengguna berbasis komponen. ReactJS dipelihara oleh Meta dan komunitas pengembang (Paul, 2014).
+    
+    React dapat digunakan untuk mengembangkan single-page application (SPA), aplikasi mobile, atau server-side rendered application dengan framework seperti Next.js. Karena React hanya peduli dengan antarmuka pengguna dan merender komponen ke DOM, aplikasi React mengandalkan library untuk routing dan fungsionalitas sisi client lainnya. Keunggulan utama dari React adalah bahwa React hanya merender kembali bagian-bagian halaman yang telah berubah, menghindari merender ulang yang tidak perlu dari elemen-elemen DOM yang tidak berubah.
+
+
+    \listsection{PostgreSQL}
+
+    PostgreSQL yang juga dikenal sebagai Postgres adalah sistem manajemen basis data relasional (RDBMS) yang free dan open-source yang menekankan pada kemampuan extensibility dan kompatibilitas dengan SQL. PostgreSQL memiliki fitur transaksi dengan properti atomicity, consistency, isolation, durability (ACID). Postgres juga memiliki fitur untuk memperbarui view secara otomatis, triggers, stored procedures. Ini didukung pada semua sistem operasi utama, termasuk Linux, FreeBSD, OpenBSD, macOS, dan Windows.
+    
+    \listsection{Pengujian Perangkat Lunak}
+
+    Pengujian perangkat lunak adalah proses penting dalam pengembangan perangkat lunak yang bertujuan untuk mengidentifikasi kecacatan dalam aplikasi atau sistem yang sedang dikembangkan. Menurut Sommerville, (2011), pengujian perangkat lunak tidak hanya mencakup penemuan bug atau kesalahan, tetapi juga verifikasi bahwa perangkat lunak memenuhi persyaratan yang ditentukan dan bekerja seperti yang diharapkan dalam semua kondisi yang diperkirakan pengguna. Sommerville menjelaskan bahwa pengujian perangkat lunak harus sistematis dan dapat diulang. Hal ini mencakup beberapa tingkat pengujian, yaitu:
+
+
+    \begin{enumerate}[label=\arabic*.]
+        \item Pengujian Unit
+        
+        Fokus pada masing-masing komponen atau unit perangkat lunak untuk memastikan bahwa setiap bagian bekerja secara benar secara individual. Pengujian ini sering kali dilakukan oleh pengembang yang menggunakan framework pengujian yang ada untuk mengisolasi setiap bagian dan memeriksa fungsionalitasnya.
+
+        \item Pengujian Integrasi
+        
+        Menilai kombinasi unit-unit perangkat lunak dan modul untuk mendeteksi kegagalan dalam interaksi antara bagian-bagian yang terintegrasi. Pengujian ini penting untuk menangani masalah yang muncul dari interaksi antar modul yang tidak diperkirakan selama pengujian unit.
+
+        \item Pengujian Sistem
+        Memeriksa sistem perangkat lunak lengkap untuk memastikan bahwa ia memenuhi semua persyaratan dan spesifikasi. Pengujian sistem mencakup evaluasi fitur, keamanan, dan kinerja sistem dalam kondisi yang mirip dengan apa yang akan dihadapi di dunia nyata.
+
+        \item Pengujian penerimaan
+        
+        Pengujian penerimaan dilakukan oleh pengguna atau klien untuk memverifikasi bahwa sistem sesuai dengan kebutuhan bisnis dan siap untuk dioperasikan. Pengujian ini seringkali merupakan pengujian final sebelum perangkat lunak dinyatakan siap untuk diproduksi dan diluncurkan.
+        
+    \end{enumerate}
 \end{enumerate}
 
 %      ██     ████     ██     ██     ██       ██  ████████ ██  ████████
@@ -1724,6 +1837,8 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
 
             \item Popup Verify Ticket
             
+            Popup ini digunakan untuk memverifikasi ticket yang masuk ke list ticket product manager. Sebelum bisa memverifikasi ticket, product manager perlu mengassign developer yang akan mengerjakan ticket tersebut terlebih dahulu. Dropdown dari assign developer akan dibuat sebagai dropdown yang bisa dilakukan search. Ketika memilih developer product manager dapat memilih lagi dan yang sudah dipilih akan menjadi list yang ditunjukan didalam input box.
+
 
             \begin{figure}[H]
                 \centering \includegraphics[width=0.9\textwidth]{images/figma/Verify Ticket.png}
@@ -1733,6 +1848,8 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
             
             \item Popup Reject Ticket
             
+            Popup ini digunakan untuk mereject ticket yang masuk ke list ticket product manager. Sebelum menolak ticket product manager akan memberikan alasan kenapa ticket tidak layak untuk dikerjakan. Product manager akan menjelaskan dalam bentuk teks yang disediakan dalam bentuk input text.
+            
             \begin{figure}[H]
                 \centering \includegraphics[width=0.9\textwidth]{images/figma/Reject Ticket.png}
                 \caption{Prototype Popup Reject Ticket}
@@ -1740,6 +1857,8 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
             \end{figure}
             
             \item Popup Revise Ticket
+            
+            Popup ini digunakan untuk merevisi ticket yang masuk ke list ticket external user dan product manager. Sebelum merevisi ticket pengguna akan memberikan alasan kenapa ticket masih kurang. Pengguna akan menjelaskan dalam bentuk teks yang disediakan dalam bentuk input text.
             
             \begin{figure}[H]
                 \centering \includegraphics[width=0.9\textwidth]{images/figma/Revise Ticket.png}

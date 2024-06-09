@@ -21,10 +21,12 @@
 \usepackage[tableposition=top]{caption} % need to explain?
 \usepackage[none]{hyphenat} % no linebreak with -
 % \usepackage{showframe} % debugging
-\usepackage{natbib} % bib cite stuff
+% \usepackage[natbibapa]{apacite} % bib cite stuff
+\usepackage[round]{natbib}
 \usepackage{chngcntr} % change counter
 \usepackage{afterpage} % change counter
 \usepackage{pdflscape}
+
 
 % \usepackage{cite}
 % \bibliographystyle{abbrvnat}
@@ -123,7 +125,7 @@
     language=PHP,
     aboveskip=3mm,
     belowskip=3mm,
-    showstringspaces=true,
+    showstringspaces=false,
     columns=flexible,
     basicstyle={\small\ttfamily},
     numbers=none,
@@ -133,7 +135,7 @@
     stringstyle=\color{mauve},
     breaklines=true,
     breakatwhitespace=true,
-    tabsize=4
+    tabsize=4,
 }
 
 \def\mynewrule#1{\hbox to #1in{\leaders\hbox to 0.00625in{\hfil.\hfil}\hfill}}
@@ -480,9 +482,46 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
 \begin{enumerate}[label=\textbf{3.\arabic*}]
     \listsection{Sistem Informasi}
     
-    Sistem informasi (SI) merupakan penunjang penting dari proses bisnis sebuah organisasi yang memfasilitasi komunikasi dan koordinasi di antara berbagai area fungsional, dan memungkinkan pertukaran data serta akses data dengan mudah di seluruh proses bisnis (Rainer et al., 2005). SI memainkan peran penting dalam tiga bidang:
+    Sistem informasi (SI) merupakan penunjang penting dari proses bisnis sebuah organisasi yang memfasilitasi komunikasi dan koordinasi di antara berbagai area fungsional, dan memungkinkan pertukaran data serta akses data dengan mudah di seluruh proses bisnis \cite{rainer2004}. SI memainkan peran penting dalam tiga bidang:
+
+    \begin{enumerate}[label=\arabic*.]
+        \item Menjalankan proses bisnis
+        
+        Sistem Informasi (SI) membantu organisasi menjalankan bisnis secara efisien dan efektif. SI biasanya tertanam dalam proses bisnis suatu organisasi dan memainkan peran penting dalam melaksanakan proses bisnis tersebut. Jika SI tidak berfungsi, proses bisnis akan terhambat atau tidak dapat dijalankan. SI membantu menjalankan bisnis dengan memberitahu pengguna kapan saatnya untuk menyelesaikan tugas dengan menyediakan data yang diperlukan untuk menyelesaikan tugas tersebut. Dalam beberapa kasus SI menyediakan cara untuk menyelesaikan tugas tersebut.
+
+
+        \item Menangkap dan menyimpan data yang sudah diproses 
+        
+        Proses bisnis menghasilkan data seperti tanggal, waktu, produk jumlah, jumlah, harga, dan alamat, serta siapa melakukan apa, kapan, dan di mana. Menangkap dan menyimpan data tersebut biasa disebut dengan transaksi data. Beberapa data dihasilkan dan secara otomatis ditangkap oleh SI. Data ini adalah data terkait siapa yang melakukan menyelesaikan suatu kegiatan, kapan, dan di mana. Data lain yang dihasilkan di luar SI dapat dimasukkan dengan berbagai cara, seperti entri manual hingga otomatis seperti automation tools atau SI lain yang terhubung dengan SI yang bersangkutan.
+
+        \item Memantau kinerja proses bisnis
+        
+        Peran terakhir SI adalah untuk melakukan monitoring terhadap semua alur bisnis yang terjadi dalam sistem. SI dapat memberitahu pengguna seberapa efektif proses bisnis yang sedang dijalankan. Proses monitoring ini dapat dilakukan dengan mengevaluasi kegiatan bisnis yang ada.
+
+    \end{enumerate}
+
+    \listsection{Aplikasi Berbasis Web}
+
+    Aplikasi berbasis web (disingkat webapp) adalah suatu aplikasi yang diakses menggunakan penjelajah web melalui suatu jaringan seperti Internet atau intranet. Webapp juga merupakan suatu aplikasi perangkat lunak komputer yang dikodekan dalam bahasa yang didukung web browser (seperti Javascript, PHP, Python, Ruby, dll) dan bergantung pada aplikasi web browser tersebut untuk menampilkan aplikasi.
+
+    Aplikasi web menjadi populer karena kemudahan tersedianya aplikasi klien untuk mengaksesnya, penjelajah web, yang kadang disebut sebagai suatu thin client. Kemampuan untuk memperbarui dan memelihara aplikasi web tanpa harus mendistribusikan dan menginstalasi perangkat lunak pada kemungkinan ribuan komputer klien merupakan alasan kunci popularitasnya.
+
+    \listsection{Unified Modeling Language (UML)}
+
+    UML (Unified Modelling Language) adalah suatu metode dalam pemodelan secara visual yang digunakan sebagai sarana perancangan sistem berorientasi objek. Awal mulanya, UML diciptakan oleh Object Management Group dengan versi awal 1.0 pada bulan Januari 1997.
+
+    UML dapat didefinisikan sebagai suatu bahasa standar visualisasi, perancangan, dan pendokumentasian sistem perangkat lunak \cite{prastuti}. UML diharapkan mampu mempermudah pengembangan perangkat lunak serta memenuhi semua kebutuhan pengguna dengan efektif, lengkap, dan tepat. Hal itu termasuk faktor-faktor scalability, robustness, security, dan sebagainya.
+
+    \begin{enumerate}[label=\textbf{3.3.\arabic*}]
+        \listsection{Use Case Diagram}
+
+        Use Case Diagram adalah satu jenis dari diagram UML yang menggambarkan interaksi antara sistem dan aktor, Use Case dapat mendeskripsikan tipe interaksi antara si pengguna sistem dengan sistemnya (Hengki, 2017). Use Case merupakan sesuatu yang mudah dipelajari. Langkah awal untuk melakukan pemodelan perlu adanya suatu diagram yang mampu menjabarkan aksi aktor dengan aksi dalam sistem itu sendiri, seperti yang terdapat pada Use Case.
+
+
+    \end{enumerate}
 
     
+
 \end{enumerate}
 
 %      ██     ████     ██     ██     ██       ██  ████████ ██  ████████
@@ -1110,7 +1149,7 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
                     Class Boundary & : & Ticket List Page dan Ticket Details Page\\
                     Class Control & : & TicketController \\
-                    Class Entity & : & Ticket, Product, Company, Ticket Category, Ticket Status, Ticket Priority, Ticket Member, Product Member,Ticket Member Role, dan Employee
+                    Class Entity & : & Ticket, Product, Company, Ticket Category, Ticket Status, Ticket Priority, Ticket Member, Product Member, Ticket Member Role, dan Employee
                 
                 \end{tabularx}
                 
@@ -1302,7 +1341,7 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
                     Class Boundary & : & Ticket List Page dan Ticket Details Page\\
                     Class Control & : & TicketController \\
-                    Class Entity & : & Ticket, Product, Company, Ticket Category, Ticket Status, Ticket Priority, Ticket Member, Product Member,Ticket Member Role, dan Employee
+                    Class Entity & : & Ticket, Product, Company, Ticket Category, Ticket Status, Ticket Priority, Ticket Member, Product Member, Ticket Member Role, dan Employee
                 
                 \end{tabularx}
                 
@@ -1419,7 +1458,7 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                 \begin{tabularx}{.9\linewidth}{@{} l l X @{}}
                     Class Boundary & : & Ticket List Page dan Ticket Details Page\\
                     Class Control & : & TicketController \\
-                    Class Entity & : & Ticket, Product, Company, Ticket Category, Ticket Status, Ticket Priority, Ticket Member, Product Member,Ticket Member Role, dan Employee
+                    Class Entity & : & Ticket, Product, Company, Ticket Category, Ticket Status, Ticket Priority, Ticket Member, Product Member, Ticket Member Role, dan Employee
 
                 \end{tabularx}
                 
@@ -1562,11 +1601,17 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
                     \hline
                     10 & Control & TicketController & Class control yang menyediakan manipulasi data dan perantara antara entity dan boundary ticketing \\
                     \hline
-                    11 & Boundary & TicketCreatePage & Page yang menyediakan form pembuatan ticket \\
+                    11 & Boundary & Ticket Create Page & Page yang menyediakan form pembuatan ticket \\
                     \hline
-                    12 & Boundary & TicketDetailsPage & Page yang menampilkan detail ticket serta transaksi ticket berupa verify, reject, done, dan close juga menyediakan form assign developer. \\
+                    12 & Boundary & Ticket Details Page & Page yang menampilkan detail ticket serta transaksi ticket berupa verify, reject, done, dan close juga menyediakan form assign developer. \\
                     \hline
-                    13 & Boundary & TicketListPage & Page yang menampilkan list ticket yang berguna sebagai mulai alur transaksi ticketing. \\
+                    13 & Boundary & Ticket List Page & Page yang menampilkan list ticket yang berguna sebagai mulai alur transaksi ticketing. \\
+                    \hline
+                    14 & Boundary & Ticket Revise Form & Form yang menampilkan field alasan untuk usulan revisi ticket. \\
+                    \hline
+                    15 & Boundary & Ticket Reject Form & Form yang menampilkan field alasan untuk menolak ticket. \\
+                    \hline
+                    16 & Boundary & Ticket Verify Form & Form yang menampilkan field dropdown yang digunakan untuk memilih employee yang akan mengerjakan ticket. \\
                     \hline
         
                 \end{longtable}
@@ -1706,9 +1751,6 @@ Dalam pengembangan sistem ticketing yang memiliki lingkup yang relatif kecil sep
         \end{enumerate}
     \end{enumerate}
 
-    asd \citep{doe2021} dan  \citep{smith2020}
-
-    
     \newpage
 
 \end{enumerate}
@@ -1843,24 +1885,30 @@ public function create(Request $request) {
 
             \item List Ticket
             
-
+            List ticket merupakan fungsi untuk mendapat list ticket yang ditugaskan ke sebuah user. Fungsi ini menyediakan fitur list sekaligus filter yang digunakan oleh user. List bekerja dengan mendapatkan id employee user terlebih dahulu. Employee id ini akan digunakan sebagai filter tambahan untuk mendapatkan product member user. Setelah mendapatkan semua product member user, kita akan mengambil semua data ticket yang dikerjakan oleh product member dengan melakukan query ticket member dengan tambahan data yang diperlukan dengan filter product member yang sudah kita dapatkan sebelumnya
             
             \begin{lstlisting}
-public function get_ticket_list_by_logged_in_user(Request $request) {
+public function get_ticket_list_by_logged_in_user(Request 
+$request) {
     $user = auth('api')->user();
     $user_id = $user->id;
     $employee_id = $user->employee->id;
 
-    $productMembers = ProductMember::where('employee_id', $employee_id)->get();
-    $product_member_ids = $productMembers->pluck('id')->toArray();
-    $product_member_id_commas = implode(", ", $product_member_ids);
+    $productMembers = ProductMember::where('employee_id', 
+                                        $employee_id)->get();
+    $product_member_ids = $productMembers
+                        ->pluck('id')->toArray();
+    $product_member_id_commas = implode(", ", 
+                                        $product_member_ids);
 
     $additional_filter = [];
 
     if ($request->filled('status'))
-        array_push($additional_filter, "ticket_statuses.name = '$request->status'");
+        array_push($additional_filter, 
+                    "ticket_statuses.name = '$request->status'");
     if ($request->filled('category'))
-        array_push($additional_filter, "ticket_categories.name = '$request->category'");
+        array_push($additional_filter, 
+                    "ticket_categories.name = '$request->category'");
 
     $raw = HomebrewQueryBuilder::select(
         $request,
@@ -1868,7 +1916,8 @@ public function get_ticket_list_by_logged_in_user(Request $request) {
         [
             
         ], [], array_merge([
-            "ticket_members.product_member_id IN ($product_member_id_commas)"
+            "ticket_members.product_member_id 
+            IN ($product_member_id_commas)"
         ], $additional_filter)
     );
 
@@ -1889,6 +1938,8 @@ public function get_ticket_list_by_logged_in_user(Request $request) {
             \end{lstlisting}
 
             \item Show Ticket
+            
+            Show ticket merupakan fungsi yang digunakan untuk mendapatkan detail sebuah ticket. Fungsi ini berawal dari mendapatkan employee id user kemudian melakukan query data yang diperlukan untuk ticket. Setelah melakukan query kita perlu merapihkan data karena hasil query bentuknya adalah tabel yang memiliki kolom duplikat karena hasil join dengan ticket member, kita akan mengambil data yang duplikat dengan mendefinisikan kolom kolomnya pada variabel \lstinline|$common|. Variabel ini digunakan untuk melakukan filter kolom yang duplikat. Setelah mendapatkan data duplikat ticket, kita akan mengambil data ticket member dengan mendefinisikan \lstinline|$ticket_member_columns| yang akan digunakan untuk memfilter data ticket member. Dua data dari data duplikat dan data ticket member akan digabungkan dan dikembalikan ke sisi frontend.
             
             \begin{lstlisting}
 
@@ -1952,7 +2003,8 @@ public function show(Request $request, $id) {
     ];
 
     // sampling base ticket columns
-    $base = array_filter((array) $res[0], function($v) use ($common) {
+    $base = array_filter((array) $res[0], function($v) 
+        use ($common) {
         return in_array($v, $common);
     }, ARRAY_FILTER_USE_KEY);
 
@@ -1966,7 +2018,8 @@ public function show(Request $request, $id) {
             'ticket_member_status',
         ];
 
-        return array_filter((array) $item, function($v) use ($ticket_member_columns) {
+        return array_filter((array) $item, function($v) 
+            use ($ticket_member_columns) {
             return in_array($v, $ticket_member_columns);
         }, ARRAY_FILTER_USE_KEY);
     }, $res);
@@ -1978,14 +2031,11 @@ public function show(Request $request, $id) {
     ];
 }
             \end{lstlisting}
-
         \end{enumerate}
 
         
         \listsection{Implementasi Front End}
 
-
-        \listsection{Implementasi Antarmuka}
 
         \begin{enumerate}[label=\textbf{5.1.1.\arabic*.}]
             \listsection{Antarmuka List Ticket}
@@ -2017,6 +2067,38 @@ public function show(Request $request, $id) {
                 \caption{Antarmuka Detail Ticket}
                 \label{fig:antarmuka-detail}
             \end{figure}
+
+
+            \listsection{Antarmuka Form Revisi Ticket}
+
+            Antarmuka form revisi merupakan tampilan popup yang keluar ketika external user menerima ticket dengan status done. Ketika external user merasa hasil yang sudah dikerjakan masih belum memenuhi maka external user dapat merevisi ticket dengan mengisi form alasan merevisi ticket.
+
+            \begin{figure}[H]
+                \centering \includegraphics[width=0.9\textwidth]{images/antarmuka/Form Revise.png}
+                \caption{Antarmuka Popup Revise Ticket}
+                \label{fig:antarmuka-revise}
+            \end{figure}
+
+            \listsection{Antarmuka Form Reject Ticket}
+
+            Antarmuka form revisi merupakan tampilan popup yang keluar ketika product manager menerima ticket dengan status pending verification. Ketika product manager merasa ticket yang diajukan masih terlalu umum atau tidak cukup jelas, maka product manager bisa menolak dan memberikan masukkan untuk external user untuk membuat ticket baru atau memberitahu permasalahan sudah diluar dari kontrak.
+
+            \begin{figure}[H]
+                \centering \includegraphics[width=0.9\textwidth]{images/antarmuka/Form Reject.png}
+                \caption{Antarmuka Popup Reject Ticket}
+                \label{fig:antarmuka-reject}
+            \end{figure}
+
+            \listsection{Antarmuka Form Verify Ticket}
+
+            Antarmuka form revisi merupakan tampilan popup yang keluar ketika product manager menerima ticket dengan status pending verification. Sebelum product manager bisa memverifikasi ticket, product manager perlu mengalokasikan employee yang akan mengerjakan ticket tersebut.
+
+            \begin{figure}[H]
+                \centering \includegraphics[width=0.9\textwidth]{images/antarmuka/Form Verify.png}
+                \caption{Antarmuka Popup Verify Ticket}
+                \label{fig:antarmuka-verify}
+            \end{figure}
+
 
         \end{enumerate}
     \end{enumerate}
@@ -2132,7 +2214,7 @@ public function show(Request $request, $id) {
 
         \listsection{Pelaksaanaan Pengujian Sistem}
 
-            Pengujian untuk Sistem Manajemen Produk dan Ticketing pada level Admin untuk Modul Master Data di PT Teknologi Aplikasi Sejahtera dijalankan berdasarkan rancangan yang telah diuraikan dalam Tabel \ref{table:rencana-pengujian-sistem}. Hasil dari pengujian ini dapat ditemukan pada Tabel \ref{table:pelaksanaan-pengujian} yang disajikan di bawah ini.
+            Pengujian untuk Sistem Manajemen Produk dan Ticketing pada level Admin untuk Modul Master Data di PT Teknologi Aplikasi Sejahtera dijalankan berdasarkan rancangan yang telah diuraikan dalam tabel \ref{table:rencana-pengujian-sistem}. Hasil dari pengujian ini dapat dilihat pada tabel \ref{table:pelaksanaan-pengujian} yang disajikan di bawah ini.
             
         \newpage
         \newgeometry{bottom=2.5cm, right=1.2cm, left=1.2cm}
@@ -2487,19 +2569,7 @@ public function show(Request $request, $id) {
             
             \restoregeometry
         \end{landscape}
-        % \KOMAoptions{paper=landscape,pagesize}
-        % \recalctypearea
-
-            
-               
-        
-
-        % \newpage
-        % \KOMAoptions{paper=portrait,pagesize}
-        % \recalctypearea
-    
     \end{enumerate}
-
 
 \end{enumerate}
 
@@ -2534,7 +2604,8 @@ Bab ini merangkum hasil dan pengalaman dari praktik kerja lapangan, serta menyaj
 \newpage
 
 
-\bibliographystyle{plainnat}
+% \bibliographystyle{plainnat}
+\bibliographystyle{agsm}
 \bibliography{references}
 
 

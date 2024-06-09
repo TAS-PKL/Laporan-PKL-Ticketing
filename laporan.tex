@@ -73,6 +73,12 @@
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 \renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}
 
+% PREFIX
+\renewcommand{\cftfigpresnum}{Gambar }
+\setlength{\cftfignumwidth}{6.5em}
+
+\renewcommand{\cfttabpresnum}{Tabel }
+\setlength{\cfttabnumwidth}{6.5em}
 
 \setlength{\cftbeforesecskip}{0.5em}
 \setlength{\cftbeforesubsecskip}{0.5em}
@@ -97,14 +103,15 @@
 \renewcommand{\thefigure}{\thesection.\arabic{figure}}
 \renewcommand{\thetable}{\thesection.\arabic{table}}
 
+
 % \usepackage[titles]{tocloft}
 % \setlength{\cftbeforeloftitleskip}{0em} % Adjust spacing if necessary
 % \setlength{\cftbeforelottitleskip}{0em}
 
 \renewcommand{\refname}{DAFTAR PUSTAKA}
-\renewcommand{\contentsname}{\centering DAFTAR ISI}
-\renewcommand{\listfigurename}{\centering DAFTAR GAMBAR}
-\renewcommand{\listtablename}{\centering DAFTAR TABEL}
+\renewcommand{\contentsname}{\begin{center} \large \textbf{DAFTAR ISI} \end{center}}
+\renewcommand{\listfigurename}{\begin{center} \large \textbf{DAFTAR GAMBAR} \end{center}}
+\renewcommand{\listtablename}{\begin{center} \large \textbf{DAFTAR TABEL} \end{center}}
 
 \usepackage{etoolbox}
 \patchcmd{\listoffigures}{\section*}{\section*{\centering}}{}{}
@@ -390,7 +397,7 @@ Penulis menyadari bahwa masih banyak kekurangan dalam laporan PKL ini. Maka dari
     
     Tujuan dilaksanakannya praktek kerja lapangan ini adalah untuk menghasilkan Sistem Manajemen Produk dan Ticketing PT Teknologi Aplikasi Sejahtera yang dapat membantu permasalahan pengelolaan ticket yang masih dilakukan secara manual. 
 
-    \hspace*{1pt} % cringe space
+    \vfill
 
     \listsection{Manfaat}
 
@@ -606,7 +613,7 @@ Bagian ini akan membahas terkait dengan informasi seputar PT. Teknologi Aplikasi
 
     \begin{figure}[H]
         \centering \includegraphics[width=0.75\textwidth]{images/landasan teori/waterfall.png}
-        \caption{Tahapan dalam model waterfall (Pfleeger \& Atlee, 2006)}
+        \caption{Tahapan dalam model waterfall}
         \label{fig:landasan-waterfall}
     \end{figure}    
     
